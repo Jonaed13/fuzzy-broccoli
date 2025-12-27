@@ -1,0 +1,15 @@
+/usr/bin/python3: No module named pip
+❌ aiohttp not installed. Installing...
+Traceback (most recent call last):
+  File "/home/d/PERMANENT_DATA/Downloads/solc/telegram/listener.py", line 32, in <module>
+    import aiohttp
+ModuleNotFoundError: No module named 'aiohttp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/d/PERMANENT_DATA/Downloads/solc/telegram/listener.py", line 36, in <module>
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "aiohttp"])
+  File "/usr/lib/python3.11/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '-m', 'pip', 'install', 'aiohttp']' returned non-zero exit status 1.
