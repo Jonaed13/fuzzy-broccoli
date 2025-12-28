@@ -15,16 +15,16 @@ import (
 
 // RPCClient handles Solana RPC calls
 type RPCClient struct {
-	primaryURL   string
-	fallbackURL  string
-	apiKey       string
-	httpClient   *http.Client
-	
+	primaryURL  string
+	fallbackURL string
+	apiKey      string
+	httpClient  *http.Client
+
 	// Circuit breaker state
-	mu           sync.RWMutex
-	failures     int
-	lastFailure  time.Time
-	circuitOpen  bool
+	mu          sync.RWMutex
+	failures    int
+	lastFailure time.Time
+	circuitOpen bool
 }
 
 // RPCRequest is the JSON-RPC 2.0 request format
@@ -66,17 +66,35 @@ type BalanceResult struct {
 	Value uint64 `json:"value"`
 }
 
+// TokenSupplyResult is the result of getTokenSupply
+type TokenSupplyResult struct {
+	Value struct {
+		Amount         string  `json:"amount"`
+		Decimals       int     `json:"decimals"`
+		UiAmount       float64 `json:"uiAmount"`
+		UiAmountString string  `json:"uiAmountString"`
+	} `json:"value"`
+}
+
 // SendTxResult is the result of sendTransaction
 type SendTxResult string
 
 // NewRPCClient creates a new RPC client
 func NewRPCClient(primaryURL, fallbackURL, apiKey string) *RPCClient {
+	// Configure HTTP transport for keep-alives and connection pooling
+	transport := &http.Transport{
+		MaxIdleConns:        100,
+		MaxIdleConnsPerHost: 100,
+		IdleConnTimeout:     90 * time.Second,
+	}
+
 	return &RPCClient{
 		primaryURL:  primaryURL,
 		fallbackURL: fallbackURL,
 		apiKey:      apiKey,
 		httpClient: &http.Client{
-			Timeout: 30 * time.Second,
+			Timeout:   30 * time.Second,
+			Transport: transport,
 		},
 	}
 }
@@ -124,10 +142,10 @@ func (c *RPCClient) SendTransaction(ctx context.Context, signedTx string, skipPr
 		Params: []interface{}{
 			signedTx,
 			map[string]interface{}{
-				"encoding":       "base64",
-				"skipPreflight":  skipPreflight,
+				"encoding":            "base64",
+				"skipPreflight":       skipPreflight,
 				"preflightCommitment": "processed",
-				"maxRetries":     3,
+				"maxRetries":          3,
 			},
 		},
 	}
@@ -206,18 +224,15 @@ func (c *RPCClient) callURL(ctx context.Context, url string, rpcReq RPCRequest, 
 	}
 	defer resp.Body.Close()
 
-	respBody, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return fmt.Errorf("read response: %w", err)
-	}
-
 	if resp.StatusCode != http.StatusOK {
+		respBody, _ := io.ReadAll(resp.Body)
 		return fmt.Errorf("http status %d: %s", resp.StatusCode, string(respBody))
 	}
 
 	var rpcResp RPCResponse
-	if err := json.Unmarshal(respBody, &rpcResp); err != nil {
-		return fmt.Errorf("unmarshal response: %w", err)
+	// Optimized: Use Decoder to stream response instead of ReadAll+Unmarshal
+	if err := json.NewDecoder(resp.Body).Decode(&rpcResp); err != nil {
+		return fmt.Errorf("decode response: %w", err)
 	}
 
 	if rpcResp.Error != nil {
@@ -285,10 +300,10 @@ func (c *RPCClient) LatencyMs() int64 {
 
 // SignatureStatus represents the status of a transaction signature
 type SignatureStatus struct {
-	Slot               uint64  `json:"slot"`
-	Confirmations      *uint64 `json:"confirmations"` // nil = finalized
-	Err                interface{} `json:"err"`       // nil = success, object = error details
-	ConfirmationStatus string  `json:"confirmationStatus"` // "processed", "confirmed", "finalized"
+	Slot               uint64      `json:"slot"`
+	Confirmations      *uint64     `json:"confirmations"`      // nil = finalized
+	Err                interface{} `json:"err"`                // nil = success, object = error details
+	ConfirmationStatus string      `json:"confirmationStatus"` // "processed", "confirmed", "finalized"
 }
 
 // GetSignatureStatuses checks the status of transaction signatures
@@ -358,7 +373,7 @@ func (c *RPCClient) CheckTransaction(ctx context.Context, signature string) (*Tx
 // TxCheckResult is a human-readable transaction check result
 type TxCheckResult struct {
 	Signature          string
-	Status             string      // "SUCCESS", "FAILED", "NOT_FOUND", "PENDING"
+	Status             string // "SUCCESS", "FAILED", "NOT_FOUND", "PENDING"
 	Message            string
 	Slot               uint64
 	Confirmations      uint64
@@ -435,4 +450,21 @@ func (c *RPCClient) GetTokenAccountsByOwner(ctx context.Context, owner, mint str
 	}
 
 	return accounts, nil
+}
+
+// GetTokenSupply fetches the total supply of a token
+func (c *RPCClient) GetTokenSupply(ctx context.Context, mint string) (float64, error) {
+	req := RPCRequest{
+		JSONRPC: "2.0",
+		ID:      1,
+		Method:  "getTokenSupply",
+		Params:  []interface{}{mint},
+	}
+
+	var result TokenSupplyResult
+	if err := c.call(ctx, req, &result); err != nil {
+		return 0, err
+	}
+
+	return result.Value.UiAmount, nil
 }

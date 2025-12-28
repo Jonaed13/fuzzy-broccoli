@@ -29,7 +29,7 @@ type Client struct {
 	apiKeys     []string
 	keyIdx      atomic.Uint32
 	maxLamports uint64 // Max priority fee cap
-	
+
 	// Simulation
 	simMode       bool
 	simMultiplier float64
@@ -105,9 +105,14 @@ func NewClientWithKeys(baseURL string, slippageBps int, timeout time.Duration, a
 			apiKeys = DefaultAPIKeys()
 		}
 	}
-	
+
+	url := baseURL
+	if url == "" {
+		url = MetisSwapURL
+	}
+
 	return &Client{
-		baseURL:       MetisSwapURL, // Use Metis endpoint
+		baseURL:       url,
 		slippageBps:   slippageBps,
 		clientPool:    NewHTTPClientPool(4, timeout),
 		apiKeys:       apiKeys,
@@ -164,8 +169,8 @@ type SwapInfo struct {
 
 // SwapResponse from Jupiter Metis
 type SwapResponse struct {
-	SwapTransaction          string `json:"swapTransaction"`
-	LastValidBlockHeight     uint64 `json:"lastValidBlockHeight"`
+	SwapTransaction           string `json:"swapTransaction"`
+	LastValidBlockHeight      uint64 `json:"lastValidBlockHeight"`
 	PrioritizationFeeLamports uint64 `json:"prioritizationFeeLamports"`
 }
 
@@ -185,25 +190,25 @@ func (c *Client) GetQuote(ctx context.Context, inputMint, outputMint string, amo
 	isSim := c.simMode
 	mult := c.simMultiplier
 	c.simMu.RUnlock()
-	
+
 	if isSim {
 		// Mock logic: return amount * multiplier
 		// If input is SOL (SOLMint), we are buying -> return output (Tokens) * multiplier?
 		// Usually price is determined by market.
-		// For our test: 
+		// For our test:
 		// "Assume random coin reached 50%" calls GetQuote? No, Telegram signal provides price.
 		// Monitoring loop calls GetQuote to check value of HELD TOKENS (Input=Token, Output=SOL).
-		
+
 		// If Input != SOLMint (Selling/Checking Value):
 		if inputMint != "So11111111111111111111111111111111111111112" {
 			// Calculate Mock Output (SOL)
 			// Assume 1:1 base price * multiplier
 			outAmt := float64(amountLamports) * mult
 			return &QuoteResponse{
-				InputMint: inputMint,
-				InAmount: fmt.Sprintf("%d", amountLamports),
-				OutputMint: outputMint,
-				OutAmount: fmt.Sprintf("%.0f", outAmt),
+				InputMint:      inputMint,
+				InAmount:       fmt.Sprintf("%d", amountLamports),
+				OutputMint:     outputMint,
+				OutAmount:      fmt.Sprintf("%.0f", outAmt),
 				PriceImpactPct: "0.0",
 			}, nil
 		} else {
@@ -213,12 +218,12 @@ func (c *Client) GetQuote(ctx context.Context, inputMint, outputMint string, amo
 			// Multiplier usually applies to PRICE. If price is 2.5X, buying gives FEWER tokens.
 			// But for simulation simplicity:
 			// Just return OutAmount = InAmount. (1:1)
-			outAmt := amountLamports 
+			outAmt := amountLamports
 			return &QuoteResponse{
-				InputMint: inputMint,
-				InAmount: fmt.Sprintf("%d", amountLamports),
-				OutputMint: outputMint,
-				OutAmount: fmt.Sprintf("%d", outAmt),
+				InputMint:      inputMint,
+				InAmount:       fmt.Sprintf("%d", amountLamports),
+				OutputMint:     outputMint,
+				OutAmount:      fmt.Sprintf("%d", outAmt),
 				PriceImpactPct: "0.0",
 			}, nil
 		}
@@ -243,18 +248,15 @@ func (c *Client) GetQuote(ctx context.Context, inputMint, outputMint string, amo
 	}
 	defer resp.Body.Close()
 
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("read response: %w", err)
-	}
-
 	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
 		return nil, fmt.Errorf("quote failed (%d): %s", resp.StatusCode, string(body))
 	}
 
 	var quote QuoteResponse
-	if err := json.Unmarshal(body, &quote); err != nil {
-		return nil, fmt.Errorf("unmarshal quote: %w", err)
+	// Optimized: Use Decoder to stream response
+	if err := json.NewDecoder(resp.Body).Decode(&quote); err != nil {
+		return nil, fmt.Errorf("decode quote: %w", err)
 	}
 
 	log.Debug().
@@ -284,15 +286,15 @@ func (c *Client) GetSwapTransaction(ctx context.Context, inputMint, outputMint, 
 		// If SimulationMode logic in ExecutorFast WAS working, we wouldn't need this.
 		// But assuming we are here, we need a string that PASSES SignSerializedTransaction.
 		// ... OR we modify SignSerializedTransaction to mock too? No.
-		
+
 		// Wait, ExecutorFast bypass logic IS checking `cfg.SimulationMode`.
 		// If I cannot fix `cfg`, then ExecutorFast bypass is dead.
 		// I MUST provide a string that creates a valid `solana.Transaction`.
 		// "AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" (Empty msg?)
-		
+
 		// Actually, I should probably return an error "SIMULATION_BYPASS"?
 		// No, expected success.
-		
+
 		// Use a minimal valid transaction base64?
 		// "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=="
 		return "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA==", nil
@@ -319,8 +321,8 @@ func (c *Client) GetSwapTransaction(ctx context.Context, inputMint, outputMint, 
 		QuoteResponse:            quote,
 		UserPublicKey:            userPubkey,
 		WrapAndUnwrapSol:         true,
-		DynamicComputeUnitLimit:  true,  // Let Jupiter optimize compute units
-		SkipUserAccountsRpcCalls: true,  // Speed optimization
+		DynamicComputeUnitLimit:  true, // Let Jupiter optimize compute units
+		SkipUserAccountsRpcCalls: true, // Speed optimization
 		PrioritizationFeeLamports: &PriorityLevelWithMaxLamports{
 			PriorityLevelWithMaxLamports: struct {
 				PriorityLevel string `json:"priorityLevel"`
@@ -355,18 +357,15 @@ func (c *Client) GetSwapTransaction(ctx context.Context, inputMint, outputMint, 
 	}
 	defer resp.Body.Close()
 
-	respBody, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return "", fmt.Errorf("read response: %w", err)
-	}
-
 	if resp.StatusCode != http.StatusOK {
+		respBody, _ := io.ReadAll(resp.Body)
 		return "", fmt.Errorf("swap failed (%d): %s", resp.StatusCode, string(respBody))
 	}
 
 	var swapResp SwapResponse
-	if err := json.Unmarshal(respBody, &swapResp); err != nil {
-		return "", fmt.Errorf("unmarshal swap response: %w", err)
+	// Optimized: Use Decoder to stream response
+	if err := json.NewDecoder(resp.Body).Decode(&swapResp); err != nil {
+		return "", fmt.Errorf("decode swap response: %w", err)
 	}
 
 	totalLatency := time.Since(start)

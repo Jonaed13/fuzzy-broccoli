@@ -16,17 +16,17 @@ const RaydiumAMMProgramID = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8"
 // PriceUpdate represents a real-time price change
 type PriceUpdate struct {
 	Mint         string
-	PriceSOL     float64  // Price in SOL per token
-	TokenBalance uint64   // Your token balance
+	PriceSOL     float64 // Price in SOL per token
+	TokenBalance uint64  // Your token balance
 	PoolReserves PoolReserves
 	Slot         uint64
 }
 
 // PoolReserves holds AMM pool state
 type PoolReserves struct {
-	BaseReserve  uint64 // Token amount
-	QuoteReserve uint64 // SOL amount (in lamports)
-	BaseDecimals int
+	BaseReserve   uint64 // Token amount
+	QuoteReserve  uint64 // SOL amount (in lamports)
+	BaseDecimals  int
 	QuoteDecimals int
 }
 
@@ -35,27 +35,27 @@ type PriceHandler func(update PriceUpdate)
 
 // PriceFeed manages real-time price subscriptions for tokens
 type PriceFeed struct {
-	client       *Client
-	
+	client *Client
+
 	// Tracked tokens: mint -> pool subscription ID
-	poolSubs     map[string]uint64
-	// Token account subs: mint -> token account subscription ID  
-	tokenSubs    map[string]uint64
-	subsMu       sync.RWMutex
-	
+	poolSubs map[string]uint64
+	// Token account subs: mint -> token account subscription ID
+	tokenSubs map[string]uint64
+	subsMu    sync.RWMutex
+
 	// Pool addresses cache: mint -> pool address
-	poolAddrs    map[string]string
-	
+	poolAddrs map[string]string
+
 	// Price callbacks
-	handlers     []PriceHandler
-	handlersMu   sync.RWMutex
-	
+	handlers   []PriceHandler
+	handlersMu sync.RWMutex
+
 	// Wallet address for token account lookups
-	walletAddr   string
-	
+	walletAddr string
+
 	// Last known prices
-	prices       map[string]float64
-	pricesMu     sync.RWMutex
+	prices   map[string]float64
+	pricesMu sync.RWMutex
 }
 
 // NewPriceFeed creates a new price feed manager
@@ -81,14 +81,14 @@ func (p *PriceFeed) OnPriceUpdate(handler PriceHandler) {
 func (p *PriceFeed) TrackToken(mint string, poolAddr string) error {
 	p.subsMu.Lock()
 	defer p.subsMu.Unlock()
-	
+
 	if _, exists := p.poolSubs[mint]; exists {
 		return nil // Already tracking
 	}
-	
+
 	// Store pool address
 	p.poolAddrs[mint] = poolAddr
-	
+
 	// Subscribe to AMM pool account for price updates
 	poolSubID, err := p.client.AccountSubscribe(poolAddr, func(data json.RawMessage) {
 		p.handlePoolUpdate(mint, data)
@@ -97,13 +97,13 @@ func (p *PriceFeed) TrackToken(mint string, poolAddr string) error {
 		return fmt.Errorf("subscribe to pool: %w", err)
 	}
 	p.poolSubs[mint] = poolSubID
-	
+
 	log.Info().
 		Str("mint", truncateStr(mint, 8)).
 		Str("pool", truncateStr(poolAddr, 8)).
 		Uint64("subID", poolSubID).
 		Msg("tracking token via AMM pool")
-	
+
 	return nil
 }
 
@@ -111,11 +111,11 @@ func (p *PriceFeed) TrackToken(mint string, poolAddr string) error {
 func (p *PriceFeed) TrackTokenAccount(mint string, tokenAccountAddr string) error {
 	p.subsMu.Lock()
 	defer p.subsMu.Unlock()
-	
+
 	if _, exists := p.tokenSubs[mint]; exists {
 		return nil
 	}
-	
+
 	subID, err := p.client.AccountSubscribe(tokenAccountAddr, func(data json.RawMessage) {
 		p.handleTokenAccountUpdate(mint, data)
 	})
@@ -123,12 +123,12 @@ func (p *PriceFeed) TrackTokenAccount(mint string, tokenAccountAddr string) erro
 		return fmt.Errorf("subscribe to token account: %w", err)
 	}
 	p.tokenSubs[mint] = subID
-	
+
 	log.Debug().
 		Str("mint", truncateStr(mint, 8)).
 		Uint64("subID", subID).
 		Msg("tracking token account balance")
-	
+
 	return nil
 }
 
@@ -136,21 +136,21 @@ func (p *PriceFeed) TrackTokenAccount(mint string, tokenAccountAddr string) erro
 func (p *PriceFeed) UntrackToken(mint string) error {
 	p.subsMu.Lock()
 	defer p.subsMu.Unlock()
-	
+
 	// Unsubscribe pool
 	if subID, exists := p.poolSubs[mint]; exists {
 		delete(p.poolSubs, mint)
 		p.client.Unsubscribe("accountUnsubscribe", subID)
 	}
-	
+
 	// Unsubscribe token account
 	if subID, exists := p.tokenSubs[mint]; exists {
 		delete(p.tokenSubs, mint)
 		p.client.Unsubscribe("accountUnsubscribe", subID)
 	}
-	
+
 	delete(p.poolAddrs, mint)
-	
+
 	return nil
 }
 
@@ -162,33 +162,33 @@ func (p *PriceFeed) handlePoolUpdate(mint string, data json.RawMessage) {
 			Slot uint64 `json:"slot"`
 		} `json:"context"`
 		Value struct {
-			Data []string `json:"data"` // [base64_data, "base64"]
-			Lamports uint64 `json:"lamports"`
+			Data     []string `json:"data"` // [base64_data, "base64"]
+			Lamports uint64   `json:"lamports"`
 		} `json:"value"`
 	}
-	
+
 	if err := json.Unmarshal(data, &update); err != nil {
 		log.Warn().Err(err).Msg("failed to parse pool update")
 		return
 	}
-	
+
 	// For Raydium pools, we need to decode the binary data
 	// Pool data layout contains base/quote reserves at specific offsets
 	// This is a simplified version - actual implementation needs proper decoding
-	
+
 	// For now, emit a basic update to notify of pool activity
 	priceUpdate := PriceUpdate{
 		Mint: mint,
 		Slot: update.Context.Slot,
 	}
-	
+
 	// Get cached price or calculate from reserves
 	p.pricesMu.RLock()
 	if price, ok := p.prices[mint]; ok {
 		priceUpdate.PriceSOL = price
 	}
 	p.pricesMu.RUnlock()
-	
+
 	p.notifyHandlers(priceUpdate)
 }
 
@@ -212,27 +212,27 @@ func (p *PriceFeed) handleTokenAccountUpdate(mint string, data json.RawMessage) 
 			} `json:"data"`
 		} `json:"value"`
 	}
-	
+
 	if err := json.Unmarshal(data, &update); err != nil {
 		log.Warn().Err(err).Msg("failed to parse token account update")
 		return
 	}
-	
+
 	balance, _ := strconv.ParseUint(update.Value.Data.Parsed.Info.TokenAmount.Amount, 10, 64)
-	
+
 	priceUpdate := PriceUpdate{
 		Mint:         mint,
 		TokenBalance: balance,
 		Slot:         update.Context.Slot,
 	}
-	
+
 	// Include cached price
 	p.pricesMu.RLock()
 	if price, ok := p.prices[mint]; ok {
 		priceUpdate.PriceSOL = price
 	}
 	p.pricesMu.RUnlock()
-	
+
 	p.notifyHandlers(priceUpdate)
 }
 
@@ -255,11 +255,11 @@ func CalculatePriceFromReserves(reserves PoolReserves) float64 {
 	if reserves.BaseReserve == 0 {
 		return 0
 	}
-	
+
 	// Price = QuoteReserve / BaseReserve (adjusted for decimals)
 	baseAmt := float64(reserves.BaseReserve) / math.Pow10(reserves.BaseDecimals)
 	quoteAmt := float64(reserves.QuoteReserve) / math.Pow10(reserves.QuoteDecimals)
-	
+
 	return quoteAmt / baseAmt
 }
 
@@ -268,7 +268,7 @@ func (p *PriceFeed) notifyHandlers(update PriceUpdate) {
 	p.handlersMu.RLock()
 	handlers := p.handlers
 	p.handlersMu.RUnlock()
-	
+
 	for _, h := range handlers {
 		go h(update)
 	}
@@ -279,6 +279,19 @@ func (p *PriceFeed) GetTrackedCount() int {
 	p.subsMu.RLock()
 	defer p.subsMu.RUnlock()
 	return len(p.poolSubs)
+}
+
+// ClearSubscriptions clears all subscription maps on disconnect
+// Phase 7: Prevents duplicate subscriptions after reconnect
+func (p *PriceFeed) ClearSubscriptions() {
+	p.subsMu.Lock()
+	defer p.subsMu.Unlock()
+
+	// Clear all subscription IDs (they're invalid after disconnect)
+	p.poolSubs = make(map[string]uint64)
+	p.tokenSubs = make(map[string]uint64)
+
+	log.Info().Msg("WebSocket subscriptions cleared (will resubscribe on reconnect)")
 }
 
 // truncateStr safely truncates a string for logging

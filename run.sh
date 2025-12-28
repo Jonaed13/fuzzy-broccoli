@@ -37,10 +37,10 @@ echo -e "${NC}"
 # ========================================
 echo -e "${YELLOW}[0/6] CLEANING UP OLD PROCESSES...${NC}"
 pkill -f "bin/${BOT_BIN}" 2>/dev/null
-pkill -f "python3 listener.py" 2>/dev/null
+pkill -f "listener.py" 2>/dev/null
 sleep 1
 pkill -9 -f "bin/${BOT_BIN}" 2>/dev/null
-pkill -9 -f "python3 listener.py" 2>/dev/null
+pkill -9 -f "listener.py" 2>/dev/null
 echo -e "${GREEN}✓ Cleanup complete${NC}"
 
 # ========================================
@@ -170,10 +170,9 @@ if [ ! -f telegram/telegram_session.session ]; then
     echo ""
     
     cd telegram
-    source venv/bin/activate
-    python3 listener.py
+    # Use venv python directly (source activate doesn't work properly with all commands)
+    ./venv/bin/python listener.py
     LOGIN_STATUS=$?
-    deactivate
     cd ..
     
     if [ ! -f telegram/telegram_session.session ]; then
@@ -191,12 +190,12 @@ fi
 echo -e "${YELLOW}[5/6] STARTING TELEGRAM LISTENER${NC}"
 echo "────────────────────────────────────────"
 
-# Start Telegram listener in background
+# Start Telegram listener in background using venv python DIRECTLY
 cd telegram
-source venv/bin/activate
-nohup python3 listener.py > ../data/telegram.log 2>&1 &
-TG_PID=$!
-deactivate
+# CRITICAL: Use full path to venv python, NOT 'python3' (nohup doesn't inherit venv)
+# Use PYTHONUNBUFFERED=1 and -u for immediate log output
+PYTHONUNBUFFERED=1 nohup ./venv/bin/python -u listener.py > ../data/telegram.log 2>&1 &
+export TG_PID=$!
 cd ..
 
 sleep 2
@@ -250,10 +249,45 @@ echo -e "${GREEN}║          🚀 LAUNCHING AFNEX COMMAND CENTER 🚀          
 echo -e "${GREEN}╚════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
+# ========================================
+# TUI MODE SELECTION
+# ========================================
+echo -e "${CYAN}╔════════════════════════════════════════════════════════════╗${NC}"
+echo -e "${CYAN}║                  🎨 SELECT TUI MODE 🎨                      ║${NC}"
+echo -e "${CYAN}╠════════════════════════════════════════════════════════════╣${NC}"
+echo -e "${CYAN}║  1) ${BOLD}Classic${NC}${CYAN}   - Simple text-based interface               ║${NC}"
+echo -e "${CYAN}║  2) ${BOLD}Crossterm${NC}${CYAN} - Panel-based with borders                  ║${NC}"
+echo -e "${CYAN}║  3) ${BOLD}Matrix${NC}${CYAN}    - Animated matrix rain theme                ║${NC}"
+echo -e "${CYAN}║  4) ${BOLD}Neon${NC}${CYAN}      - Neon command center                       ║${NC}"
+echo -e "${CYAN}║  5) ${BOLD}FNEX${NC}${CYAN}      - Professional trading terminal (NEW!)     ║${NC}"
+echo -e "${CYAN}╚════════════════════════════════════════════════════════════╝${NC}"
+echo ""
+echo -e "${YELLOW}Enter mode [1-5] (default: 5):${NC} "
+read -r MODE_INPUT
+
+# Default to 5 (FNEX) if empty or invalid
+case "$MODE_INPUT" in
+    1) UI_MODE=1; MODE_NAME="Classic" ;;
+    2) UI_MODE=2; MODE_NAME="Crossterm" ;;
+    3) UI_MODE=3; MODE_NAME="Matrix" ;;
+    4) UI_MODE=4; MODE_NAME="Neon" ;;
+    5|"") UI_MODE=5; MODE_NAME="FNEX" ;;
+    *) UI_MODE=5; MODE_NAME="FNEX" ;;
+esac
+
+echo -e "${GREEN}✓ Selected: $MODE_NAME mode${NC}"
+echo ""
+
 # Load environment variables for bot
 set -a
 source .env 2>/dev/null
 set +a
+
+# Export UI_MODE for the bot
+export UI_MODE
+
+echo -e "${BLUE}Tip: Press ${BOLD}M${NC}${BLUE} in the TUI to cycle between modes!${NC}"
+echo ""
 
 # Run the TUI bot
 ./bin/${BOT_BIN}

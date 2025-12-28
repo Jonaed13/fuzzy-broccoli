@@ -4380,3 +4380,1092 @@
 {"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T11:20:30Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
 {"level":"info","path":"data/trades.db","time":"2025-12-27T11:20:30Z","message":"database initialized"}
 {"level":"info","addr":"0.0.0.0:8080","time":"2025-12-27T11:20:30Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-27T11:26:56Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-27T11:26:56Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-27T11:27:06Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T11:27:06Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-27T11:27:06Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-27T11:27:06Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-27T11:27:06Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T11:27:06Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-27T11:27:06Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-27T11:27:06Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-27T11:27:06Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T11:27:06Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-27T11:27:06Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":691516,"time":"2025-12-27T11:27:06Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T11:27:06Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-27T11:27:06Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-27T11:27:06Z","message":"starting signal server"}
+{"level":"info","token":"STIMMY","value":2,"unit":"X","type":"EXIT","mint":"CGXp4NF2p6WYZct9aE8kF3CCnYYZeie3emeWTUKYpimp","time":"2025-12-27T11:33:31Z","message":"signal received"}
+{"level":"info","token":"STIMMY","value":2,"time":"2025-12-27T11:33:31Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PIMP","value":7,"unit":"X","type":"EXIT","mint":"CQywijBT6HQoh7cY6XYrtjLXbqMzBfdwrXm3HQYjpimp","time":"2025-12-27T11:43:32Z","message":"signal received"}
+{"level":"info","token":"PIMP","value":7,"time":"2025-12-27T11:43:32Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"STIMMY","value":3.1,"unit":"X","type":"EXIT","mint":"CGXp4NF2p6WYZct9aE8kF3CCnYYZeie3emeWTUKYpimp","time":"2025-12-27T12:01:32Z","message":"signal received"}
+{"level":"info","token":"STIMMY","value":3.1,"time":"2025-12-27T12:01:32Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"UNIPCS","value":15,"unit":"X","type":"EXIT","mint":"2orNgazHWM1f2g2KKKsLqGZEnH4vtJ2iMhAYCW6M5SnV","time":"2025-12-27T12:03:33Z","message":"signal received"}
+{"level":"info","token":"UNIPCS","value":15,"time":"2025-12-27T12:03:33Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PONG","value":2.1,"unit":"X","type":"EXIT","mint":"DLctRnT22ndcLDukkuzdobADJjsNsX1S2pja3U5hpimp","time":"2025-12-27T12:03:33Z","message":"signal received"}
+{"level":"info","token":"PONG","value":2.1,"time":"2025-12-27T12:03:33Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-27T12:05:21Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-27T12:05:21Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-27T12:05:32Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T12:05:32Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-27T12:05:32Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-27T12:05:32Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-27T12:05:32Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T12:05:32Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-27T12:05:32Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-27T12:05:32Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-27T12:05:32Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T12:05:32Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-27T12:05:32Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":691579,"time":"2025-12-27T12:05:32Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T12:05:32Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-27T12:05:32Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-27T12:05:32Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-27T12:40:23Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-27T12:40:23Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-27T12:40:30Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T12:40:30Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-27T12:40:30Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-27T12:40:30Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-27T12:40:30Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T12:40:30Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-27T12:40:30Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-27T12:40:30Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-27T12:40:30Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T12:40:30Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-27T12:40:30Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":691809,"time":"2025-12-27T12:40:30Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T12:40:30Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-27T12:40:30Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-27T12:40:30Z","message":"starting signal server"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-27T13:00:32Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-27T13:00:32Z","message":"blockhash prefetch failed"}
+{"level":"info","token":"KIRK","value":3,"unit":"X","type":"EXIT","mint":"KTYGgE1kVRoAXSeLCN9dtQM5VYPUbUT7ErM2Qw8bonk","time":"2025-12-27T13:06:30Z","message":"signal received"}
+{"level":"info","token":"KIRK","value":3,"time":"2025-12-27T13:06:30Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PIMP","value":10,"unit":"X","type":"EXIT","mint":"CQywijBT6HQoh7cY6XYrtjLXbqMzBfdwrXm3HQYjpimp","time":"2025-12-27T13:07:30Z","message":"signal received"}
+{"level":"info","token":"PIMP","value":10,"time":"2025-12-27T13:07:30Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"KIRK","value":5.1,"unit":"X","type":"EXIT","mint":"KTYGgE1kVRoAXSeLCN9dtQM5VYPUbUT7ErM2Qw8bonk","time":"2025-12-27T13:16:30Z","message":"signal received"}
+{"level":"info","token":"KIRK","value":5.1,"time":"2025-12-27T13:16:30Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SIMP","value":52,"unit":"%","type":"ENTRY","mint":"3Eo8w2cVSMxbuWbypiC6G3drBtsVbAyTbR5A2wpKpimp","time":"2025-12-27T13:23:18Z","message":"signal received"}
+{"level":"info","token":"SIMP","value":52,"unit":"%","time":"2025-12-27T13:23:18Z","message":"📊 SIGNAL FOUND"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-27T13:29:54Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-27T13:29:54Z","message":"blockhash prefetch failed"}
+{"level":"info","token":"SIMP","value":2,"unit":"X","type":"EXIT","mint":"3Eo8w2cVSMxbuWbypiC6G3drBtsVbAyTbR5A2wpKpimp","time":"2025-12-27T13:32:31Z","message":"signal received"}
+{"level":"info","token":"SIMP","value":2,"time":"2025-12-27T13:32:31Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SIMP","value":3,"unit":"X","type":"EXIT","mint":"3Eo8w2cVSMxbuWbypiC6G3drBtsVbAyTbR5A2wpKpimp","time":"2025-12-27T13:33:31Z","message":"signal received"}
+{"level":"info","token":"SIMP","value":3,"time":"2025-12-27T13:33:31Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LOS","value":50,"unit":"%","type":"ENTRY","mint":"CbSyYQDFxWXkJxvZ8feSWrsde5rcdpyitwLMDVicpump","time":"2025-12-27T13:52:32Z","message":"signal received"}
+{"level":"info","token":"LOS","value":50,"unit":"%","time":"2025-12-27T13:52:32Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"LOS","value":2,"unit":"X","type":"EXIT","mint":"CbSyYQDFxWXkJxvZ8feSWrsde5rcdpyitwLMDVicpump","time":"2025-12-27T13:53:32Z","message":"signal received"}
+{"level":"info","token":"LOS","value":2,"time":"2025-12-27T13:53:32Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","count":0,"time":"2025-12-27T14:03:52Z","message":"🚨 PANIC SELL TRIGGERED: Selling ALL positions"}
+{"level":"info","token":"LMEOW","value":50,"unit":"%","type":"ENTRY","mint":"CJDwiFPxh1KVdQL5eihrQy6RB9WpU1K7MYrctWQupump","time":"2025-12-27T14:06:33Z","message":"signal received"}
+{"level":"info","token":"LMEOW","value":50,"unit":"%","time":"2025-12-27T14:06:33Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"DEVSCAN","value":5.2,"unit":"X","type":"EXIT","mint":"DEVgebuRAfMgnNyZhdaw5w9DMhG654FcLzAfjFx9HsBg","time":"2025-12-27T14:11:33Z","message":"signal received"}
+{"level":"info","token":"DEVSCAN","value":5.2,"time":"2025-12-27T14:11:33Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-27T14:16:33Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-27T14:16:33Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-27T14:16:39Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T14:16:39Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-27T14:16:39Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-27T14:16:39Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-27T14:16:39Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T14:16:39Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-27T14:16:39Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-27T14:16:39Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-27T14:16:39Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T14:16:39Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-27T14:16:39Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":796772,"time":"2025-12-27T14:16:39Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T14:16:39Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-27T14:16:39Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-27T14:16:39Z","message":"starting signal server"}
+{"level":"info","token":"KORA","value":51,"unit":"%","type":"ENTRY","mint":"FU1XGpP3UU5by4iDZx19YgM2X87ZWJe8RnZebc9Ypump","time":"2025-12-27T14:34:39Z","message":"signal received"}
+{"level":"info","token":"KORA","value":51,"unit":"%","time":"2025-12-27T14:34:39Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"BUB","value":50,"unit":"%","type":"ENTRY","mint":"3cUZ8PgeGjtsdqmG3ohcvN3kPbV8MfphrXVH73CLpump","time":"2025-12-27T14:54:37Z","message":"signal received"}
+{"level":"info","token":"BUB","value":50,"unit":"%","time":"2025-12-27T14:54:37Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"BUB","value":2,"unit":"X","type":"EXIT","mint":"3cUZ8PgeGjtsdqmG3ohcvN3kPbV8MfphrXVH73CLpump","time":"2025-12-27T14:57:40Z","message":"signal received"}
+{"level":"info","token":"BUB","value":2,"time":"2025-12-27T14:57:40Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BUB","value":3.1,"unit":"X","type":"EXIT","mint":"3cUZ8PgeGjtsdqmG3ohcvN3kPbV8MfphrXVH73CLpump","time":"2025-12-27T15:02:40Z","message":"signal received"}
+{"level":"info","token":"BUB","value":3.1,"time":"2025-12-27T15:02:40Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-27T15:16:00Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-27T15:16:00Z","message":"blockhash prefetch failed"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-27T15:16:06Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-27T15:16:06Z","message":"blockhash prefetch failed"}
+{"level":"info","token":"PURAVIDA","value":3.1,"unit":"X","type":"EXIT","mint":"BygEmPQYU1d6KPZTZu2YZ6FarEhuXqAyXpBjDYPtpump","time":"2025-12-27T15:16:38Z","message":"signal received"}
+{"level":"info","token":"PURAVIDA","value":3.1,"time":"2025-12-27T15:16:38Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"POSE","value":50,"unit":"%","type":"ENTRY","mint":"xNQSdE5bSLr6RNUbdJV9sy6bPjDuBCCPxkkgEd4pump","time":"2025-12-27T15:24:41Z","message":"signal received"}
+{"level":"info","token":"POSE","value":50,"unit":"%","time":"2025-12-27T15:24:41Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"PIMPBALL","value":50,"unit":"%","type":"ENTRY","mint":"Apfi3UpBUbunhfSBhgvE7gQzRo8eg5YfWECwcqFJpimp","time":"2025-12-27T15:28:42Z","message":"signal received"}
+{"level":"info","token":"PIMPBALL","value":50,"unit":"%","time":"2025-12-27T15:28:42Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"BUB","value":5.1,"unit":"X","type":"EXIT","mint":"3cUZ8PgeGjtsdqmG3ohcvN3kPbV8MfphrXVH73CLpump","time":"2025-12-27T15:29:05Z","message":"signal received"}
+{"level":"info","token":"BUB","value":5.1,"time":"2025-12-27T15:29:05Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"GENCIT","value":3,"unit":"X","type":"EXIT","mint":"CftYJVf5mXhuHYjS9YQSK9z6q355RukjPZ6ZCsrw9sRA","time":"2025-12-27T15:49:42Z","message":"signal received"}
+{"level":"info","token":"GENCIT","value":3,"time":"2025-12-27T15:49:42Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-27T16:04:43Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-27T16:04:43Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-27T16:04:49Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T16:04:49Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-27T16:04:50Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-27T16:04:50Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-27T16:04:50Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T16:04:50Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-27T16:04:50Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-27T16:04:50Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-27T16:04:50Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T16:04:50Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-27T16:04:50Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":702078,"time":"2025-12-27T16:04:50Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T16:04:50Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-27T16:04:50Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-27T16:04:50Z","message":"starting signal server"}
+{"level":"info","token":"PIMPBALL","value":2,"unit":"X","type":"EXIT","mint":"Apfi3UpBUbunhfSBhgvE7gQzRo8eg5YfWECwcqFJpimp","time":"2025-12-27T16:14:06Z","message":"signal received"}
+{"level":"info","token":"PIMPBALL","value":2,"time":"2025-12-27T16:14:06Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"COAL","value":51,"unit":"%","type":"ENTRY","mint":"osfCyWH2cqze7AiVQPPjxkusrebyf48qtwrWLtJXbHh","time":"2025-12-27T16:14:06Z","message":"signal received"}
+{"level":"info","token":"COAL","value":51,"unit":"%","time":"2025-12-27T16:14:06Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","time":"2025-12-27T16:17:24Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-27T16:17:24Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-27T16:17:32Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T16:17:32Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-27T16:17:32Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-27T16:17:32Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-27T16:17:32Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-27T16:17:32Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-27T16:17:32Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-27T16:17:32Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-27T16:17:32Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T16:17:32Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-27T16:17:32Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":808030,"time":"2025-12-27T16:17:32Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-27T16:17:32Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-27T16:17:32Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-27T16:17:32Z","message":"starting signal server"}
+{"level":"info","token":"REVENGER","value":52,"unit":"%","type":"ENTRY","mint":"C2LiFB6FDErJ24hKqWre7y2TPfGLxSszgyQC6DApump","time":"2025-12-27T16:34:16Z","message":"signal received"}
+{"level":"info","token":"REVENGER","value":52,"unit":"%","time":"2025-12-27T16:34:16Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"HYLA","value":51,"unit":"%","type":"ENTRY","mint":"J7wmghuUL3K3nL1CgSpiTfgKJWeDLiDPXKoupb8Q4w2o","time":"2025-12-27T16:39:31Z","message":"signal received"}
+{"level":"info","token":"HYLA","value":51,"unit":"%","time":"2025-12-27T16:39:31Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"HYLA","value":2,"unit":"X","type":"EXIT","mint":"J7wmghuUL3K3nL1CgSpiTfgKJWeDLiDPXKoupb8Q4w2o","time":"2025-12-27T16:48:20Z","message":"signal received"}
+{"level":"info","token":"HYLA","value":2,"time":"2025-12-27T16:48:20Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SOMALI","value":7.3,"unit":"X","type":"EXIT","mint":"4rGdAHuCT4aZntqonZ5P5wYW5d8CXqbqCJhv24oYpump","time":"2025-12-27T16:55:31Z","message":"signal received"}
+{"level":"info","token":"SOMALI","value":7.3,"time":"2025-12-27T16:55:31Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"MOON","value":53,"unit":"%","type":"ENTRY","mint":"GnPYM8z3Cb5awX8FWKdqEUE3cGk7JSHRDqiCgsXUpimp","time":"2025-12-27T17:04:20Z","message":"signal received"}
+{"level":"info","token":"MOON","value":53,"unit":"%","time":"2025-12-27T17:04:20Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"MOON","value":2,"unit":"X","type":"EXIT","mint":"GnPYM8z3Cb5awX8FWKdqEUE3cGk7JSHRDqiCgsXUpimp","time":"2025-12-27T17:07:15Z","message":"signal received"}
+{"level":"info","token":"MOON","value":2,"time":"2025-12-27T17:07:15Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"MOON","value":3,"unit":"X","type":"EXIT","mint":"GnPYM8z3Cb5awX8FWKdqEUE3cGk7JSHRDqiCgsXUpimp","time":"2025-12-27T17:19:32Z","message":"signal received"}
+{"level":"info","token":"MOON","value":3,"time":"2025-12-27T17:19:32Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"POYO","value":56,"unit":"%","type":"ENTRY","mint":"4y9HQ14ECH7qHyVtf2QNu2MfFwQW9uJuWHXxtVmypump","time":"2025-12-27T17:32:31Z","message":"signal received"}
+{"level":"info","token":"POYO","value":56,"unit":"%","time":"2025-12-27T17:32:31Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"POYO","value":2,"unit":"X","type":"EXIT","mint":"4y9HQ14ECH7qHyVtf2QNu2MfFwQW9uJuWHXxtVmypump","time":"2025-12-27T17:36:32Z","message":"signal received"}
+{"level":"info","token":"POYO","value":2,"time":"2025-12-27T17:36:32Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"CINET","value":7,"unit":"X","type":"EXIT","mint":"3qAR4mq5X8WTuyqDeie2Mj9wGrYVb83TiGdkEgYbpump","time":"2025-12-27T17:47:31Z","message":"signal received"}
+{"level":"info","token":"CINET","value":7,"time":"2025-12-27T17:47:31Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SOLANA","value":50,"unit":"%","type":"ENTRY","mint":"BEroRyHS4Rm3Rbg5qeddbJPX6rpCnEHa7kTe1bJnpump","time":"2025-12-27T17:47:31Z","message":"signal received"}
+{"level":"info","token":"SOLANA","value":50,"unit":"%","time":"2025-12-27T17:47:31Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"SOLANA","value":2,"unit":"X","type":"EXIT","mint":"BEroRyHS4Rm3Rbg5qeddbJPX6rpCnEHa7kTe1bJnpump","time":"2025-12-27T17:49:33Z","message":"signal received"}
+{"level":"info","token":"SOLANA","value":2,"time":"2025-12-27T17:49:33Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"NULL","value":60,"unit":"%","type":"ENTRY","mint":"B7tP6jNAcSmnvcuKsTFdvTAJHMkEQaXse8TMxoq2pump","time":"2025-12-27T18:17:11Z","message":"signal received"}
+{"level":"info","token":"NULL","value":60,"unit":"%","time":"2025-12-27T18:17:11Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"NULL","value":2,"unit":"X","type":"EXIT","mint":"B7tP6jNAcSmnvcuKsTFdvTAJHMkEQaXse8TMxoq2pump","time":"2025-12-27T18:28:03Z","message":"signal received"}
+{"level":"info","token":"NULL","value":2,"time":"2025-12-27T18:28:03Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"NULL","value":3.1,"unit":"X","type":"EXIT","mint":"B7tP6jNAcSmnvcuKsTFdvTAJHMkEQaXse8TMxoq2pump","time":"2025-12-27T18:43:03Z","message":"signal received"}
+{"level":"info","token":"NULL","value":3.1,"time":"2025-12-27T18:43:03Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"NULL","value":5,"unit":"X","type":"EXIT","mint":"B7tP6jNAcSmnvcuKsTFdvTAJHMkEQaXse8TMxoq2pump","time":"2025-12-27T18:45:35Z","message":"signal received"}
+{"level":"info","token":"NULL","value":5,"time":"2025-12-27T18:45:35Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LEARING","value":50,"unit":"%","type":"ENTRY","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-27T19:04:36Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":50,"unit":"%","time":"2025-12-27T19:04:36Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"LEARING","value":2,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-27T19:22:37Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":2,"time":"2025-12-27T19:22:37Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LEARING","value":3,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-27T19:29:37Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":3,"time":"2025-12-27T19:29:37Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-27T19:38:44Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-27T19:38:44Z","message":"blockhash prefetch failed"}
+{"level":"info","token":"WOLF","value":50,"unit":"%","type":"ENTRY","mint":"5e8mi1zQVDEYQwEbqNHczHuU7VfrCuYcp9RNhbCCpump","time":"2025-12-27T19:58:23Z","message":"signal received"}
+{"level":"info","token":"WOLF","value":50,"unit":"%","time":"2025-12-27T19:58:23Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"WOLF","value":2,"unit":"X","type":"EXIT","mint":"5e8mi1zQVDEYQwEbqNHczHuU7VfrCuYcp9RNhbCCpump","time":"2025-12-27T20:10:39Z","message":"signal received"}
+{"level":"info","token":"WOLF","value":2,"time":"2025-12-27T20:10:39Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"STEAK","value":50,"unit":"%","type":"ENTRY","mint":"3qadpmJCfs6RxKPxpofA3CyEj78RKcjVLyoyVY6xpump","time":"2025-12-27T20:13:39Z","message":"signal received"}
+{"level":"info","token":"STEAK","value":50,"unit":"%","time":"2025-12-27T20:13:39Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"STEAK","value":2.1,"unit":"X","type":"EXIT","mint":"3qadpmJCfs6RxKPxpofA3CyEj78RKcjVLyoyVY6xpump","time":"2025-12-27T20:18:39Z","message":"signal received"}
+{"level":"info","token":"STEAK","value":2.1,"time":"2025-12-27T20:18:39Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ROCK","value":50,"unit":"%","type":"ENTRY","mint":"A7CLmwzRPw2iXTGt7sGYiXsneY1ca1NS91HPaKjKpump","time":"2025-12-27T20:19:39Z","message":"signal received"}
+{"level":"info","token":"ROCK","value":50,"unit":"%","time":"2025-12-27T20:19:39Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"YAKUB","value":55,"unit":"%","type":"ENTRY","mint":"5TQBF8U6QDi329KeSAcY5Srj6azM7mFj4KKJHtcQpump","time":"2025-12-27T20:32:40Z","message":"signal received"}
+{"level":"info","token":"YAKUB","value":55,"unit":"%","time":"2025-12-27T20:32:40Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"YAKUB","value":2.1,"unit":"X","type":"EXIT","mint":"5TQBF8U6QDi329KeSAcY5Srj6azM7mFj4KKJHtcQpump","time":"2025-12-27T20:37:40Z","message":"signal received"}
+{"level":"info","token":"YAKUB","value":2.1,"time":"2025-12-27T20:37:40Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ROCK","value":2,"unit":"X","type":"EXIT","mint":"A7CLmwzRPw2iXTGt7sGYiXsneY1ca1NS91HPaKjKpump","time":"2025-12-27T20:41:40Z","message":"signal received"}
+{"level":"info","token":"ROCK","value":2,"time":"2025-12-27T20:41:40Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ROCK","value":3.1,"unit":"X","type":"EXIT","mint":"A7CLmwzRPw2iXTGt7sGYiXsneY1ca1NS91HPaKjKpump","time":"2025-12-27T20:53:41Z","message":"signal received"}
+{"level":"info","token":"ROCK","value":3.1,"time":"2025-12-27T20:53:41Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LIQUIDV2","value":51,"unit":"%","type":"ENTRY","mint":"2wtFoKoVrYwXSrK94hh4MUvcYr5mJxUXoioKmLNK7cV2","time":"2025-12-27T20:53:41Z","message":"signal received"}
+{"level":"info","token":"LIQUIDV2","value":51,"unit":"%","time":"2025-12-27T20:53:41Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"LIQUIDV2","value":2.1,"unit":"X","type":"EXIT","mint":"2wtFoKoVrYwXSrK94hh4MUvcYr5mJxUXoioKmLNK7cV2","time":"2025-12-27T20:56:41Z","message":"signal received"}
+{"level":"info","token":"LIQUIDV2","value":2.1,"time":"2025-12-27T20:56:41Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"RUNNER","value":50,"unit":"%","type":"ENTRY","mint":"FTqs7PbHm34nEkCVdLsxEVsZhJ3yLmteUE7Maj7ipump","time":"2025-12-27T21:18:42Z","message":"signal received"}
+{"level":"info","token":"RUNNER","value":50,"unit":"%","time":"2025-12-27T21:18:42Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"NULL","value":62,"unit":"X","type":"EXIT","mint":"48eKhwwadm7LJ57msuDYdq36CXx23Ratdbu74Pa1NULL","time":"2025-12-27T21:23:42Z","message":"signal received"}
+{"level":"info","token":"NULL","value":62,"time":"2025-12-27T21:23:42Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ORCA","value":61,"unit":"%","type":"ENTRY","mint":"JEHoVK5wnC9MVnHso7r5H6DKr4nWvbXgp7iAp2ajpump","time":"2025-12-27T21:30:43Z","message":"signal received"}
+{"level":"info","token":"ORCA","value":61,"unit":"%","time":"2025-12-27T21:30:43Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"STEAK","value":3.1,"unit":"X","type":"EXIT","mint":"3qadpmJCfs6RxKPxpofA3CyEj78RKcjVLyoyVY6xpump","time":"2025-12-27T21:35:43Z","message":"signal received"}
+{"level":"info","token":"STEAK","value":3.1,"time":"2025-12-27T21:35:43Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"STEAK","value":5,"unit":"X","type":"EXIT","mint":"3qadpmJCfs6RxKPxpofA3CyEj78RKcjVLyoyVY6xpump","time":"2025-12-27T21:43:43Z","message":"signal received"}
+{"level":"info","token":"STEAK","value":5,"time":"2025-12-27T21:43:43Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ORCA","value":2,"unit":"X","type":"EXIT","mint":"JEHoVK5wnC9MVnHso7r5H6DKr4nWvbXgp7iAp2ajpump","time":"2025-12-27T21:44:43Z","message":"signal received"}
+{"level":"info","token":"ORCA","value":2,"time":"2025-12-27T21:44:43Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"RUGPROOFV2","value":50,"unit":"%","type":"ENTRY","mint":"2yHXtrPGH6G8H51nCeN5LbohemtAdgu4uWLjyGYKpump","time":"2025-12-27T21:46:43Z","message":"signal received"}
+{"level":"info","token":"RUGPROOFV2","value":50,"unit":"%","time":"2025-12-27T21:46:43Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"RUGPROOFV2","value":2,"unit":"X","type":"EXIT","mint":"2yHXtrPGH6G8H51nCeN5LbohemtAdgu4uWLjyGYKpump","time":"2025-12-27T21:50:43Z","message":"signal received"}
+{"level":"info","token":"RUGPROOFV2","value":2,"time":"2025-12-27T21:50:43Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"STEAK","value":7.1,"unit":"X","type":"EXIT","mint":"3qadpmJCfs6RxKPxpofA3CyEj78RKcjVLyoyVY6xpump","time":"2025-12-27T22:05:44Z","message":"signal received"}
+{"level":"info","token":"STEAK","value":7.1,"time":"2025-12-27T22:05:44Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PIMPWORK","value":53,"unit":"%","type":"ENTRY","mint":"9pF5tbWMQ38W3SjgSySPr62PSzCKF8hQEpijFERjpimp","time":"2025-12-27T22:18:45Z","message":"signal received"}
+{"level":"info","token":"PIMPWORK","value":53,"unit":"%","time":"2025-12-27T22:18:45Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"PIMPWORK","value":2,"unit":"X","type":"EXIT","mint":"9pF5tbWMQ38W3SjgSySPr62PSzCKF8hQEpijFERjpimp","time":"2025-12-27T22:20:45Z","message":"signal received"}
+{"level":"info","token":"PIMPWORK","value":2,"time":"2025-12-27T22:20:45Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PIMPWORK","value":3,"unit":"X","type":"EXIT","mint":"9pF5tbWMQ38W3SjgSySPr62PSzCKF8hQEpijFERjpimp","time":"2025-12-27T22:27:45Z","message":"signal received"}
+{"level":"info","token":"PIMPWORK","value":3,"time":"2025-12-27T22:27:45Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"A1LON9","value":7.5,"unit":"X","type":"EXIT","mint":"Ey9kac39Jaks2zSJmrD4KFztBpsxfgHrNCM5bswFpump","time":"2025-12-27T22:33:46Z","message":"signal received"}
+{"level":"info","token":"A1LON9","value":7.5,"time":"2025-12-27T22:33:46Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"A1LON9","value":5,"unit":"X","type":"EXIT","mint":"Ey9kac39Jaks2zSJmrD4KFztBpsxfgHrNCM5bswFpump","time":"2025-12-27T22:33:46Z","message":"signal received"}
+{"level":"info","token":"SHRIMPS","value":56,"unit":"%","type":"ENTRY","mint":"2TAi8XLzDJ8btNTQp7WtCvhGuMnWzkFddr1PhYf6pump","time":"2025-12-27T22:33:46Z","message":"signal received"}
+{"level":"info","token":"A1LON9","value":5,"time":"2025-12-27T22:33:46Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SHRIMPS","value":56,"unit":"%","time":"2025-12-27T22:33:46Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"LOL","value":54,"unit":"%","type":"ENTRY","mint":"B8zZ6Ux71JEejTGX1eabndtTUkkKPYgaid1X9P4Cpimp","time":"2025-12-27T23:16:48Z","message":"signal received"}
+{"level":"info","token":"LOL","value":54,"unit":"%","time":"2025-12-27T23:16:48Z","message":"📊 SIGNAL FOUND"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-27T23:23:11Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-27T23:23:11Z","message":"blockhash prefetch failed"}
+{"level":"info","token":"ZORIA","value":56,"unit":"%","type":"ENTRY","mint":"9ivAqqyrQiSTa3sgV7K8jLeVNVU64StEBzuuR6Fgpump","time":"2025-12-27T23:24:48Z","message":"signal received"}
+{"level":"info","token":"ZORIA","value":56,"unit":"%","time":"2025-12-27T23:24:48Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"POO","value":72,"unit":"%","type":"ENTRY","mint":"DYj6YVZkHcytZBtTSFPnMi5NLNHueNvcmCdmYNTkpump","time":"2025-12-27T23:39:49Z","message":"signal received"}
+{"level":"info","token":"POO","value":72,"unit":"%","time":"2025-12-27T23:39:49Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"POO","value":2.1,"unit":"X","type":"EXIT","mint":"DYj6YVZkHcytZBtTSFPnMi5NLNHueNvcmCdmYNTkpump","time":"2025-12-27T23:40:49Z","message":"signal received"}
+{"level":"info","token":"POO","value":2.1,"time":"2025-12-27T23:40:49Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"RUGPROOFV2","value":3,"unit":"X","type":"EXIT","mint":"2yHXtrPGH6G8H51nCeN5LbohemtAdgu4uWLjyGYKpump","time":"2025-12-27T23:46:50Z","message":"signal received"}
+{"level":"info","token":"RUGPROOFV2","value":3,"time":"2025-12-27T23:46:50Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"RUGPROOFV2","value":5,"unit":"X","type":"EXIT","mint":"2yHXtrPGH6G8H51nCeN5LbohemtAdgu4uWLjyGYKpump","time":"2025-12-28T00:02:34Z","message":"signal received"}
+{"level":"info","token":"RUGPROOFV2","value":5,"time":"2025-12-28T00:02:34Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"RUGPROOFV2","value":7.4,"unit":"X","type":"EXIT","mint":"2yHXtrPGH6G8H51nCeN5LbohemtAdgu4uWLjyGYKpump","time":"2025-12-28T00:09:50Z","message":"signal received"}
+{"level":"info","token":"RUGPROOFV2","value":7.4,"time":"2025-12-28T00:09:50Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LOL","value":2.1,"unit":"X","type":"EXIT","mint":"B8zZ6Ux71JEejTGX1eabndtTUkkKPYgaid1X9P4Cpimp","time":"2025-12-28T00:10:50Z","message":"signal received"}
+{"level":"info","token":"LOL","value":2.1,"time":"2025-12-28T00:10:50Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"DREAM","value":53,"unit":"%","type":"ENTRY","mint":"2TWwjFCyraKLUFzcVxU9zXDpFB2qwCEJyf55qXETpump","time":"2025-12-28T00:22:51Z","message":"signal received"}
+{"level":"info","token":"DREAM","value":53,"unit":"%","time":"2025-12-28T00:22:51Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"STEAK","value":10,"unit":"X","type":"EXIT","mint":"3qadpmJCfs6RxKPxpofA3CyEj78RKcjVLyoyVY6xpump","time":"2025-12-28T00:45:52Z","message":"signal received"}
+{"level":"info","token":"STEAK","value":10,"time":"2025-12-28T00:45:52Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LEARING","value":5.1,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-28T01:06:53Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":5.1,"time":"2025-12-28T01:06:53Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"CAPTAIN","value":3.7,"unit":"X","type":"EXIT","mint":"6rg3o4BRyELgD2nmbfEqxH56Gw3QGaWQWnZEdDB6pump","time":"2025-12-28T01:07:53Z","message":"signal received"}
+{"level":"info","token":"CAPTAIN","value":3.7,"time":"2025-12-28T01:07:53Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ZORIA","value":2,"unit":"X","type":"EXIT","mint":"9ivAqqyrQiSTa3sgV7K8jLeVNVU64StEBzuuR6Fgpump","time":"2025-12-28T01:17:35Z","message":"signal received"}
+{"level":"info","token":"ZORIA","value":2,"time":"2025-12-28T01:17:35Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"DREAM","value":2,"unit":"X","type":"EXIT","mint":"2TWwjFCyraKLUFzcVxU9zXDpFB2qwCEJyf55qXETpump","time":"2025-12-28T01:32:34Z","message":"signal received"}
+{"level":"info","token":"DREAM","value":2,"time":"2025-12-28T01:32:34Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SHIRLEY","value":50,"unit":"%","type":"ENTRY","mint":"5cj8K7uy1cb1YvCxPkYNkD7fcEnk4AqAcfC5RByapump","time":"2025-12-28T01:44:55Z","message":"signal received"}
+{"level":"info","token":"SHIRLEY","value":50,"unit":"%","time":"2025-12-28T01:44:55Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"SHIRLEY","value":2,"unit":"X","type":"EXIT","mint":"5cj8K7uy1cb1YvCxPkYNkD7fcEnk4AqAcfC5RByapump","time":"2025-12-28T01:48:55Z","message":"signal received"}
+{"level":"info","token":"SHIRLEY","value":2,"time":"2025-12-28T01:48:55Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SHRIMPS","value":2,"unit":"X","type":"EXIT","mint":"2TAi8XLzDJ8btNTQp7WtCvhGuMnWzkFddr1PhYf6pump","time":"2025-12-28T02:01:38Z","message":"signal received"}
+{"level":"info","token":"SHRIMPS","value":2,"time":"2025-12-28T02:01:38Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LEARING","value":7.3,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-28T02:07:56Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":7.3,"time":"2025-12-28T02:07:56Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PLANKTON","value":52,"unit":"%","type":"ENTRY","mint":"H1Qpg21JRgeqEGFsi7iQemr2cpZzC1NpFPDapX6jpump","time":"2025-12-28T02:18:57Z","message":"signal received"}
+{"level":"info","token":"PLANKTON","value":52,"unit":"%","time":"2025-12-28T02:18:57Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"SHIRLEY","value":3.1,"unit":"X","type":"EXIT","mint":"5cj8K7uy1cb1YvCxPkYNkD7fcEnk4AqAcfC5RByapump","time":"2025-12-28T02:21:57Z","message":"signal received"}
+{"level":"info","token":"SHIRLEY","value":3.1,"time":"2025-12-28T02:21:57Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"WINE","value":50,"unit":"%","type":"ENTRY","mint":"5Kz8arb9XRYrd4QZMSWnUd7LzeZHKHMfNzWMrJcLpump","time":"2025-12-28T02:21:57Z","message":"signal received"}
+{"level":"info","token":"WINE","value":50,"unit":"%","time":"2025-12-28T02:21:57Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"PIMPCARD","value":50,"unit":"%","type":"ENTRY","mint":"F47z23LjGQTGAPdg3HFdumWpL59fDx98qnBGZ4wcpimp","time":"2025-12-28T02:29:57Z","message":"signal received"}
+{"level":"info","token":"PIMPCARD","value":50,"unit":"%","time":"2025-12-28T02:29:57Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"LEGEND","value":2,"unit":"X","type":"EXIT","mint":"J4ixzSEG99FWNoHRYfoaE3y2e7T7e7KX8NKNPy96pump","time":"2025-12-28T03:09:59Z","message":"signal received"}
+{"level":"info","token":"LEGEND","value":2,"time":"2025-12-28T03:09:59Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"APED","value":50,"unit":"%","type":"ENTRY","mint":"DjbpJ9WMj8vSj5JFMtkqVY5i748L42XmFoUXVyJNpump","time":"2025-12-28T03:11:59Z","message":"signal received"}
+{"level":"info","token":"APED","value":50,"unit":"%","time":"2025-12-28T03:11:59Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"APED","value":2,"unit":"X","type":"EXIT","mint":"DjbpJ9WMj8vSj5JFMtkqVY5i748L42XmFoUXVyJNpump","time":"2025-12-28T03:24:00Z","message":"signal received"}
+{"level":"info","token":"APED","value":2,"time":"2025-12-28T03:24:00Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"TXBT","value":53,"unit":"%","type":"ENTRY","mint":"F3jJgUhGFSFuacq7P4NHhSrkWCWT26iE127oKpsSpump","time":"2025-12-28T03:26:00Z","message":"signal received"}
+{"level":"info","token":"TXBT","value":53,"unit":"%","time":"2025-12-28T03:26:00Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"TXBT","value":2,"unit":"X","type":"EXIT","mint":"F3jJgUhGFSFuacq7P4NHhSrkWCWT26iE127oKpsSpump","time":"2025-12-28T03:28:00Z","message":"signal received"}
+{"level":"info","token":"TXBT","value":2,"time":"2025-12-28T03:28:00Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"GG","value":53,"unit":"%","type":"ENTRY","mint":"9m9cS6gRYAN8Xgf2eUyoAMWMMsxwbbuhcT3G2uUrpump","time":"2025-12-28T03:59:01Z","message":"signal received"}
+{"level":"info","token":"GG","value":53,"unit":"%","time":"2025-12-28T03:59:01Z","message":"📊 SIGNAL FOUND"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-28T04:02:01Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-28T04:02:01Z","message":"blockhash prefetch failed"}
+{"level":"info","token":"TXBT","value":3,"unit":"X","type":"EXIT","mint":"F3jJgUhGFSFuacq7P4NHhSrkWCWT26iE127oKpsSpump","time":"2025-12-28T04:08:02Z","message":"signal received"}
+{"level":"info","token":"TXBT","value":3,"time":"2025-12-28T04:08:02Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Post \"https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR\": context deadline exceeded","time":"2025-12-28T04:14:23Z","message":"primary RPC failed, trying fallback"}
+{"level":"warn","error":"http request: Post \"https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81\": context deadline exceeded","time":"2025-12-28T04:14:23Z","message":"blockhash prefetch failed"}
+{"level":"info","token":"GG","value":2.1,"unit":"X","type":"EXIT","mint":"9m9cS6gRYAN8Xgf2eUyoAMWMMsxwbbuhcT3G2uUrpump","time":"2025-12-28T04:15:03Z","message":"signal received"}
+{"level":"info","token":"GG","value":2.1,"time":"2025-12-28T04:15:03Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"RUGPROOFV2","value":10,"unit":"X","type":"EXIT","mint":"2yHXtrPGH6G8H51nCeN5LbohemtAdgu4uWLjyGYKpump","time":"2025-12-28T04:19:03Z","message":"signal received"}
+{"level":"info","token":"RUGPROOFV2","value":10,"time":"2025-12-28T04:19:03Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"MTF","value":52,"unit":"%","type":"ENTRY","mint":"HwVWzgGTL7gUbdawENAaknUnoHZnAyCj94G672dppump","time":"2025-12-28T04:24:03Z","message":"signal received"}
+{"level":"info","token":"MTF","value":52,"unit":"%","time":"2025-12-28T04:24:03Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"MTF","value":2,"unit":"X","type":"EXIT","mint":"HwVWzgGTL7gUbdawENAaknUnoHZnAyCj94G672dppump","time":"2025-12-28T04:27:03Z","message":"signal received"}
+{"level":"info","token":"MTF","value":2,"time":"2025-12-28T04:27:03Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"MTF","value":3.6,"unit":"X","type":"EXIT","mint":"HwVWzgGTL7gUbdawENAaknUnoHZnAyCj94G672dppump","time":"2025-12-28T04:30:03Z","message":"signal received"}
+{"level":"info","token":"MTF","value":3.6,"time":"2025-12-28T04:30:03Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"MTF","value":5,"unit":"X","type":"EXIT","mint":"HwVWzgGTL7gUbdawENAaknUnoHZnAyCj94G672dppump","time":"2025-12-28T04:31:03Z","message":"signal received"}
+{"level":"info","token":"MTF","value":5,"time":"2025-12-28T04:31:03Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"GG","value":3,"unit":"X","type":"EXIT","mint":"9m9cS6gRYAN8Xgf2eUyoAMWMMsxwbbuhcT3G2uUrpump","time":"2025-12-28T04:58:04Z","message":"signal received"}
+{"level":"info","token":"GG","value":3,"time":"2025-12-28T04:58:04Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-28T05:12:18Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T05:12:19Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T05:12:24Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T05:12:24Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T05:12:24Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T05:12:24Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T05:12:24Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T05:12:24Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T05:12:24Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T05:12:24Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T05:12:24Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T05:12:25Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T05:12:25Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":808752,"time":"2025-12-28T05:12:25Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T05:12:25Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T05:12:25Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T05:12:25Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T05:16:36Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T05:16:36Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T05:16:43Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T05:16:43Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T05:16:43Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T05:16:43Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T05:16:43Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T05:16:43Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T05:16:43Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T05:16:43Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T05:16:43Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T05:16:44Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T05:16:44Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":704817,"time":"2025-12-28T05:16:44Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T05:16:44Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T05:16:44Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T05:16:44Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T05:18:12Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T05:18:12Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T05:44:18Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T05:44:18Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T05:44:18Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T05:44:18Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T05:44:18Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T05:44:18Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T05:44:18Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T05:44:18Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T05:44:18Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T05:44:19Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T05:44:19Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":704860,"time":"2025-12-28T05:44:19Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T05:44:19Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T05:44:19Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T05:44:19Z","message":"starting signal server"}
+{"level":"info","token":"SHRIMPS","value":3.1,"unit":"X","type":"EXIT","mint":"2TAi8XLzDJ8btNTQp7WtCvhGuMnWzkFddr1PhYf6pump","time":"2025-12-28T05:59:17Z","message":"signal received"}
+{"level":"info","token":"SHRIMPS","value":3.1,"counted":false,"time":"2025-12-28T05:59:17Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"RESET","value":3,"unit":"X","type":"EXIT","mint":"7y5TyfNzkQRp8hUMZAzjfV2raY2arDxpu1B7roTLpump","time":"2025-12-28T06:17:19Z","message":"signal received"}
+{"level":"info","token":"RESET","value":3,"counted":false,"time":"2025-12-28T06:17:19Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PAWN","value":53,"unit":"%","type":"ENTRY","mint":"Ez5h2GUNC9c41nBk8zuR2ux1uCsRdhBrN89wfrabpump","time":"2025-12-28T06:26:19Z","message":"signal received"}
+{"level":"info","token":"PAWN","value":53,"unit":"%","time":"2025-12-28T06:26:19Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"SHRIMPS","value":5,"unit":"X","type":"EXIT","mint":"2TAi8XLzDJ8btNTQp7WtCvhGuMnWzkFddr1PhYf6pump","time":"2025-12-28T06:43:16Z","message":"signal received"}
+{"level":"info","token":"SHRIMPS","value":5,"counted":false,"time":"2025-12-28T06:43:16Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"OP","value":50,"unit":"%","type":"ENTRY","mint":"Ap3SJ64ahPFkQxip99z4Emme8gREY2TVLy5khWALpump","time":"2025-12-28T06:45:20Z","message":"signal received"}
+{"level":"info","token":"OP","value":50,"unit":"%","time":"2025-12-28T06:45:20Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"SHRIMPS","value":7,"unit":"X","type":"EXIT","mint":"2TAi8XLzDJ8btNTQp7WtCvhGuMnWzkFddr1PhYf6pump","time":"2025-12-28T06:54:13Z","message":"signal received"}
+{"level":"info","token":"SHRIMPS","value":7,"counted":false,"time":"2025-12-28T06:54:13Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"OP","value":2.2,"unit":"X","type":"EXIT","mint":"Ap3SJ64ahPFkQxip99z4Emme8gREY2TVLy5khWALpump","time":"2025-12-28T06:56:20Z","message":"signal received"}
+{"level":"info","token":"OP","value":2.2,"counted":true,"time":"2025-12-28T06:56:20Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ROGUEGROK","value":50,"unit":"%","type":"ENTRY","mint":"CB38CkrFh7nhs9NeiiAbinwRBTmGUngYqkt2MDZ3pump","time":"2025-12-28T07:22:21Z","message":"signal received"}
+{"level":"info","token":"ROGUEGROK","value":50,"unit":"%","time":"2025-12-28T07:22:21Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"PAWN","value":2,"unit":"X","type":"EXIT","mint":"Ez5h2GUNC9c41nBk8zuR2ux1uCsRdhBrN89wfrabpump","time":"2025-12-28T07:23:21Z","message":"signal received"}
+{"level":"info","token":"PAWN","value":2,"counted":true,"time":"2025-12-28T07:23:21Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"PAWN","value":3,"unit":"X","type":"EXIT","mint":"Ez5h2GUNC9c41nBk8zuR2ux1uCsRdhBrN89wfrabpump","time":"2025-12-28T07:33:17Z","message":"signal received"}
+{"level":"info","token":"PAWN","value":3,"counted":true,"time":"2025-12-28T07:33:17Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BWW","value":10,"unit":"X","type":"EXIT","mint":"5PtEXR4SzTLhc3ztx2Q2mu5m18e3rHW2rYEhQbbvpump","time":"2025-12-28T07:38:22Z","message":"signal received"}
+{"level":"info","token":"BWW","value":10,"counted":false,"time":"2025-12-28T07:38:22Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"AITHER","value":50,"unit":"%","type":"ENTRY","mint":"4WEB3ubfXynEpkCNWpdaAtVYTVDJ16U1KphHug7Ypump","time":"2025-12-28T07:42:22Z","message":"signal received"}
+{"level":"info","token":"AITHER","value":50,"unit":"%","time":"2025-12-28T07:42:22Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"BLACKWHALE","value":7.2,"unit":"X","type":"EXIT","mint":"8y45AJzCUBSZL1UDFQRzCKovQBLQFudBrpPeg5yNpump","time":"2025-12-28T07:47:22Z","message":"signal received"}
+{"level":"info","token":"BLACKWHALE","value":7.2,"counted":false,"time":"2025-12-28T07:47:22Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"ROGUEGROK","value":2.1,"unit":"X","type":"EXIT","mint":"CB38CkrFh7nhs9NeiiAbinwRBTmGUngYqkt2MDZ3pump","time":"2025-12-28T07:47:22Z","message":"signal received"}
+{"level":"info","token":"ROGUEGROK","value":2.1,"counted":true,"time":"2025-12-28T07:47:22Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BWHALE","value":5,"unit":"X","type":"EXIT","mint":"34nevDsJsKjWHCuRGiDTZ6K3BSEudJuyUM4dJH2npump","time":"2025-12-28T07:49:23Z","message":"signal received"}
+{"level":"info","token":"BWHALE","value":5,"counted":false,"time":"2025-12-28T07:49:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"MACHI","value":52,"unit":"%","type":"ENTRY","mint":"6uBcfg5xWzuT5J9SaUbBp2dHNKg7WjwW8XoE7xNppump","time":"2025-12-28T07:59:18Z","message":"signal received"}
+{"level":"info","token":"MACHI","value":52,"unit":"%","time":"2025-12-28T07:59:18Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"LEARING","value":10,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-28T08:03:23Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":10,"counted":false,"time":"2025-12-28T08:03:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LEARING","value":15,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-28T08:05:23Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":15,"counted":false,"time":"2025-12-28T08:05:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LEARING","value":20,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-28T08:06:23Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":20,"counted":false,"time":"2025-12-28T08:06:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BLUEWHALE","value":50,"unit":"%","type":"ENTRY","mint":"9V7jznWgdN6tjMaJ6Bq11ZVQMkza6Zh45atgXbVmpump","time":"2025-12-28T08:10:08Z","message":"signal received"}
+{"level":"info","token":"BLUEWHALE","value":50,"unit":"%","time":"2025-12-28T08:10:08Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"LEARING","value":25,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-28T08:11:23Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":25,"counted":false,"time":"2025-12-28T08:11:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BLUEWHALE","value":2,"unit":"X","type":"EXIT","mint":"9V7jznWgdN6tjMaJ6Bq11ZVQMkza6Zh45atgXbVmpump","time":"2025-12-28T08:14:18Z","message":"signal received"}
+{"level":"info","token":"BLUEWHALE","value":2,"counted":true,"time":"2025-12-28T08:14:18Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"DUVE","value":53,"unit":"%","type":"ENTRY","mint":"A9fdu9Nc1ipWD9qLFswQA2NQsy7EWK9vTwN3rjtbpump","time":"2025-12-28T08:28:24Z","message":"signal received"}
+{"level":"info","token":"DUVE","value":53,"unit":"%","time":"2025-12-28T08:28:24Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"DUVE","value":2.1,"unit":"X","type":"EXIT","mint":"A9fdu9Nc1ipWD9qLFswQA2NQsy7EWK9vTwN3rjtbpump","time":"2025-12-28T08:30:16Z","message":"signal received"}
+{"level":"info","token":"DUVE","value":2.1,"counted":true,"time":"2025-12-28T08:30:16Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BLUEWHALE","value":3,"unit":"X","type":"EXIT","mint":"9V7jznWgdN6tjMaJ6Bq11ZVQMkza6Zh45atgXbVmpump","time":"2025-12-28T08:30:16Z","message":"signal received"}
+{"level":"info","token":"BLUEWHALE","value":3,"counted":true,"time":"2025-12-28T08:30:16Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"LEARING","value":30,"unit":"X","type":"EXIT","mint":"3kC6gheQ5fxK8iKWWDHeomHU5Z6U2dUWfqEK6dpLpump","time":"2025-12-28T08:33:24Z","message":"signal received"}
+{"level":"info","token":"LEARING","value":30,"counted":false,"time":"2025-12-28T08:33:24Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"DUVE","value":3.1,"unit":"X","type":"EXIT","mint":"A9fdu9Nc1ipWD9qLFswQA2NQsy7EWK9vTwN3rjtbpump","time":"2025-12-28T08:48:24Z","message":"signal received"}
+{"level":"info","token":"DUVE","value":3.1,"counted":true,"time":"2025-12-28T08:48:24Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BLUEWHALE","value":5.3,"unit":"X","type":"EXIT","mint":"9V7jznWgdN6tjMaJ6Bq11ZVQMkza6Zh45atgXbVmpump","time":"2025-12-28T08:53:25Z","message":"signal received"}
+{"level":"info","token":"BLUEWHALE","value":5.3,"counted":true,"time":"2025-12-28T08:53:25Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BLACKWHALE","value":10,"unit":"X","type":"EXIT","mint":"8y45AJzCUBSZL1UDFQRzCKovQBLQFudBrpPeg5yNpump","time":"2025-12-28T08:55:08Z","message":"signal received"}
+{"level":"info","token":"BLACKWHALE","value":10,"counted":false,"time":"2025-12-28T08:55:08Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BLUEWHALE","value":7.2,"unit":"X","type":"EXIT","mint":"9V7jznWgdN6tjMaJ6Bq11ZVQMkza6Zh45atgXbVmpump","time":"2025-12-28T08:59:18Z","message":"signal received"}
+{"level":"info","token":"BLUEWHALE","value":7.2,"counted":true,"time":"2025-12-28T08:59:18Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"GOOKWHALE","value":52,"unit":"%","type":"ENTRY","mint":"9i3Mf9bD24N34Ecrbpj6vcdN6eMyK1ohHm8Hq6a2pump","time":"2025-12-28T09:14:19Z","message":"signal received"}
+{"level":"info","token":"GOOKWHALE","value":52,"unit":"%","time":"2025-12-28T09:14:19Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"BLACKWHALE","value":15,"unit":"X","type":"EXIT","mint":"8y45AJzCUBSZL1UDFQRzCKovQBLQFudBrpPeg5yNpump","time":"2025-12-28T09:16:26Z","message":"signal received"}
+{"level":"info","token":"BLACKWHALE","value":15,"counted":false,"time":"2025-12-28T09:16:26Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"MOBY","value":50,"unit":"%","type":"ENTRY","mint":"Hwn5LprUnEmxxVD25LvdbwMbgfkNvHm57q4euWmWpump","time":"2025-12-28T09:36:26Z","message":"signal received"}
+{"level":"info","token":"MOBY","value":50,"unit":"%","time":"2025-12-28T09:36:26Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"FDD","value":85,"unit":"%","type":"ENTRY","mint":"SvzHFbaXMTH8qP4C1Lig1jFVSth61UXWWrCJvMKpump","time":"2025-12-28T09:54:27Z","message":"signal received"}
+{"level":"info","token":"FDD","value":85,"unit":"%","time":"2025-12-28T09:54:27Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"BLACKWHALE","value":50,"unit":"%","type":"ENTRY","mint":"J96qn3bFy6RReiGrzedDX8nakaLtZKhYbtx3Cpk4pump","time":"2025-12-28T09:54:27Z","message":"signal received"}
+{"level":"info","token":"BLACKWHALE","value":50,"unit":"%","time":"2025-12-28T09:54:27Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"MOBY","value":2,"unit":"X","type":"EXIT","mint":"Hwn5LprUnEmxxVD25LvdbwMbgfkNvHm57q4euWmWpump","time":"2025-12-28T09:56:27Z","message":"signal received"}
+{"level":"info","token":"MOBY","value":2,"counted":true,"time":"2025-12-28T09:56:27Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SHIRLEY","value":52,"unit":"%","type":"ENTRY","mint":"FipAgs4hHCm5HBrD4rvAP8LGgrm1iWW4qgB1aTAYpump","time":"2025-12-28T09:58:27Z","message":"signal received"}
+{"level":"info","token":"SHIRLEY","value":52,"unit":"%","time":"2025-12-28T09:58:27Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"DUVE","value":5.2,"unit":"X","type":"EXIT","mint":"A9fdu9Nc1ipWD9qLFswQA2NQsy7EWK9vTwN3rjtbpump","time":"2025-12-28T09:59:19Z","message":"signal received"}
+{"level":"info","token":"DUVE","value":5.2,"counted":true,"time":"2025-12-28T09:59:19Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-28T10:10:02Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T10:10:02Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T10:10:18Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T10:10:18Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T10:10:19Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T10:10:19Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T10:10:19Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T10:10:19Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T10:10:19Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T10:10:19Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T10:10:19Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T10:10:19Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T10:10:19Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705234,"time":"2025-12-28T10:10:19Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T10:10:19Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T10:10:19Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T10:10:19Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T10:10:23Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T10:10:23Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T10:10:33Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T10:10:33Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T10:10:33Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T10:10:33Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T10:10:33Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T10:10:33Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T10:10:33Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T10:10:33Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T10:10:33Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T10:10:33Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T10:10:33Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809121,"time":"2025-12-28T10:10:33Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T10:10:33Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T10:10:33Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T10:10:33Z","message":"starting signal server"}
+{"level":"info","token":"TRUMPWHALE","value":50,"unit":"%","type":"ENTRY","mint":"BiWQyMkDDPEbdzGd8K2TSTWEKQC84SzKA8Jt89A2pump","time":"2025-12-28T10:11:28Z","message":"signal received"}
+{"level":"info","token":"TRUMPWHALE","value":50,"unit":"%","time":"2025-12-28T10:11:28Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"DUVE","value":7,"unit":"X","type":"EXIT","mint":"A9fdu9Nc1ipWD9qLFswQA2NQsy7EWK9vTwN3rjtbpump","time":"2025-12-28T10:17:28Z","message":"signal received"}
+{"level":"info","token":"DUVE","value":7,"counted":false,"time":"2025-12-28T10:17:28Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","count":51,"time":"2025-12-28T11:02:33Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:02:33Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:02:33Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:02:33Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:02:33Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:02:33Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:02:33Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:02:33Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:02:33Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:02:33Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:02:33Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809156,"time":"2025-12-28T11:02:33Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:02:33Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:02:33Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:02:33Z","message":"starting signal server"}
+{"level":"info","count":51,"time":"2025-12-28T11:04:56Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:04:56Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:04:57Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:04:57Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:04:57Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:04:57Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:04:57Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:04:57Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:04:57Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:04:57Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:04:57Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809158,"time":"2025-12-28T11:04:57Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:04:57Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:04:57Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:04:57Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:05:10Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:05:10Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:13:38Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:13:38Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:13:38Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:13:38Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:13:38Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:13:38Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:13:38Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:13:38Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:13:38Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:13:38Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:13:38Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705288,"time":"2025-12-28T11:13:38Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:13:38Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:13:38Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:13:38Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:17:14Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:17:14Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:17:21Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:17:21Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:17:21Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:17:21Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:17:21Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:17:21Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:17:21Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:17:21Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:17:21Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:17:22Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:17:22Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705295,"time":"2025-12-28T11:17:22Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:17:22Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:17:22Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:17:22Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:17:29Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:17:29Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:19:37Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:19:37Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:19:37Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:19:37Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:19:37Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:19:37Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:19:37Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:19:37Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:19:37Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:19:37Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:19:37Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809172,"time":"2025-12-28T11:19:37Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:19:37Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:19:37Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:19:37Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:23:14Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:23:14Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:23:24Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:23:24Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:23:25Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:23:25Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:23:25Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:23:25Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:23:25Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:23:25Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:23:25Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:23:25Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:23:25Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809175,"time":"2025-12-28T11:23:25Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:23:25Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:23:25Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:23:25Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:26:14Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:26:14Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:26:22Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:26:22Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:26:22Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:26:22Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:26:22Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:26:22Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:26:22Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:26:22Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:26:22Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:26:22Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:26:22Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705301,"time":"2025-12-28T11:26:22Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:26:22Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:26:22Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:26:22Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:26:52Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:26:52Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:26:59Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:26:59Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:26:59Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:26:59Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:26:59Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:26:59Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:26:59Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:26:59Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:26:59Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:26:59Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:26:59Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705303,"time":"2025-12-28T11:26:59Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:26:59Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:26:59Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:26:59Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:27:01Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:27:01Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:43:44Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:43:44Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:43:44Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:43:44Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:43:44Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:43:44Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:43:44Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:43:44Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:43:44Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:43:44Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:43:44Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809310,"time":"2025-12-28T11:43:44Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:43:44Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:43:44Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:43:44Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T11:59:07Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T11:59:07Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T11:59:16Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:59:16Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T11:59:16Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T11:59:16Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T11:59:16Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T11:59:16Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T11:59:16Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T11:59:16Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T11:59:16Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:59:16Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T11:59:16Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809351,"time":"2025-12-28T11:59:16Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T11:59:16Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T11:59:16Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T11:59:16Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T12:08:10Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T12:08:10Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T12:08:59Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:08:59Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T12:08:59Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T12:08:59Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T12:08:59Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:08:59Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T12:08:59Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T12:08:59Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T12:08:59Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:08:59Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T12:08:59Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705491,"time":"2025-12-28T12:08:59Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:08:59Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T12:08:59Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T12:08:59Z","message":"starting signal server"}
+{"level":"info","token":"BLACKWHALE","value":20,"unit":"X","type":"EXIT","mint":"8y45AJzCUBSZL1UDFQRzCKovQBLQFudBrpPeg5yNpump","time":"2025-12-28T12:13:15Z","message":"signal received"}
+{"level":"info","token":"BLACKWHALE","value":20,"counted":false,"time":"2025-12-28T12:13:15Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"WEEDWHALE","value":50,"unit":"%","type":"ENTRY","mint":"2Lmk2BLrtRWSa5KMmuheiZehaoXpe5EkmJNN6oVLpump","time":"2025-12-28T12:19:16Z","message":"signal received"}
+{"level":"info","token":"WEEDWHALE","value":50,"unit":"%","time":"2025-12-28T12:19:16Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"MARU","value":50,"unit":"%","type":"ENTRY","mint":"tg7jBMRUspWH4gYabGJ9JgZQJpT9y2SzXrM4GNppump","time":"2025-12-28T12:31:16Z","message":"signal received"}
+{"level":"info","token":"MARU","value":50,"unit":"%","time":"2025-12-28T12:31:16Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"MARU","value":2.1,"unit":"X","type":"EXIT","mint":"tg7jBMRUspWH4gYabGJ9JgZQJpT9y2SzXrM4GNppump","time":"2025-12-28T12:32:16Z","message":"signal received"}
+{"level":"info","token":"MARU","value":2.1,"counted":true,"time":"2025-12-28T12:32:16Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"FISH","value":51,"unit":"%","type":"ENTRY","mint":"7YxXb53djnehyeNK6bRPosFn4tKVgCzioQwtAXxbpump","time":"2025-12-28T12:35:16Z","message":"signal received"}
+{"level":"info","token":"FISH","value":51,"unit":"%","time":"2025-12-28T12:35:16Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","time":"2025-12-28T12:39:15Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T12:39:15Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T12:39:24Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:39:24Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T12:39:25Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T12:39:25Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T12:39:25Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:39:25Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T12:39:25Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T12:39:25Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T12:39:25Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:39:25Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T12:39:25Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809384,"time":"2025-12-28T12:39:25Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:39:25Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T12:39:25Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T12:39:25Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T12:44:09Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T12:44:09Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T12:44:37Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:44:37Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T12:44:38Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T12:44:38Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T12:44:38Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:44:38Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T12:44:38Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T12:44:38Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T12:44:38Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:44:38Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T12:44:38Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":809391,"time":"2025-12-28T12:44:38Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:44:38Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T12:44:38Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T12:44:38Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T12:47:29Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T12:47:30Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T12:47:40Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:47:40Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T12:47:40Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T12:47:40Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T12:47:40Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:47:40Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T12:47:40Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T12:47:40Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T12:47:40Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:47:40Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T12:47:40Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705527,"time":"2025-12-28T12:47:40Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:47:40Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T12:47:40Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T12:47:40Z","message":"starting signal server"}
+{"level":"info","token":"MARU","value":5.1,"unit":"X","type":"EXIT","mint":"tg7jBMRUspWH4gYabGJ9JgZQJpT9y2SzXrM4GNppump","time":"2025-12-28T12:50:35Z","message":"signal received"}
+{"level":"info","token":"MARU","value":5.1,"counted":false,"time":"2025-12-28T12:50:35Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-28T12:58:00Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T12:58:00Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T12:58:06Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:58:06Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T12:58:06Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T12:58:06Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T12:58:06Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T12:58:06Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T12:58:06Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T12:58:06Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T12:58:06Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:58:06Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T12:58:06Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":705538,"time":"2025-12-28T12:58:06Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T12:58:06Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T12:58:06Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T12:58:06Z","message":"starting signal server"}
+{"level":"info","token":"BLUEWHALE","value":10,"unit":"X","type":"EXIT","mint":"9V7jznWgdN6tjMaJ6Bq11ZVQMkza6Zh45atgXbVmpump","time":"2025-12-28T13:00:05Z","message":"signal received"}
+{"level":"info","token":"BLUEWHALE","value":10,"counted":false,"time":"2025-12-28T13:00:05Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"VWANCE","value":10,"unit":"X","type":"EXIT","mint":"FAVLKeXf2jgyWQLrUEMvBpNrWVpTmpuy5HqzqHXVbonk","time":"2025-12-28T13:17:06Z","message":"signal received"}
+{"level":"info","token":"VWANCE","value":10,"counted":false,"time":"2025-12-28T13:17:06Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BABYSHARK","value":52,"unit":"%","type":"ENTRY","mint":"2BzesQaErgmDeZrvP7zdyfbLYXF2Qhx1XdJ4P2Gipump","time":"2025-12-28T13:19:06Z","message":"signal received"}
+{"level":"info","token":"BABYSHARK","value":52,"unit":"%","time":"2025-12-28T13:19:06Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","time":"2025-12-28T13:22:45Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T13:22:45Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T13:23:59Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T13:23:59Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T13:23:59Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T13:23:59Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T13:23:59Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T13:23:59Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T13:23:59Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T13:23:59Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T13:23:59Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T13:23:59Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T13:23:59Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":813616,"time":"2025-12-28T13:23:59Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T13:23:59Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T13:23:59Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T13:23:59Z","message":"starting signal server"}
+{"level":"info","token":"SHTF","value":3.2,"unit":"X","type":"EXIT","mint":"x14VTJnxDiDA4WEVqoQPfp4kUzfwVyD84ULHaHLmoon","time":"2025-12-28T13:28:46Z","message":"signal received"}
+{"level":"info","token":"SHTF","value":3.2,"counted":false,"time":"2025-12-28T13:28:46Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"SHARK","value":51,"unit":"%","type":"ENTRY","mint":"73wi8DxKzpG1YKdj6kz9RyAkduWDqJPaxaNPHwsMpump","time":"2025-12-28T13:34:13Z","message":"signal received"}
+{"level":"info","token":"SHARK","value":51,"unit":"%","time":"2025-12-28T13:34:13Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"SHARK","value":2.1,"unit":"X","type":"EXIT","mint":"73wi8DxKzpG1YKdj6kz9RyAkduWDqJPaxaNPHwsMpump","time":"2025-12-28T13:35:50Z","message":"signal received"}
+{"level":"info","token":"SHARK","value":2.1,"counted":true,"time":"2025-12-28T13:35:50Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"CHOCOWHALE","value":54,"unit":"%","type":"ENTRY","mint":"8ZFbi99nVktpWw9r6jiS73QxCfMB3okjnKtq3aE1pump","time":"2025-12-28T13:57:51Z","message":"signal received"}
+{"level":"info","token":"CHOCOWHALE","value":54,"unit":"%","time":"2025-12-28T13:57:51Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","token":"SHTF","value":5,"unit":"X","type":"EXIT","mint":"x14VTJnxDiDA4WEVqoQPfp4kUzfwVyD84ULHaHLmoon","time":"2025-12-28T14:01:51Z","message":"signal received"}
+{"level":"info","token":"SHTF","value":5,"counted":false,"time":"2025-12-28T14:01:51Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BABYSHARK","value":2,"unit":"X","type":"EXIT","mint":"2BzesQaErgmDeZrvP7zdyfbLYXF2Qhx1XdJ4P2Gipump","time":"2025-12-28T14:03:51Z","message":"signal received"}
+{"level":"info","token":"BABYSHARK","value":2,"counted":false,"time":"2025-12-28T14:03:51Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"BLUEWHALE","value":15,"unit":"X","type":"EXIT","mint":"9V7jznWgdN6tjMaJ6Bq11ZVQMkza6Zh45atgXbVmpump","time":"2025-12-28T14:09:51Z","message":"signal received"}
+{"level":"info","token":"BLUEWHALE","value":15,"counted":false,"time":"2025-12-28T14:09:51Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"CHOCOWHALE","value":2,"unit":"X","type":"EXIT","mint":"8ZFbi99nVktpWw9r6jiS73QxCfMB3okjnKtq3aE1pump","time":"2025-12-28T14:18:52Z","message":"signal received"}
+{"level":"info","token":"CHOCOWHALE","value":2,"counted":true,"time":"2025-12-28T14:18:52Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-28T14:40:35Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T14:40:35Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T14:40:52Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T14:40:52Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T14:40:52Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T14:40:52Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T14:40:52Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T14:40:52Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T14:40:52Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T14:40:52Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T14:40:52Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T14:40:53Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T14:40:53Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":813693,"time":"2025-12-28T14:40:53Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T14:40:53Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T14:40:53Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T14:40:53Z","message":"starting signal server"}
+{"level":"info","time":"2025-12-28T14:48:15Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T14:48:16Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T14:48:26Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T14:48:26Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T14:48:27Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T14:48:27Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T14:48:27Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T14:48:27Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T14:48:27Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T14:48:27Z","message":"loaded positions from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T14:48:27Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T14:48:27Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T14:48:27Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":709929,"time":"2025-12-28T14:48:27Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T14:48:27Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T14:48:27Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T14:48:27Z","message":"starting signal server"}
+{"level":"info","token":"DUMP","value":2,"unit":"X","type":"EXIT","mint":"qsZwWQF4pRU2cdZ4RGNdDbvbxit2rrEF6Dy7huSpump","time":"2025-12-28T14:53:23Z","message":"signal received"}
+{"level":"info","token":"DUMP","value":2,"counted":false,"time":"2025-12-28T14:53:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"DUMP","value":50,"unit":"%","type":"ENTRY","mint":"qsZwWQF4pRU2cdZ4RGNdDbvbxit2rrEF6Dy7huSpump","time":"2025-12-28T14:53:23Z","message":"signal received"}
+{"level":"info","token":"DUMP","mint":"qsZwWQF4...","time":"2025-12-28T14:53:23Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"DUMP","value":50,"unit":"%","time":"2025-12-28T14:53:23Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","mint":"qsZwWQF4...","pool":"3ZrFk6rJ...","subID":709936,"time":"2025-12-28T14:53:23Z","message":"tracking token via AMM pool"}
+{"level":"info","mint":"qsZwWQF4...","pool":"3ZrFk6rJ...","time":"2025-12-28T14:53:23Z","message":"📡 Subscribed to pool for 2X detection"}
+{"level":"info","token":"DUMP","value":3,"unit":"X","type":"EXIT","mint":"qsZwWQF4pRU2cdZ4RGNdDbvbxit2rrEF6Dy7huSpump","time":"2025-12-28T14:58:23Z","message":"signal received"}
+{"level":"info","token":"DUMP","elapsed":300224.281973,"time":"2025-12-28T14:58:23Z","message":"📡 TG announced 2X"}
+{"level":"info","token":"DUMP","value":3,"counted":true,"time":"2025-12-28T14:58:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"QWHALE","value":3.3,"unit":"X","type":"EXIT","mint":"xnJeFayu5SUyLsQo7fkxkJB1wNF2MkDbXUCVJv4pump","time":"2025-12-28T15:00:23Z","message":"signal received"}
+{"level":"info","token":"QWHALE","value":3.3,"counted":false,"time":"2025-12-28T15:00:23Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"FISH","value":50,"unit":"%","type":"ENTRY","mint":"8F1pUgQDZutaXyNEfEHssrr1HeSnFGJwmGLkUJy4pump","time":"2025-12-28T15:01:23Z","message":"signal received"}
+{"level":"info","token":"FISH","mint":"8F1pUgQD...","time":"2025-12-28T15:01:23Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"FISH","value":50,"unit":"%","time":"2025-12-28T15:01:23Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","mint":"8F1pUgQD...","pool":"6GenrZez...","subID":709947,"time":"2025-12-28T15:01:23Z","message":"tracking token via AMM pool"}
+{"level":"info","mint":"8F1pUgQD...","pool":"6GenrZez...","time":"2025-12-28T15:01:23Z","message":"📡 Subscribed to pool for 2X detection"}
+{"level":"info","time":"2025-12-28T15:04:56Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T15:04:56Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T15:05:04Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:05:04Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T15:05:04Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T15:05:04Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T15:05:04Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:05:04Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T15:05:04Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T15:05:04Z","message":"loaded positions from DB"}
+{"level":"info","entries":0,"wins":0,"time":"2025-12-28T15:05:04Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T15:05:04Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:05:04Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T15:05:04Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":709983,"time":"2025-12-28T15:05:04Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:05:04Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T15:05:04Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T15:05:04Z","message":"starting signal server"}
+{"level":"info","count":0,"time":"2025-12-28T15:05:04Z","message":"Restored signal feed history"}
+{"level":"info","token":"ORCA","value":54,"unit":"%","type":"ENTRY","mint":"3W1KyCGe9BHJYGF9NjeogZN8LeGysvqNvdsWHfWTpump","time":"2025-12-28T15:10:01Z","message":"signal received"}
+{"level":"info","token":"ORCA","mint":"3W1KyCGe...","time":"2025-12-28T15:10:01Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"ORCA","value":54,"unit":"%","time":"2025-12-28T15:10:01Z","message":"📊 SIGNAL FOUND"}
+{"level":"info","mint":"3W1KyCGe...","pool":"DTCqJkMb...","subID":710899,"time":"2025-12-28T15:10:02Z","message":"tracking token via AMM pool"}
+{"level":"info","mint":"3W1KyCGe...","pool":"DTCqJkMb...","time":"2025-12-28T15:10:02Z","message":"📡 Subscribed to pool for 2X detection"}
+{"level":"info","time":"2025-12-28T15:11:38Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T15:11:38Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T15:11:50Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:11:50Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T15:11:50Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T15:11:50Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T15:11:50Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:11:50Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T15:11:50Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T15:11:50Z","message":"loaded positions from DB"}
+{"level":"info","entries":0,"wins":0,"time":"2025-12-28T15:11:50Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T15:11:50Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:11:50Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T15:11:50Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":814622,"time":"2025-12-28T15:11:50Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:11:50Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T15:11:50Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T15:11:50Z","message":"starting signal server"}
+{"level":"info","count":51,"time":"2025-12-28T15:12:17Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:12:17Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T15:12:17Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T15:12:17Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T15:12:17Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:12:17Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T15:12:17Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T15:12:17Z","message":"loaded positions from DB"}
+{"level":"info","entries":0,"wins":0,"time":"2025-12-28T15:12:17Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T15:12:17Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:12:18Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T15:12:18Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":814624,"time":"2025-12-28T15:12:18Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:12:18Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T15:12:18Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T15:12:18Z","message":"starting signal server"}
+{"level":"info","count":51,"time":"2025-12-28T15:17:57Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:17:57Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T15:17:58Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T15:17:58Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T15:17:58Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:17:58Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T15:17:58Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T15:17:58Z","message":"loaded positions from DB"}
+{"level":"info","entries":0,"wins":0,"time":"2025-12-28T15:17:58Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T15:17:58Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:17:58Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T15:17:58Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":814628,"time":"2025-12-28T15:17:58Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:17:58Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T15:17:58Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T15:17:58Z","message":"starting signal server"}
+{"level":"info","count":51,"time":"2025-12-28T15:20:28Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:20:28Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T15:20:28Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T15:20:28Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T15:20:28Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:20:28Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T15:20:28Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T15:20:28Z","message":"loaded positions from DB"}
+{"level":"info","entries":0,"wins":0,"time":"2025-12-28T15:20:28Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T15:20:28Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:20:28Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T15:20:28Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":814632,"time":"2025-12-28T15:20:28Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:20:28Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T15:20:28Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T15:20:28Z","message":"starting signal server"}
+{"level":"info","count":1,"time":"2025-12-28T15:20:28Z","message":"Restored signal feed history"}
+{"level":"info","token":"ORCA","value":2,"unit":"X","type":"EXIT","mint":"3W1KyCGe9BHJYGF9NjeogZN8LeGysvqNvdsWHfWTpump","time":"2025-12-28T15:28:24Z","message":"signal received"}
+{"level":"info","token":"ORCA","value":2,"counted":false,"time":"2025-12-28T15:28:24Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-28T15:33:14Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T15:33:14Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T15:33:20Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:33:20Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T15:33:20Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T15:33:20Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T15:33:20Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T15:33:20Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T15:33:20Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T15:33:20Z","message":"loaded positions from DB"}
+{"level":"info","entries":0,"wins":0,"time":"2025-12-28T15:33:20Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T15:33:20Z","message":"trading engine initialized"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:33:20Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T15:33:20Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":814643,"time":"2025-12-28T15:33:20Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T15:33:20Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T15:33:20Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T15:33:20Z","message":"starting signal server"}
+{"level":"info","count":2,"time":"2025-12-28T15:33:20Z","message":"Restored signal feed history"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:37Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:38Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:38Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:39Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:39Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:39Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:40Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:41Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:42Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:43Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:43Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:43Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:43Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:43Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:43Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:44Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:44Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:55Z","message":"config file changed, reloading"}
+{"level":"info","file":"config/config.yaml","time":"2025-12-28T15:46:55Z","message":"config file changed, reloading"}
+{"level":"warn","count":0,"time":"2025-12-28T15:51:03Z","message":"🚨 PANIC SELL TRIGGERED: Selling ALL positions"}
+{"level":"info","token":"WOJAKWHALE","value":50,"unit":"%","type":"ENTRY","mint":"8ZLukbPnVwbdRtQ6LqmQiZgfFijM6grpENudFaGvpump","time":"2025-12-28T16:16:20Z","message":"signal received"}
+{"level":"info","token":"WOJAKWHALE","mint":"8ZLukbPn...","time":"2025-12-28T16:16:20Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"WOJAKWHALE","value":50,"unit":"%","time":"2025-12-28T16:16:20Z","message":"📊 SIGNAL FOUND"}
+{"level":"error","token":"WOJAKWHALE","time":"2025-12-28T16:16:20Z","message":"❌ CANNOT BUY: Wallet balance is 0 SOL! Fund your wallet."}
+{"level":"info","time":"2025-12-28T16:16:50Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T16:16:50Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T16:20:05Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T16:20:05Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T16:20:05Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T16:20:05Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T16:20:06Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T16:20:06Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T16:20:06Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T16:20:06Z","message":"loaded positions from DB"}
+{"level":"info","entries":1,"wins":0,"time":"2025-12-28T16:20:06Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T16:20:06Z","message":"trading engine initialized"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:20:06Z","message":"Failed to update SOL price cache"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T16:20:06Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T16:20:06Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":814678,"time":"2025-12-28T16:20:06Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T16:20:06Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T16:20:06Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T16:20:06Z","message":"starting signal server"}
+{"level":"info","count":3,"time":"2025-12-28T16:20:06Z","message":"Restored signal feed history"}
+{"level":"info","time":"2025-12-28T16:24:40Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T16:24:41Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T16:24:48Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T16:24:48Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T16:24:48Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T16:24:48Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T16:24:48Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T16:24:48Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T16:24:48Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T16:24:48Z","message":"loaded positions from DB"}
+{"level":"info","entries":1,"wins":0,"time":"2025-12-28T16:24:48Z","message":"Loaded persistence stats from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T16:24:48Z","message":"trading engine initialized"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:24:48Z","message":"Failed to update SOL price cache"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T16:24:48Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T16:24:48Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":814681,"time":"2025-12-28T16:24:49Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T16:24:49Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T16:24:49Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T16:24:49Z","message":"starting signal server"}
+{"level":"info","count":3,"time":"2025-12-28T16:24:49Z","message":"Restored signal feed history"}
+{"level":"info","token":"KYOGRE","value":54,"unit":"%","type":"ENTRY","mint":"5VvJpqzSsEA1qLPW6cAtqkGg3AUZ8BviFAERe3HLpump","time":"2025-12-28T16:25:45Z","message":"signal received"}
+{"level":"info","token":"KYOGRE","mint":"5VvJpqzS...","mc":0,"time":"2025-12-28T16:25:45Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"KYOGRE","value":54,"unit":"%","time":"2025-12-28T16:25:45Z","message":"📊 SIGNAL FOUND"}
+{"level":"error","token":"KYOGRE","time":"2025-12-28T16:25:45Z","message":"❌ CANNOT BUY: Wallet balance is 0 SOL! Fund your wallet."}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:29:48Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"WOJAKWHALE","value":2,"unit":"X","type":"EXIT","mint":"8ZLukbPnVwbdRtQ6LqmQiZgfFijM6grpENudFaGvpump","time":"2025-12-28T16:31:45Z","message":"signal received"}
+{"level":"info","token":"WOJAKWHALE","value":2,"counted":false,"time":"2025-12-28T16:31:45Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:34:48Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:39:48Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"KYOGRE","value":2,"unit":"X","type":"EXIT","mint":"5VvJpqzSsEA1qLPW6cAtqkGg3AUZ8BviFAERe3HLpump","time":"2025-12-28T16:42:45Z","message":"signal received"}
+{"level":"info","token":"KYOGRE","elapsed":1020898.793743,"time":"2025-12-28T16:42:45Z","message":"📡 TG announced 2X"}
+{"level":"info","token":"KYOGRE","value":2,"counted":true,"time":"2025-12-28T16:42:45Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","time":"2025-12-28T16:42:56Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-28T16:42:56Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-28T16:43:21Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T16:43:21Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-28T16:43:21Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-28T16:43:21Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-28T16:43:21Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-28T16:43:21Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-28T16:43:21Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-28T16:43:21Z","message":"loaded positions from DB"}
+{"level":"info","entries":2,"wins":1,"time":"2025-12-28T16:43:21Z","message":"Loaded persistence stats from DB"}
+{"level":"info","count":0,"time":"2025-12-28T16:43:21Z","message":"Restored seen entries from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-28T16:43:21Z","message":"trading engine initialized"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:43:21Z","message":"Failed to update SOL price cache"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T16:43:21Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-28T16:43:21Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":710990,"time":"2025-12-28T16:43:21Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-28T16:43:21Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-28T16:43:21Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-28T16:43:21Z","message":"starting signal server"}
+{"level":"info","count":6,"time":"2025-12-28T16:43:21Z","message":"Restored signal feed history"}
+{"level":"warn","count":0,"time":"2025-12-28T16:43:29Z","message":"🚨 PANIC SELL TRIGGERED: Selling ALL positions"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:48:21Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:53:21Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-28T16:58:21Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"GUMS","value":50,"unit":"%","type":"ENTRY","mint":"HoxX5vGY4QWTLf2TeThYuUUvgRzN3NFuTJWgzwWjpump","time":"2025-12-28T16:59:02Z","message":"signal received"}
+{"level":"info","token":"GUMS","mint":"HoxX5vGY...","mc":0,"time":"2025-12-28T16:59:02Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"GUMS","value":50,"unit":"%","time":"2025-12-28T16:59:02Z","message":"📊 SIGNAL FOUND"}
+{"level":"error","token":"GUMS","time":"2025-12-28T16:59:02Z","message":"❌ CANNOT BUY: Wallet balance is 0 SOL! Fund your wallet."}

@@ -3,6 +3,7 @@ package trading
 import (
 	"context"
 	"fmt"
+	"sync"
 	"time"
 
 	"github.com/rs/zerolog/log"
@@ -23,6 +24,7 @@ type Executor struct {
 	positions      *PositionTracker
 	balance        *blockchain.BalanceTracker
 	db             *storage.DB
+	mu             sync.Mutex
 
 	// Callbacks
 	onTradeExecuted func(signal *signalPkg.Signal, txSig string, success bool)
@@ -58,6 +60,9 @@ func (e *Executor) SetOnTradeExecuted(fn func(signal *signalPkg.Signal, txSig st
 
 // ProcessSignal processes a trading signal
 func (e *Executor) ProcessSignal(ctx context.Context, signal *signalPkg.Signal) error {
+	e.mu.Lock()
+	defer e.mu.Unlock()
+
 	// Log signal to DB
 	if e.db != nil {
 		if err := e.db.InsertSignal(&storage.Signal{
@@ -291,7 +296,7 @@ func (e *Executor) executeSell(ctx context.Context, signal *signalPkg.Signal) er
 
 // GetOpenPositions returns all open positions
 func (e *Executor) GetOpenPositions() []*Position {
-	return e.positions.GetAll()
+	return e.positions.GetAllSnapshots()
 }
 
 // GetPositionCount returns number of open positions
@@ -336,24 +341,26 @@ func (e *Executor) monitorPositions(ctx context.Context) {
 		currentValSOL := outAmount / 1e9
 		
 		// Update Position Stats
-		pos.CurrentValue = currentValSOL
-		pos.PnLSol = currentValSOL - pos.Size
-		if pos.Size > 0 {
-			pos.PnLPercent = ((currentValSOL / pos.Size) - 1.0) * 100
-		}
+		// pos.CurrentValue = currentValSOL
+		// pos.PnLSol = currentValSOL - pos.Size
+		// if pos.Size > 0 {
+		// 	pos.PnLPercent = ((currentValSOL / pos.Size) - 1.0) * 100
+		// }
 		
+		multiple := pos.UpdateStats(currentValSOL, balance)
+
 		// Logic: 2X Detection
-		multiple := 0.0
-		if pos.Size > 0 { multiple = currentValSOL / pos.Size }
+		// multiple := 0.0
+		// if pos.Size > 0 { multiple = currentValSOL / pos.Size }
 		
-		if multiple >= 2.0 && !pos.Reached2X {
-			pos.Reached2X = true
+		if multiple >= 2.0 && !pos.IsReached2X() {
+			pos.SetReached2X(true)
 			log.Info().Str("token", pos.TokenName).Msg("reached 2X! marked as win")
 		}
 		
 		// Logic: Partial Profit-Taking
 		if cfg.PartialProfitPercent > 0 && cfg.PartialProfitMultiple > 1.0 {
-			if multiple >= cfg.PartialProfitMultiple && !pos.PartialSold {
+			if multiple >= cfg.PartialProfitMultiple && !pos.IsPartialSold() {
 				log.Info().Str("token", pos.TokenName).Float64("mult", multiple).Msg("triggering partial profit take")
 				e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
 			}
@@ -402,7 +409,7 @@ func (e *Executor) executePartialSell(ctx context.Context, pos *Position, percen
 	}
 	
 	// 3. Update Position State
-	pos.PartialSold = true
+	pos.SetPartialSold(true)
 	log.Info().Str("txSig", txSig).Msg("PARTIAL SELL executed ✓")
 	
 	// Note: We don't remove position, just mark sold. 

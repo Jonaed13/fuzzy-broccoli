@@ -1,15 +1,37 @@
-/usr/bin/python3: No module named pip
-❌ aiohttp not installed. Installing...
-Traceback (most recent call last):
-  File "/home/d/PERMANENT_DATA/Downloads/solc/telegram/listener.py", line 32, in <module>
-    import aiohttp
-ModuleNotFoundError: No module named 'aiohttp'
+📱 Connecting to Telegram...
+   API ID: 32075863
+   Phone: +8801335626283
+   Bot Endpoint: http://localhost:8080/signal
+✅ Connected to Telegram
+✅ Listening to channel: Solana Early Trending 💵
+🎧 Listening for messages... (Ctrl+C to stop)
+==================================================
+🔗 Found CA: CQdfNjvyjQxe6xVg6tdsxQBJwFruYToeovSNBvnLpump
 
-During handling of the above exception, another exception occurred:
+📨 [335519]: 🔥 ‎Reddit controls my life 30 days New Trending
+🕒 Age: 6m | Security: ✅
+🔗 X•WEB•CHART
 
-Traceback (most recent call last):
-  File "/home/d/PERMANENT_DATA/Downloads/solc/telegram/listener.py", line 36, in <module>
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "aiohttp"])
-  File "/usr/lib/python3.11/subprocess.py", line 413, in check_call
-    raise CalledProcessError(retcode, cmd)
-subprocess.CalledProcessError: Command '['/usr/bin/python3', '-m', 'pip', 'install', 'aiohttp']' returned non-zero exit status 1.
+💰 MC: $67,026...
+✅ Sent: 🔥 ‎Reddit controls my life 30 days New Trending 🕒 Age: 6m | Security: ✅ 🔗 X•WEB•...
+🔗 Found CA: HoxX5vGY4QWTLf2TeThYuUUvgRzN3NFuTJWgzwWjpump
+
+📨 [335520]: 🔥 ‎GUMS New Trending
+🕒 Age: 3m | Security: ⚠️
+🔗 X•WEB•CHART
+
+💰 MC: $119,845 • 🔝 $171K
+💧 Liq: $32.5K
+...
+✅ Sent: 🔥 ‎GUMS New Trending 🕒 Age: 3m | Security: ⚠️ 🔗 X•WEB•CHART  💰 MC: $119,845 • 🔝 ...
+🔗 Found CA: HoxX5vGY4QWTLf2TeThYuUUvgRzN3NFuTJWgzwWjpump
+
+📨 [335521]: 📈 ‎GUMS is up 50% 📈
+from ⚡️ Entry Signal
+
+$120K —> $180K 💵
+
+💸💸
+[EXTRACTED_URLS]:
+https://www.geckote...
+✅ Sent: 📈 ‎GUMS is up 50% 📈 from ⚡️ Entry Signal  $120K —> $180K 💵  💸💸 [EXTRACTED_URLS]:...

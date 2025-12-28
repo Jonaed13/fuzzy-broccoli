@@ -1,4 +1,4 @@
-#!/home/debian/PERMANENT_DATA/Desktop/solc/telegram/venv/bin/python3
+#!/home/d/PERMANENT_DATA/Downloads/solc/telegram/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

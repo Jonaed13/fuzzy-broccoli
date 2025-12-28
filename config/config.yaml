@@ -20,8 +20,8 @@ telegram:
     listen_host: 0.0.0.0
     listen_port: 8080
 trading:
-    auto_trading_enabled: false
-    max_alloc_percent: 100
+    auto_trading_enabled: true
+    max_alloc_percent: 10
     max_open_positions: 25
     min_entry_percent: 50
     simulation_mode: false
@@ -33,7 +33,6 @@ wallet:
     base_mint: So11111111111111111111111111111111111111112
     private_key_env: WALLET_PRIVATE_KEY
 websocket:
-    shyft_url: wss://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR
-    reconnect_delay_ms: 1000
     ping_interval_ms: 30000
-
+    reconnect_delay_ms: 1000
+    shyft_url: wss://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR

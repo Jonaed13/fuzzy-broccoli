@@ -26,6 +26,7 @@ type Signal struct {
 	Mint      string     `json:"mint,omitempty"` // Resolved mint address
 	Timestamp int64      `json:"timestamp"`
 	Reached2X bool       `json:"reached_2x"` // Did this token hit 2X?
+	InitialMC float64    `json:"initial_mc"` // Parsed Market Cap from alert
 }
 
 // Parser handles signal parsing from Telegram messages
@@ -38,6 +39,8 @@ type Parser struct {
 	geckoPattern *regexp.Regexp
 	// FIX: Pump.fun URL pattern for CA extraction
 	pumpPattern *regexp.Regexp
+	// FIX: MC Pattern: 💰 MC: $35,427 or $31.1K
+	mcPattern *regexp.Regexp
 }
 
 // NewParser creates a new signal parser
@@ -53,6 +56,8 @@ func NewParser() *Parser {
 		// FIX: Match CA from Pump.fun URLs
 		// Example: https://pump.fun/CKaTvCdrnARQAUK2ZmAXGroXqZ8BUNHESg1Zokngpump
 		pumpPattern: regexp.MustCompile(`pump\.fun/([1-9A-HJ-NP-Za-km-z]{32,44})`),
+		// Match: 💰 MC: $35,427 or MC: $35.4K
+		mcPattern: regexp.MustCompile(`MC:\s*\$([0-9,.]+[KMB]?)`),
 	}
 }
 
@@ -88,7 +93,42 @@ func (p *Parser) Parse(text string, msgID int64) (*Signal, error) {
 	// Try to extract CA from message
 	signal.Mint = p.extractCA(text)
 
+	// Try to extract MC
+	signal.InitialMC = p.extractMC(text)
+
 	return signal, nil
+}
+
+// extractMC extracts Market Cap value
+func (p *Parser) extractMC(text string) float64 {
+	matches := p.mcPattern.FindStringSubmatch(text)
+	if len(matches) < 2 {
+		return 0
+	}
+
+	valStr := strings.ToUpper(matches[1])
+	multiplier := 1.0
+
+	if strings.HasSuffix(valStr, "K") {
+		multiplier = 1000.0
+		valStr = strings.TrimSuffix(valStr, "K")
+	} else if strings.HasSuffix(valStr, "M") {
+		multiplier = 1000000.0
+		valStr = strings.TrimSuffix(valStr, "M")
+	} else if strings.HasSuffix(valStr, "B") {
+		multiplier = 1000000000.0
+		valStr = strings.TrimSuffix(valStr, "B")
+	}
+
+	// Remove commas
+	valStr = strings.ReplaceAll(valStr, ",", "")
+
+	val, err := strconv.ParseFloat(valStr, 64)
+	if err != nil {
+		return 0
+	}
+
+	return val * multiplier
 }
 
 // Classify determines the signal type based on config thresholds

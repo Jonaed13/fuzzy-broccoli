@@ -14,10 +14,10 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
+	"solana-pump-bot/internal/analytics"
 	"solana-pump-bot/internal/blockchain"
 	"solana-pump-bot/internal/config"
 	"solana-pump-bot/internal/jupiter"
-	"solana-pump-bot/internal/analytics"
 	signalPkg "solana-pump-bot/internal/signal"
 	"solana-pump-bot/internal/storage"
 	"solana-pump-bot/internal/token"
@@ -25,7 +25,14 @@ import (
 	"solana-pump-bot/internal/tui"
 )
 
+// Memory Ballast to stabilize GC (100MB)
+// Prevents GC from running too frequently on small heaps
+var ballast []byte
+
 func main() {
+	// Allocate 100MB ballast
+	ballast = make([]byte, 100*1024*1024)
+
 	// Check for TUI mode (default) or headless mode
 	headless := os.Getenv("HEADLESS") == "1"
 
@@ -42,12 +49,12 @@ func runHeadless() {
 
 	// Initialize all components
 	cfg, tokenResolver, signalChan, server, executor, balanceTracker, blockhashCache := initComponents()
-	
+
 	// Setup WebSocket for real-time updates
 	if err := executor.SetupWebSocket(); err != nil {
 		log.Warn().Err(err).Msg("WebSocket setup failed (will use polling)")
 	}
-	
+
 	// Start monitor
 	executor.StartMonitoring(context.Background())
 
@@ -106,7 +113,7 @@ func runWithTUI() {
 		fmt.Fprintf(os.Stderr, "Warning: Could not open log file: %v\n", err)
 		logFile = nil
 	}
-	
+
 	if logFile != nil {
 		log.Logger = zerolog.New(logFile).With().Timestamp().Logger()
 		zerolog.SetGlobalLevel(zerolog.InfoLevel) // Only info and above in TUI mode
@@ -173,27 +180,85 @@ func runWithTUI() {
 		}
 	}()
 
+	// Phase 4: Worker Pool for Signal Processing
+	// Prevents goroutine explosion during signal storms
+	const NumWorkers = 50
+	jobChan := make(chan *signalPkg.Signal, 500) // Buffer 500 signals
+
+	// Start Workers
+	for i := 0; i < NumWorkers; i++ {
+		go func() {
+			for sig := range jobChan {
+				if executor != nil {
+					executor.ProcessSignalFast(context.Background(), sig)
+				}
+			}
+		}()
+	}
+
 	// Process signals and update TUI
 	go func() {
 		for sig := range signalChan {
 			if tokenResolver != nil && sig.Mint == "" {
 				sig.Mint = tokenResolver.Resolve(sig.TokenName)
 			}
-			
-			// Send to TUI
+
+			// Send to TUI immediately
 			tui.SendSignal(p, sig)
-			
-			// Execute trade (FAST - no blocking checks)
-			if executor != nil {
-				// FIX: Run async to not block signal ingestion
+
+			// Persistence: Save signal to DB
+			if db != nil {
 				go func(s *signalPkg.Signal) {
-					executor.ProcessSignalFast(context.Background(), s)
-					// Update positions in TUI
-					tui.SendPositions(p, executor.GetOpenPositions())
+					dbSig := &storage.Signal{
+						TokenName:  s.TokenName,
+						Value:      s.Value,
+						Unit:       s.Unit,
+						SignalType: string(s.Type),
+						MsgID:      s.MsgID,
+						Timestamp:  s.Timestamp,
+						Mint:       s.Mint,
+					}
+					if err := db.InsertSignal(dbSig); err != nil {
+						log.Error().Err(err).Msg("failed to persist signal")
+					}
 				}(sig)
+			}
+
+			// Dispatch to Worker Pool (Non-blocking drop)
+			if executor != nil {
+				select {
+				case jobChan <- sig:
+					// Queued
+				default:
+					log.Warn().Str("token", sig.TokenName).Msg("Worker pool full - dropping signal to preserve latency")
+				}
 			}
 		}
 	}()
+
+	// Phase 9: Restore Feed from DB
+	if db != nil {
+		go func() {
+			history, err := db.GetRecentSignals(50)
+			if err == nil {
+				// Feed in reverse order (oldest first) to maintain chat order
+				for i := len(history) - 1; i >= 0; i-- {
+					h := history[i]
+					sig := &signalPkg.Signal{
+						TokenName: h.TokenName,
+						Value:     h.Value,
+						Unit:      h.Unit,
+						Type:      signalPkg.SignalType(h.SignalType),
+						MsgID:     h.MsgID,
+						Timestamp: h.Timestamp,
+						Mint:      h.Mint,
+					}
+					tui.SendSignal(p, sig)
+				}
+				log.Info().Int("count", len(history)).Msg("Restored signal feed history")
+			}
+		}()
+	}
 
 	// TUI Log Tailing (Fix for missing logs)
 	go func() {
@@ -205,7 +270,7 @@ func runWithTUI() {
 
 		// Seek to end initially to avoid spamming old logs
 		file.Seek(0, 2)
-		
+
 		reader := bufio.NewReader(file)
 		for {
 			line, err := reader.ReadString('\n')
@@ -221,7 +286,30 @@ func runWithTUI() {
 		}
 	}()
 
-	// Balance, latency, and stats refresh loop
+	// High-Frequency UI Refresh (20 FPS / 50ms)
+	// Decouples rendering from signal processing to prevent CPU thrashing
+	go func() {
+		ticker := time.NewTicker(50 * time.Millisecond)
+		defer ticker.Stop()
+		for range ticker.C {
+			if executor != nil {
+				// Batch update positions and stats
+				tui.SendPositions(p, executor.GetOpenPositions())
+
+				// Send stats
+				totalEntry, reached2X := executor.GetStats()
+				tui.SendStats(p, totalEntry, reached2X)
+
+				// Send signal statuses
+				tui.SendSignalStatuses(p, executor.GetAllSignalStatuses())
+
+				// Send 2X timer data
+				tui.SendTrackedTokens(p, executor.GetTrackedTokens())
+			}
+		}
+	}()
+
+	// Low-Frequency Refresh (Balance, Latency) - 5 Seconds
 	go func() {
 		ticker := time.NewTicker(5 * time.Second)
 		defer ticker.Stop()
@@ -232,12 +320,6 @@ func runWithTUI() {
 				latencyMs := time.Since(start).Milliseconds()
 				tui.SendBalance(p, balanceTracker.BalanceSOL())
 				tui.SendLatency(p, latencyMs)
-			}
-			if executor != nil {
-				tui.SendPositions(p, executor.GetOpenPositions())
-				// Send stats to TUI
-				totalEntry, reached2X := executor.GetStats()
-				tui.SendStats(p, totalEntry, reached2X)
 			}
 		}
 	}()
@@ -351,14 +433,14 @@ func initComponents() (
 		// Initialize balance tracker
 		balanceTracker = blockchain.NewBalanceTracker(wallet, rpc)
 		balanceTracker.Refresh(context.Background())
-		
+
 		// FIX: Show wallet address and balance at startup
 		balanceSOL := balanceTracker.BalanceSOL()
 		log.Info().
 			Str("address", wallet.Address()).
 			Float64("balance", balanceSOL).
 			Msg("💰 WALLET STATUS")
-		
+
 		// FIX: LOUD WARNING if balance is 0
 		if balanceSOL == 0 {
 			log.Error().
