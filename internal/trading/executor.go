@@ -93,7 +93,7 @@ func (e *Executor) ProcessSignal(ctx context.Context, signal *signalPkg.Signal) 
 	case signalPkg.SignalEntry:
 		return e.executeBuy(ctx, signal)
 	case signalPkg.SignalExit:
-		return e.executeSell(ctx, signal)
+		return e.executeSell(ctx, signal, nil)
 	default:
 		log.Debug().Str("token", signal.TokenName).Msg("signal ignored")
 		return nil
@@ -197,7 +197,8 @@ func (e *Executor) executeBuy(ctx context.Context, signal *signalPkg.Signal) err
 }
 
 // executeSell executes a sell trade
-func (e *Executor) executeSell(ctx context.Context, signal *signalPkg.Signal) error {
+// accepts optional quote
+func (e *Executor) executeSell(ctx context.Context, signal *signalPkg.Signal, quote *jupiter.QuoteResponse) error {
 	start := time.Now()
 
 	// Check if position exists
@@ -230,7 +231,13 @@ func (e *Executor) executeSell(ctx context.Context, signal *signalPkg.Signal) er
 	}
 
 	// Get swap transaction from Jupiter (token -> SOL)
-	swapTx, err := e.jupiter.GetSwapTransaction(ctx, signal.Mint, jupiter.SOLMint, e.wallet.Address(), tokenAmount)
+	var swapTx string
+	if quote != nil {
+		swapTx, err = e.jupiter.GetSwapTransactionWithQuote(ctx, quote, e.wallet.Address())
+	} else {
+		swapTx, err = e.jupiter.GetSwapTransaction(ctx, signal.Mint, jupiter.SOLMint, e.wallet.Address(), tokenAmount)
+	}
+
 	if err != nil {
 		log.Error().Err(err).Msg("failed to get Jupiter swap TX")
 		return err
@@ -374,7 +381,7 @@ func (e *Executor) monitorPositions(ctx context.Context) {
 				Type:      signalPkg.SignalExit,
 				Value:     currentValSOL,
 			}
-			e.executeSell(ctx, sig)
+			e.executeSell(ctx, sig, quote)
 
 		case ActionSellPartial:
 			if !pos.IsPartialSold() {
@@ -439,7 +446,7 @@ func (e *Executor) ForceClose(ctx context.Context, mint string) error {
 		Timestamp: storage.Now(),
 	}
 
-	return e.executeSell(ctx, signal)
+	return e.executeSell(ctx, signal, nil)
 }
 
 // getTokenBalance queries the actual token balance for a given mint

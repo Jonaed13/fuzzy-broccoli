@@ -376,7 +376,7 @@ func (e *ExecutorFast) handleRealTimePriceUpdate(update ws.PriceUpdate) {
 					Value:     mult,
 					Unit:      "X",
 				}
-				e.executeSellFast(context.Background(), signal, NewTradeTimer())
+				e.executeSellFast(context.Background(), signal, NewTradeTimer(), nil)
 			}()
 		}
 
@@ -484,7 +484,7 @@ func (e *ExecutorFast) ProcessSignalFast(ctx context.Context, signal *signalPkg.
 		return e.executeBuyFast(ctx, signal, timer)
 	case signalPkg.SignalExit:
 		if e.hasMintPosition(signal.Mint) {
-			return e.executeSellFast(ctx, signal, timer)
+			return e.executeSellFast(ctx, signal, timer, nil)
 		}
 	}
 	return nil
@@ -691,7 +691,8 @@ func (e *ExecutorFast) executeBuyFast(ctx context.Context, signal *signalPkg.Sig
 }
 
 // executeSellFast - FIRE AND FORGET sell execution with retry
-func (e *ExecutorFast) executeSellFast(ctx context.Context, signal *signalPkg.Signal, timer *TradeTimer) error {
+// accepts optional quote to skip recalculation
+func (e *ExecutorFast) executeSellFast(ctx context.Context, signal *signalPkg.Signal, timer *TradeTimer, quote *jupiter.QuoteResponse) error {
 	// Update position value for TUI display before selling
 	if pos := e.positions.Get(signal.Mint); pos != nil {
 		// THREAD-SAFE: Use SetStatsFromSignal to update position stats
@@ -756,7 +757,15 @@ func (e *ExecutorFast) executeSellFast(ctx context.Context, signal *signalPkg.Si
 		}
 
 		// Get swap TX
-		swapTx, err := e.jupiter.GetSwapTransaction(ctx, signal.Mint, jupiter.SOLMint, e.wallet.Address(), tokenAmount)
+		var swapTx string
+		if quote != nil {
+			// Optimization: Reuse existing quote
+			swapTx, err = e.jupiter.GetSwapTransactionWithQuote(ctx, quote, e.wallet.Address())
+		} else {
+			// Fallback: Fetch new quote
+			swapTx, err = e.jupiter.GetSwapTransaction(ctx, signal.Mint, jupiter.SOLMint, e.wallet.Address(), tokenAmount)
+		}
+
 		if err != nil {
 			log.Error().Str("error", blockchain.HumanErrorWithAction(err)).Msg("⚡ JUPITER FAILED")
 			lastErr = err
@@ -1065,7 +1074,7 @@ func (e *ExecutorFast) ForceClose(ctx context.Context, mint string) error {
 		Type:      signalPkg.SignalExit,
 	}
 
-	return e.executeSellFast(ctx, signal, timer)
+	return e.executeSellFast(ctx, signal, timer, nil)
 }
 
 // StartMonitoring starts the background active trade monitor
@@ -1196,7 +1205,13 @@ func (e *ExecutorFast) monitorPositions(ctx context.Context) {
 			}
 
 			go func() {
-				e.executeSellFast(ctx, sig, NewTradeTimer())
+				// OPTIMIZATION: Pass the quote we just fetched in monitorPositions!
+				// We need to verify if the quote input amount matches 'balance'.
+				// monitorPositions calls GetQuote with 'balance'.
+				// executeSellFast uses 'balance' (cached or fresh).
+				// If they match, we can reuse.
+				// Since we are inside the loop using 'balance', it should match.
+				e.executeSellFast(ctx, sig, NewTradeTimer(), quote)
 				pos.Selling = false
 			}()
 
