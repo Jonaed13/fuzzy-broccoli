@@ -332,7 +332,7 @@ func (d *DB) LoadSeenEntries() (map[string]bool, error) {
 	rows, err := d.db.Query(`
 		SELECT DISTINCT mint 
 		FROM signals 
-		WHERE signal_type = 'ENTRY' AND timestamp > ? AND mint != ''`, cutoff)
+		WHERE signal_type = 'entry' AND timestamp > ? AND mint != ''`, cutoff)
 	if err != nil {
 		return nil, err
 	}
