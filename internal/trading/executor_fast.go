@@ -1150,82 +1150,62 @@ func (e *ExecutorFast) monitorPositions(ctx context.Context) {
 			pos.PnLPercent = ((currentValSOL / pos.Size) - 1.0) * 100
 		}
 
-		// Logic: 2X Detection
+		// Evaluate Exit Conditions
+		decision := evaluateExit(pos, currentValSOL, cfg, time.Now())
+
+		// Update 2X Stats separately (even if not auto-trading)
 		multiple := 0.0
-		if pos.Size > 0 {
-			multiple = currentValSOL / pos.Size
+		if pos.Size > 0 { multiple = currentValSOL / pos.Size }
+
+		if multiple >= cfg.TakeProfitMultiple && !pos.Reached2X {
+			pos.Reached2X = true
+			e.positions.Add(pos)
+			log.Info().Str("token", pos.TokenName).Float64("mult", multiple).Msg("reached target! marked as win")
+			e.increment2XSignal(pos.Mint)
 		}
 
-		if multiple >= cfg.TakeProfitMultiple { // Use config multiple (e.g. 2.0)
-			if !pos.Reached2X {
-				pos.Reached2X = true
-				// Update DB to prevent double counting on restart
-				e.positions.Add(pos)
-
-				log.Info().Str("token", pos.TokenName).Float64("mult", multiple).Msg("reached target! marked as win")
-				// Use increment2XSignal to prevent double counting with Telegram 2X signals
-				e.increment2XSignal(pos.Mint)
-			}
-
-			// Trigger Auto-Sell
-			// Trigger Auto-Sell
-			if cfg.AutoTradingEnabled {
-				if pos.Selling {
-					// Already selling, skip to prevent dupes
-					return
-				}
-
-				log.Info().Str("token", pos.TokenName).Msg("triggering take-profit sell")
-				pos.Selling = true
-
-				// Create timer
-				timer := NewTradeTimer()
-
-				// Create Exit Signal
-				exitSig := &signalPkg.Signal{
-					Mint:      pos.Mint,
-					TokenName: pos.TokenName,
-					Type:      signalPkg.SignalExit,
-					Value:     multiple,
-				}
-
-				// Execute Sell
-				go func() {
-					e.executeSellFast(ctx, exitSig, timer)
-					pos.Selling = false // Reset flag if sell failed and position remains
-				}()
-			}
+		if !cfg.AutoTradingEnabled {
+			continue
 		}
 
-		// Logic: Partial Profit-Taking
-		if cfg.PartialProfitPercent > 0 && cfg.PartialProfitMultiple > 1.0 {
-			if multiple >= cfg.PartialProfitMultiple && !pos.PartialSold {
-				log.Info().Str("token", pos.TokenName).Float64("mult", multiple).Msg("triggering partial profit take")
-				e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
-			}
-		}
+		switch decision.Action {
+		case ActionSellAll:
+			if pos.Selling { return }
+			pos.Selling = true
 
-		// Logic: Time-Based Exit
-		if cfg.MaxHoldMinutes > 0 {
-			if time.Since(pos.EntryTime) > time.Duration(cfg.MaxHoldMinutes)*time.Minute {
-				if pos.Selling {
-					return
-				}
-				pos.Selling = true
+			log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering full sell")
 
-				log.Info().Str("token", pos.TokenName).Msg("max hold time reached, selling all")
-				// Create a fake signal to trigger full sell
-				sig := &signalPkg.Signal{
-					Mint:      pos.Mint,
-					TokenName: pos.TokenName,
-					Type:      signalPkg.SignalExit,
-					Value:     currentValSOL,
-				}
-				go func() {
-					e.executeSellFast(ctx, sig, NewTradeTimer())
-					pos.Selling = false
-				}()
+			sig := &signalPkg.Signal{
+				Mint:      pos.Mint,
+				TokenName: pos.TokenName,
+				Type:      signalPkg.SignalExit,
+				Value:     currentValSOL, // This might need to be multiple or value depending on parser expected 'Value'
 			}
+			// Note: executeSellFast expects Value to be multiple or price?
+			// Parser: Type=Exit -> Value is multiple (X).
+			// But here we might be passing raw value?
+			// executeSellFast uses 'signal.Value' for logging exit value.
+			// Let's pass the Multiple if reason is TP, or maybe just CurrentVal?
+			// The original code passed 'multiple' for TP, and 'currentValSOL' for TimeExit.
+			// Let's pass multiple for consistency if possible, or just log correctly.
+			if decision.Reason == "take profit hit" {
+				sig.Value = multiple
+				sig.Unit = "X"
+			} else {
+				sig.Value = currentValSOL // passed as value
+			}
+
+			go func() {
+				e.executeSellFast(ctx, sig, NewTradeTimer())
+				pos.Selling = false
+			}()
+
+		case ActionSellPartial:
+			log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering partial sell")
+			e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
+
+		case ActionNone:
+			// No action
 		}
 	}
 }

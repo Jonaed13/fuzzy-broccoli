@@ -38,6 +38,7 @@ type RPCConfig struct {
 type TradingConfig struct {
 	MinEntryPercent       float64 `mapstructure:"min_entry_percent"`
 	TakeProfitMultiple    float64 `mapstructure:"take_profit_multiple"`
+	StopLossPercent       float64 `mapstructure:"stop_loss_percent"`      // e.g., -50.0 = sell if PnL <= -50%
 	MaxAllocPercent       float64 `mapstructure:"max_alloc_percent"`
 	MaxOpenPositions      int     `mapstructure:"max_open_positions"`
 	AutoTradingEnabled    bool    `mapstructure:"auto_trading_enabled"`
@@ -182,6 +183,7 @@ func (m *Manager) Update(fn func(*Config)) error {
 	m.viper.Set("trading.take_profit_multiple", m.config.Trading.TakeProfitMultiple)
 	m.viper.Set("trading.max_alloc_percent", m.config.Trading.MaxAllocPercent)
 	m.viper.Set("trading.max_open_positions", m.config.Trading.MaxOpenPositions)
+	m.viper.Set("trading.stop_loss_percent", m.config.Trading.StopLossPercent)
 	m.viper.Set("trading.auto_trading_enabled", m.config.Trading.AutoTradingEnabled)
 	m.viper.Set("fees.static_priority_fee_sol", m.config.Fees.StaticPriorityFeeSol)
 
