@@ -16,9 +16,22 @@ const (
 	ActionSellPartial ExitAction = "SELL_PARTIAL"
 )
 
+// ExitType represents the type of exit reason
+type ExitType string
+
+const (
+	ExitTypeNone         ExitType = "NONE"
+	ExitTypeStopLoss     ExitType = "STOP_LOSS"
+	ExitTypeTakeProfit   ExitType = "TAKE_PROFIT"
+	ExitTypePartial      ExitType = "PARTIAL_PROFIT"
+	ExitTypeTime         ExitType = "TIME_LIMIT"
+	ExitTypeManual       ExitType = "MANUAL"
+)
+
 // ExitDecision holds the result of the exit evaluation
 type ExitDecision struct {
 	Action ExitAction
+	Type   ExitType
 	Reason string
 }
 
@@ -56,6 +69,7 @@ func evaluateExit(pos *Position, currentValSOL float64, cfg config.TradingConfig
 		if pnlPercent <= cfg.StopLossPercent {
 			return ExitDecision{
 				Action: ActionSellAll,
+				Type:   ExitTypeStopLoss,
 				Reason: fmt.Sprintf("stop loss hit: %.2f%% <= %.2f%%", pnlPercent, cfg.StopLossPercent),
 			}
 		}
@@ -63,13 +77,9 @@ func evaluateExit(pos *Position, currentValSOL float64, cfg config.TradingConfig
 
 	// 2. Take Profit (2X) Check
 	if cfg.TakeProfitMultiple > 1.0 && multiple >= cfg.TakeProfitMultiple {
-		// We only trigger "Sell All" if not already marked as reached 2X?
-		// Actually, standard logic is usually "sell half at 2X, rest later" or "sell all".
-		// The legacy code seemed to imply "marked as win" but didn't explicitly sell all unless 'AutoTradingEnabled' was checked
-		// AND it triggered a sell.
-		// Replicating legacy logic:
 		return ExitDecision{
 			Action: ActionSellAll,
+			Type:   ExitTypeTakeProfit,
 			Reason: fmt.Sprintf("take profit hit: %.2fX >= %.2fX", multiple, cfg.TakeProfitMultiple),
 		}
 	}
@@ -79,6 +89,7 @@ func evaluateExit(pos *Position, currentValSOL float64, cfg config.TradingConfig
 		if multiple >= cfg.PartialProfitMultiple && !pos.PartialSold {
 			return ExitDecision{
 				Action: ActionSellPartial,
+				Type:   ExitTypePartial,
 				Reason: fmt.Sprintf("partial profit hit: %.2fX >= %.2fX", multiple, cfg.PartialProfitMultiple),
 			}
 		}
@@ -89,10 +100,11 @@ func evaluateExit(pos *Position, currentValSOL float64, cfg config.TradingConfig
 		if now.Sub(pos.EntryTime) > time.Duration(cfg.MaxHoldMinutes)*time.Minute {
 			return ExitDecision{
 				Action: ActionSellAll,
+				Type:   ExitTypeTime,
 				Reason: fmt.Sprintf("max hold time reached: %v > %dm", now.Sub(pos.EntryTime), cfg.MaxHoldMinutes),
 			}
 		}
 	}
 
-	return ExitDecision{Action: ActionNone}
+	return ExitDecision{Action: ActionNone, Type: ExitTypeNone}
 }

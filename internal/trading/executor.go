@@ -349,36 +349,41 @@ func (e *Executor) monitorPositions(ctx context.Context) {
 		
 		multiple := pos.UpdateStats(currentValSOL, balance)
 
-		// Logic: 2X Detection
-		// multiple := 0.0
-		// if pos.Size > 0 { multiple = currentValSOL / pos.Size }
-		
+		// Evaluate Exit
+		decision := evaluateExit(pos, currentValSOL, cfg, time.Now())
+
+		// Update 2X Status (Tracking only)
 		if multiple >= 2.0 && !pos.IsReached2X() {
 			pos.SetReached2X(true)
 			log.Info().Str("token", pos.TokenName).Msg("reached 2X! marked as win")
 		}
 		
-		// Logic: Partial Profit-Taking
-		if cfg.PartialProfitPercent > 0 && cfg.PartialProfitMultiple > 1.0 {
-			if multiple >= cfg.PartialProfitMultiple && !pos.IsPartialSold() {
-				log.Info().Str("token", pos.TokenName).Float64("mult", multiple).Msg("triggering partial profit take")
+		// Execute Decision
+		if !cfg.AutoTradingEnabled {
+			continue
+		}
+
+		switch decision.Action {
+		case ActionSellAll:
+			// Prevent duplicate sells if we had a lock/flag mechanism
+			log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering full sell")
+
+			sig := &signalPkg.Signal{
+				Mint:      pos.Mint,
+				TokenName: pos.TokenName,
+				Type:      signalPkg.SignalExit,
+				Value:     currentValSOL,
+			}
+			e.executeSell(ctx, sig)
+
+		case ActionSellPartial:
+			if !pos.IsPartialSold() {
+				log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering partial sell")
 				e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
 			}
-		}
-		
-		// Logic: Time-Based Exit
-		if cfg.MaxHoldMinutes > 0 {
-			if time.Since(pos.EntryTime) > time.Duration(cfg.MaxHoldMinutes)*time.Minute {
-				log.Info().Str("token", pos.TokenName).Msg("max hold time reached, selling all")
-				// Create a fake signal to trigger full sell
-				sig := &signalPkg.Signal{
-					Mint:      pos.Mint,
-					TokenName: pos.TokenName,
-					Type:      signalPkg.SignalExit,
-					Value:     currentValSOL,
-				}
-				e.executeSell(ctx, sig)
-			}
+
+		case ActionNone:
+			// No action
 		}
 	}
 }

@@ -18,6 +18,7 @@ func TestEvaluateExit(t *testing.T) {
 		cfg           config.TradingConfig
 		now           time.Time
 		wantAction    ExitAction
+		wantType      ExitType
 		wantReason    string
 	}{
 		{
@@ -32,6 +33,7 @@ func TestEvaluateExit(t *testing.T) {
 			},
 			now:        now,
 			wantAction: ActionSellAll,
+			wantType:   ExitTypeTakeProfit,
 			wantReason: "take profit hit: 2.00X >= 2.00X",
 		},
 		{
@@ -46,6 +48,7 @@ func TestEvaluateExit(t *testing.T) {
 			},
 			now:        now,
 			wantAction: ActionSellAll,
+			wantType:   ExitTypeStopLoss,
 			wantReason: "stop loss hit: -60.00% <= -50.00%",
 		},
 		{
@@ -75,6 +78,7 @@ func TestEvaluateExit(t *testing.T) {
 			},
 			now:        now,
 			wantAction: ActionSellPartial,
+			wantType:   ExitTypePartial,
 			wantReason: "partial profit hit: 1.50X >= 1.50X",
 		},
 		{
@@ -104,6 +108,7 @@ func TestEvaluateExit(t *testing.T) {
 			},
 			now:        now,
 			wantAction: ActionSellAll,
+			wantType:   ExitTypeTime,
 			wantReason: "max hold time reached: 31m0s > 30m",
 		},
 		{
@@ -142,6 +147,9 @@ func TestEvaluateExit(t *testing.T) {
 			got := evaluateExit(tt.pos, tt.currentValSOL, tt.cfg, tt.now)
 			if got.Action != tt.wantAction {
 				t.Errorf("Action = %v, want %v", got.Action, tt.wantAction)
+			}
+			if tt.wantType != "" && got.Type != tt.wantType {
+				t.Errorf("Type = %v, want %v", got.Type, tt.wantType)
 			}
 			if tt.wantReason != "" && got.Reason != tt.wantReason {
 				t.Errorf("Reason = %v, want %v", got.Reason, tt.wantReason)

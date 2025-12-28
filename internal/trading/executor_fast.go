@@ -1188,7 +1188,7 @@ func (e *ExecutorFast) monitorPositions(ctx context.Context) {
 			// Let's pass the Multiple if reason is TP, or maybe just CurrentVal?
 			// The original code passed 'multiple' for TP, and 'currentValSOL' for TimeExit.
 			// Let's pass multiple for consistency if possible, or just log correctly.
-			if decision.Reason == "take profit hit" {
+			if decision.Type == ExitTypeTakeProfit {
 				sig.Value = multiple
 				sig.Unit = "X"
 			} else {
