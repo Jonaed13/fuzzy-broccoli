@@ -439,17 +439,16 @@ func (e *Executor) ForceClose(ctx context.Context, mint string) error {
 
 // getTokenBalance queries the actual token balance for a given mint
 func (e *Executor) getTokenBalance(ctx context.Context, mint string) (uint64, error) {
-	// This would typically use getTokenAccountsByOwner or similar RPC call
-	// For now, we'll use a simplified approach that may require enhancement
-	// 
-	// In a full implementation, you would:
-	// 1. Derive the Associated Token Account (ATA) address
-	// 2. Call getTokenAccountBalance on that address
-	//
-	// For Jupiter swaps, often the actual balance doesn't need to be exact
-	// as Jupiter will use all available balance when you specify a high amount
-	
-	// Return a max value which Jupiter will interpret as "sell all"
-	// Jupiter API handles partial fills appropriately
-	return 0xFFFFFFFFFFFFFFFF, nil
+	// Get token accounts for this mint
+	tokenAccounts, err := e.rpc.GetTokenAccountsByOwner(ctx, e.wallet.Address(), mint)
+	if err != nil {
+		return 0, err
+	}
+
+	var totalBalance uint64
+	for _, acc := range tokenAccounts {
+		totalBalance += acc.Amount
+	}
+
+	return totalBalance, nil
 }

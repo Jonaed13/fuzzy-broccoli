@@ -706,9 +706,23 @@ func (e *ExecutorFast) executeSellFast(ctx context.Context, signal *signalPkg.Si
 		e.positions.Add(pos) // Update DB
 	}
 
-	// FIX #2 & #6: Get actual token balance instead of max uint64
-	tokenAmount, err := e.getTokenBalance(ctx, signal.Mint)
-	if err != nil || tokenAmount == 0 {
+	// FIX #2 & #6: Get actual token balance
+	// OPTIMIZATION: Use cached balance from WebSocket if available and fresh (within 1s)
+	var tokenAmount uint64
+	var err error
+
+	if pos := e.positions.Get(signal.Mint); pos != nil && pos.TokenBalance > 0 && time.Since(pos.LastUpdate) < 1*time.Second {
+		tokenAmount = pos.TokenBalance
+		log.Debug().Uint64("amount", tokenAmount).Msg("using cached token balance for sell")
+	} else {
+		tokenAmount, err = e.getTokenBalance(ctx, signal.Mint)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to get token balance for sell")
+			return err
+		}
+	}
+
+	if tokenAmount == 0 {
 		log.Warn().Str("mint", signal.Mint).Msg("no token balance to sell")
 		return nil
 	}
