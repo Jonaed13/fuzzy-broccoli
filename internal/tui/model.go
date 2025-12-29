@@ -2298,84 +2298,85 @@ func (m Model) renderFnexDashboard() string {
 			} else if s.Type == signalPkg.SignalEntry {
 				// Entry signal - check status
 				if sigStatus == "bought" {
-					// Already handled at top of switch
 					statusText = fmt.Sprintf("🟢 BOUGHT @ %.0f%%", s.Value)
 					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 				} else if s.Value >= m.Config.GetTrading().MinEntryPercent {
 					age := time.Now().Unix() - s.Timestamp
 					if age > 30 {
-						statusText = "TIMEOUT: NO RESPONSE"
-						lineStyle = lipgloss.NewStyle().Foreground(red)
+						statusText = "TIMEOUT"
+						lineStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("#555555")) // Grey
 					} else {
-						statusText = "PROCESSING CA..."
+						statusText = "PROCESSING..."
 						lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 					}
 				} else {
-					statusText = fmt.Sprintf("SIGNAL %.0f%% (below threshold)", s.Value)
+					statusText = fmt.Sprintf("SKIP: %.0f%% (Low)", s.Value)
 					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 				}
 			} else if s.Type == signalPkg.SignalExit || s.Reached2X {
-				// Exit signal or 2X reached - use proper unit
+				// Exit signal or 2X reached
 				if sigStatus == "bought" || sigStatus == "sold" {
 					if s.Unit == "X" {
-						statusText = fmt.Sprintf("🔴 SOLD | %.1fX", s.Value)
+						statusText = fmt.Sprintf("💰 SOLD (%.1fX)", s.Value)
 					} else {
-						statusText = fmt.Sprintf("🔴 SOLD | +%.0f%%", s.Value)
+						statusText = fmt.Sprintf("💰 SOLD (+%.0f%%)", s.Value)
 					}
-					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
+					// Gold color for profits
+					lineStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("#FFD700"))
 				} else {
-					// Not held - show with correct unit
+					// Not held - show clearly as target
 					if s.Unit == "X" {
-						statusText = fmt.Sprintf("📊 %.1fX TARGET (not held)", s.Value)
+						statusText = fmt.Sprintf("🎯 TARGET: %.1fX", s.Value)
 					} else {
-						statusText = fmt.Sprintf("📊 %.0f%% EXIT (not held)", s.Value)
+						statusText = fmt.Sprintf("🎯 TARGET: %.0f%%", s.Value)
 					}
 					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 				}
-				lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 			}
 		}
 
-		// Phase 6: Append 2X Timer Info
-		// Timer Info (2X stats)
+		// Timer Info (Minimal)
 		timerInfo := ""
 		if tracked, ok := m.TrackedTokens[s.Mint]; ok {
-			// Bot 2X Time
-			var botSecs int64
-			if tracked.Bot2XTime != nil {
-				botSecs = int64(tracked.Bot2XTime.Sub(tracked.EntryTime).Seconds())
-				timerInfo += fmt.Sprintf(" ⏱ Bot: %ds", botSecs)
-			}
-
-			// TG 2X Time
+			// Only show if we have relevant data
 			if tracked.TG2XTime != nil {
 				tgSecs := int64(tracked.TG2XTime.Sub(tracked.EntryTime).Seconds())
-				timerInfo += fmt.Sprintf(" ⏱ TG: %ds", tgSecs)
+				timerInfo = fmt.Sprintf("⏱ %ds", tgSecs)
 
-				// Delta
+				// Delta if bot also saw it
 				if tracked.Bot2XTime != nil {
+					botSecs := int64(tracked.Bot2XTime.Sub(tracked.EntryTime).Seconds())
 					delta := tgSecs - botSecs
 					sign := "+"
 					if delta < 0 {
-						sign = "" // negative sign included
+						sign = ""
 					}
 					timerInfo += fmt.Sprintf(" (Δ%s%ds)", sign, delta)
 				}
 			}
 		}
 
-		line := fmt.Sprintf("> [%s] $%s | %s", ts, tokenName, statusText)
+		// Main Line: > [TIME] $TOKEN | STATUS
+		// Ensure fixed width for time/token to prevent jitter
+		tsStr := fmt.Sprintf("[%s]", ts)
+		tokenStr := fmt.Sprintf("$%-6s", tokenName) // Pad token name to 6 chars
+
+		line := fmt.Sprintf("> %s %s | %s", tsStr, tokenStr, statusText)
 		signalLines = append(signalLines, lineStyle.Render(line))
 
-		// Secondary Line (if timer info exists)
+		// Secondary Line (Indented)
 		if timerInfo != "" {
-			infoStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("#555555")).PaddingLeft(14)
-			signalLines = append(signalLines, infoStyle.Render("└─"+timerInfo))
+			// Indent to align with status text
+			// > [12:00] $TOKEN | <status starts here>
+			//                    └─ ⏱ 12s
+			indent := "                   " // ~19 chars
+			infoStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("#555555"))
+			signalLines = append(signalLines, infoStyle.Render(indent+"└─ "+timerInfo))
 		}
 	}
 
 	if len(signalLines) == 0 {
-		signalLines = []string{lipgloss.NewStyle().Foreground(dimGreen).Render("> waiting for signals...")}
+		signalLines = []string{lipgloss.NewStyle().Foreground(dimGreen).Render("> Waiting for signals...")}
 	}
 
 	signalContent := strings.Join(signalLines, "\n")
