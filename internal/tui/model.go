@@ -2266,7 +2266,7 @@ func (m Model) renderFnexDashboard() string {
 
 		switch sigStatus {
 		case "bought":
-			statusText = fmt.Sprintf("BUY SIGNAL (%.0f%%) | CA: %s", s.Value, mintShort)
+			statusText = fmt.Sprintf("🟢 BOUGHT @ %.0f%% | CA: %s", s.Value, mintShort)
 			lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 		case "no_sol", "low_sol":
 			statusText = "FAIL: LOW BALANCE"
@@ -2298,10 +2298,13 @@ func (m Model) renderFnexDashboard() string {
 			} else if s.Reached2X {
 				// Only show "SELLING" and PNL if we actually bought the token
 				if sigStatus == "bought" {
-					statusText = fmt.Sprintf("SELLING (2X TARGET HIT) | PNL: +%.0f%%", (s.Value-1)*100)
+					statusText = fmt.Sprintf("🔴 SOLD (2X HIT) | PNL: +%.0f%%", (s.Value-1)*100)
+					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
+				} else if sigStatus == "sold" {
+					statusText = fmt.Sprintf("🔴 SOLD | %.1fX", s.Value)
 					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 				} else {
-					statusText = fmt.Sprintf("TG ALERT: TARGET HIT (%.1fX)", s.Value)
+					statusText = fmt.Sprintf("📊 TG ALERT: %.1fX (not held)", s.Value)
 					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 				}
 			} else if s.Type == signalPkg.SignalEntry && s.Value >= m.Config.GetTrading().MinEntryPercent {

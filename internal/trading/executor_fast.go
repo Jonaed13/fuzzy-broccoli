@@ -844,6 +844,9 @@ func (e *ExecutorFast) executeSellFast(ctx context.Context, signal *signalPkg.Si
 			go e.removePositionAsync(signal.Mint)
 		}
 
+		// Mark as sold for TUI display
+		e.setSignalStatus(signal.Mint, "sold")
+
 		return nil // Success
 	}
 
@@ -1180,7 +1183,9 @@ func (e *ExecutorFast) monitorPositions(ctx context.Context) {
 
 			// Update 2X Stats separately (even if not auto-trading)
 			multiple := 0.0
-			if pos.Size > 0 { multiple = currentValSOL / pos.Size }
+			if pos.Size > 0 {
+				multiple = currentValSOL / pos.Size
+			}
 
 			if multiple >= cfg.TakeProfitMultiple && !pos.Reached2X {
 				pos.Reached2X = true
@@ -1195,7 +1200,9 @@ func (e *ExecutorFast) monitorPositions(ctx context.Context) {
 
 			switch decision.Action {
 			case ActionSellAll:
-				if pos.Selling { return }
+				if pos.Selling {
+					return
+				}
 				pos.Selling = true
 
 				log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering full sell")
