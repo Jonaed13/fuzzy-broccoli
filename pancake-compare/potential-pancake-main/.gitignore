@@ -1,8 +1,0 @@
-.env
-data/
-bin/
-logs/
-telegram/venv/
-telegram/__pycache__/
-*.session
-*.session-journal

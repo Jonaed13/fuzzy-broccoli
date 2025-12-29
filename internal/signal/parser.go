@@ -10,9 +10,9 @@ import (
 type SignalType string
 
 const (
-	SignalEntry  SignalType = "ENTRY"
-	SignalExit   SignalType = "EXIT"
-	SignalIgnore SignalType = "IGNORE"
+	SignalEntry  SignalType = "entry"
+	SignalExit   SignalType = "exit"
+	SignalIgnore SignalType = "ignore"
 )
 
 // Signal represents a parsed trading signal
