@@ -2269,13 +2269,13 @@ func (m Model) renderFnexDashboard() string {
 			statusText = fmt.Sprintf("🟢 BOUGHT @ %.0f%% | CA: %s", s.Value, mintShort)
 			lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 		case "no_sol", "low_sol":
-			statusText = "FAIL: LOW BALANCE"
+			statusText = "FAIL: NO FUNDS"
 			lineStyle = lipgloss.NewStyle().Foreground(red)
 		case "failed":
-			statusText = "FAIL: TX FAILED"
+			statusText = "FAIL: TX ERROR"
 			lineStyle = lipgloss.NewStyle().Foreground(red)
 		case "max_pos":
-			statusText = "SKIP: MAX POSITIONS"
+			statusText = "SKIP: MAX POS"
 			lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 		case "already_have":
 			statusText = "SKIP: POSITION EXISTS"
@@ -2337,20 +2337,20 @@ func (m Model) renderFnexDashboard() string {
 		}
 
 		// Phase 6: Append 2X Timer Info
+		// Timer Info (2X stats)
+		timerInfo := ""
 		if tracked, ok := m.TrackedTokens[s.Mint]; ok {
-			timerInfo := ""
-
 			// Bot 2X Time
 			var botSecs int64
 			if tracked.Bot2XTime != nil {
 				botSecs = int64(tracked.Bot2XTime.Sub(tracked.EntryTime).Seconds())
-				timerInfo += fmt.Sprintf(" | Bot 2X: %ds", botSecs)
+				timerInfo += fmt.Sprintf(" ⏱ Bot: %ds", botSecs)
 			}
 
 			// TG 2X Time
 			if tracked.TG2XTime != nil {
 				tgSecs := int64(tracked.TG2XTime.Sub(tracked.EntryTime).Seconds())
-				timerInfo += fmt.Sprintf(" | TG 2X: %ds", tgSecs)
+				timerInfo += fmt.Sprintf(" ⏱ TG: %ds", tgSecs)
 
 				// Delta
 				if tracked.Bot2XTime != nil {
@@ -2359,15 +2359,19 @@ func (m Model) renderFnexDashboard() string {
 					if delta < 0 {
 						sign = "" // negative sign included
 					}
-					timerInfo += fmt.Sprintf(" | Δ: %s%ds", sign, delta)
+					timerInfo += fmt.Sprintf(" (Δ%s%ds)", sign, delta)
 				}
 			}
-
-			statusText += timerInfo
 		}
 
 		line := fmt.Sprintf("> [%s] $%s | %s", ts, tokenName, statusText)
 		signalLines = append(signalLines, lineStyle.Render(line))
+
+		// Secondary Line (if timer info exists)
+		if timerInfo != "" {
+			infoStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("#555555")).PaddingLeft(14)
+			signalLines = append(signalLines, infoStyle.Render("└─"+timerInfo))
+		}
 	}
 
 	if len(signalLines) == 0 {
