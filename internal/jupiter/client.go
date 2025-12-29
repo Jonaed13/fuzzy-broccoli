@@ -380,3 +380,11 @@ func (c *Client) SetMaxPriorityFee(lamports uint64) {
 
 // SOL mint address constant
 const SOLMint = "So11111111111111111111111111111111111111112"
+
+// KeyCount returns the number of API keys available for parallel requests
+func (c *Client) KeyCount() int {
+if c == nil || len(c.apiKeys) == 0 {
+return 1
+}
+return len(c.apiKeys)
+}

@@ -1061,19 +1061,61 @@ func (e *ExecutorFast) GetMetrics() *Metrics {
 }
 
 // SellAllPositions triggers a ForceClose for every active position
+// Uses batched parallel execution with Jupiter key count as concurrency limit
 func (e *ExecutorFast) SellAllPositions(ctx context.Context) {
-	log.Warn().Int("count", len(e.positions.GetAll())).Msg("🚨 PANIC SELL TRIGGERED: Selling ALL positions")
-
 	positions := e.positions.GetAll()
-	for _, pos := range positions {
-		go func(mint string) {
-			if err := e.ForceClose(ctx, mint); err != nil {
-				log.Error().Err(err).Str("mint", mint).Msg("failed to force close during panic sell")
-			}
-		}(pos.Mint)
-		// Small stagger to avoid rate limits
-		time.Sleep(100 * time.Millisecond)
+	if len(positions) == 0 {
+		log.Info().Msg("No positions to sell")
+		return
 	}
+
+	// Get Jupiter key count for concurrency limit (default 7)
+	maxConcurrent := e.jupiter.KeyCount()
+	if maxConcurrent <= 0 {
+		maxConcurrent = 7
+	}
+
+	log.Warn().
+		Int("positions", len(positions)).
+		Int("batchSize", maxConcurrent).
+		Msg("🚨 PANIC SELL: Batched parallel execution")
+
+	// Process in batches
+	for i := 0; i < len(positions); i += maxConcurrent {
+		end := i + maxConcurrent
+		if end > len(positions) {
+			end = len(positions)
+		}
+
+		batch := positions[i:end]
+		log.Info().
+			Int("batch", i/maxConcurrent+1).
+			Int("size", len(batch)).
+			Msg("Processing sell batch")
+
+		// Execute batch in parallel
+		var wg sync.WaitGroup
+		wg.Add(len(batch))
+
+		for _, pos := range batch {
+			go func(mint string) {
+				defer wg.Done()
+				if err := e.ForceClose(ctx, mint); err != nil {
+					log.Error().Err(err).Str("mint", mint).Msg("batch sell failed")
+				}
+			}(pos.Mint)
+		}
+
+		// Wait for batch to complete before next batch
+		wg.Wait()
+
+		// Small delay between batches to avoid rate limits
+		if end < len(positions) {
+			time.Sleep(200 * time.Millisecond)
+		}
+	}
+
+	log.Info().Msg("✅ All sell batches completed")
 }
 
 // ForceClose force-closes a position by selling all tokens

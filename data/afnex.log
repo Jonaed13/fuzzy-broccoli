@@ -6311,3 +6311,26 @@
 {"level":"info","addr":"0.0.0.0:8080","time":"2025-12-29T12:28:45Z","message":"starting signal server"}
 {"level":"info","count":50,"time":"2025-12-29T12:28:45Z","message":"Restored signal feed history"}
 {"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-29T12:33:45Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-29T12:38:45Z","message":"Failed to update SOL price cache"}
+{"level":"info","time":"2025-12-29T12:39:24Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-29T12:39:24Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-29T12:39:31Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-29T12:39:31Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-29T12:39:32Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-29T12:39:32Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-29T12:39:32Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-29T12:39:32Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-29T12:39:32Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-29T12:39:32Z","message":"loaded positions from DB"}
+{"level":"info","entries":44,"wins":30,"time":"2025-12-29T12:39:32Z","message":"Loaded persistence stats from DB"}
+{"level":"info","count":0,"time":"2025-12-29T12:39:32Z","message":"Restored seen entries from DB"}
+{"level":"info","count":0,"time":"2025-12-29T12:39:32Z","message":"Restored seen 2X exits from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-29T12:39:32Z","message":"trading engine initialized"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-29T12:39:32Z","message":"Failed to update SOL price cache"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-29T12:39:32Z","message":"WebSocket connected"}
+{"level":"info","time":"2025-12-29T12:39:32Z","message":"📡 WebSocket connected - real-time mode active"}
+{"level":"info","addr":"92eEmdPR...","subID":714962,"time":"2025-12-29T12:39:32Z","message":"subscribed to wallet balance"}
+{"level":"info","url":"wss://rpc.shyft.to?api_key=48KZbYxP-9e9S...","time":"2025-12-29T12:39:32Z","message":"WebSocket + PriceFeed + WalletMonitor initialized"}
+{"level":"info","path":"data/trades.db","time":"2025-12-29T12:39:32Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-29T12:39:32Z","message":"starting signal server"}
+{"level":"info","count":50,"time":"2025-12-29T12:39:32Z","message":"Restored signal feed history"}
