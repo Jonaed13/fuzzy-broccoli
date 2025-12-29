@@ -349,3 +349,28 @@ func (d *DB) LoadSeenEntries() (map[string]bool, error) {
 
 	return seen, rows.Err()
 }
+
+// LoadSeen2X loads mints that had an EXIT signal in the last 24h (for double-count prevention)
+func (d *DB) LoadSeen2X() (map[string]bool, error) {
+cutoff := time.Now().Add(-24 * time.Hour).Unix()
+
+rows, err := d.db.Query(`
+SELECT DISTINCT mint 
+FROM signals 
+WHERE signal_type = 'exit' AND timestamp > ? AND mint != ''`, cutoff)
+if err != nil {
+return nil, err
+}
+defer rows.Close()
+
+seen := make(map[string]bool)
+for rows.Next() {
+var mint string
+if err := rows.Scan(&mint); err != nil {
+continue
+}
+seen[mint] = true
+}
+
+return seen, rows.Err()
+}

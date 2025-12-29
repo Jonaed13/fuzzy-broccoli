@@ -149,6 +149,15 @@ func NewExecutorFast(
 			e.statsMu.Unlock()
 			log.Info().Int("count", len(seen)).Msg("Restored seen entries from DB")
 		}
+		// Load previously seen 2X exits (prevent double-count after restart)
+		if seen2x, err := db.LoadSeen2X(); err == nil {
+			e.statsMu.Lock()
+			for k := range seen2x {
+				e.seen2X[k] = true
+			}
+			e.statsMu.Unlock()
+			log.Info().Int("count", len(seen2x)).Msg("Restored seen 2X exits from DB")
+		}
 	}
 
 	return e
@@ -1485,7 +1494,8 @@ func (e *ExecutorFast) checkTrackedTokens2X() {
 	defer e.trackedTokensMu.RUnlock()
 
 	for mint, t := range e.trackedTokens {
-		if t.Bot2XTime != nil || t.InitialMC == 0 || !t.Subscribed {
+		// Skip if already hit 2X or no InitialMC
+		if t.Bot2XTime != nil || t.InitialMC == 0 {
 			continue
 		}
 
