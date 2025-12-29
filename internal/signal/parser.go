@@ -46,8 +46,9 @@ type Parser struct {
 // NewParser creates a new signal parser
 func NewParser() *Parser {
 	return &Parser{
-		// Match: 📈 TOKEN is up 50% 📈 or 📈 TOKEN is up 2.5X 📈
-		pattern: regexp.MustCompile(`📈\s*([A-Z0-9]+)\s+is\s+up\s+([0-9.]+)\s*(%|X)\s*📈`),
+		// Match: 📈 TOKEN is up 50% 📈 or 📈 TOKEN (url) is up 2.5X 📈
+		// We use .*? for non-greedy match of optional URL/text between token and "is up"
+		pattern: regexp.MustCompile(`📈\s*([A-Z0-9]+).*?is\s+up\s+([0-9.]+)\s*(%|X)\s*📈`),
 		// Match Solana addresses (Base58, 43-44 chars)
 		caPattern: regexp.MustCompile(`[1-9A-HJ-NP-Za-km-z]{43,44}`),
 		// FIX: Match CA from GeckoTerminal URLs
