@@ -430,6 +430,23 @@ func (e *ExecutorFast) ProcessSignalFast(ctx context.Context, signal *signalPkg.
 	}
 	e.markSignalSeen(signal.MsgID)
 
+	// FIX: Save signal to DB for TUI display
+	if e.db != nil {
+		// Convert signalPkg.Signal to storage.Signal
+		storageSig := &storage.Signal{
+			TokenName:  signal.TokenName,
+			Value:      signal.Value,
+			Unit:       signal.Unit,
+			SignalType: string(signal.Type),
+			MsgID:      signal.MsgID,
+			Timestamp:  signal.Timestamp,
+			Mint:       signal.Mint,
+		}
+		if err := e.db.InsertSignal(storageSig); err != nil {
+			log.Error().Err(err).Msg("failed to save signal to DB")
+		}
+	}
+
 	timer.MarkParseDone()
 	timer.MarkResolveDone()
 
