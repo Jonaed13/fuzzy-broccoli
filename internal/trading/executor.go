@@ -93,7 +93,7 @@ func (e *Executor) ProcessSignal(ctx context.Context, signal *signalPkg.Signal) 
 	case signalPkg.SignalEntry:
 		return e.executeBuy(ctx, signal)
 	case signalPkg.SignalExit:
-		return e.executeSell(ctx, signal)
+		return e.executeSell(ctx, signal, nil)
 	default:
 		log.Debug().Str("token", signal.TokenName).Msg("signal ignored")
 		return nil
@@ -197,7 +197,8 @@ func (e *Executor) executeBuy(ctx context.Context, signal *signalPkg.Signal) err
 }
 
 // executeSell executes a sell trade
-func (e *Executor) executeSell(ctx context.Context, signal *signalPkg.Signal) error {
+// accepts optional quote
+func (e *Executor) executeSell(ctx context.Context, signal *signalPkg.Signal, quote *jupiter.QuoteResponse) error {
 	start := time.Now()
 
 	// Check if position exists
@@ -230,7 +231,13 @@ func (e *Executor) executeSell(ctx context.Context, signal *signalPkg.Signal) er
 	}
 
 	// Get swap transaction from Jupiter (token -> SOL)
-	swapTx, err := e.jupiter.GetSwapTransaction(ctx, signal.Mint, jupiter.SOLMint, e.wallet.Address(), tokenAmount)
+	var swapTx string
+	if quote != nil {
+		swapTx, err = e.jupiter.GetSwapTransactionWithQuote(ctx, quote, e.wallet.Address())
+	} else {
+		swapTx, err = e.jupiter.GetSwapTransaction(ctx, signal.Mint, jupiter.SOLMint, e.wallet.Address(), tokenAmount)
+	}
+
 	if err != nil {
 		log.Error().Err(err).Msg("failed to get Jupiter swap TX")
 		return err
@@ -327,60 +334,66 @@ func (e *Executor) monitorPositions(ctx context.Context) {
 	
 	cfg := e.cfg.GetTrading()
 	
-	for _, pos := range positions {
-		// Get current token balance
-		balance, err := e.getTokenBalance(ctx, pos.Mint)
-		if err != nil || balance == 0 { continue }
-		
-		// Get Quote for ALL tokens -> SOL
-		quote, err := e.jupiter.GetQuote(ctx, pos.Mint, jupiter.SOLMint, balance)
-		if err != nil { continue }
-		
-		outAmount := 0.0
-		fmt.Sscanf(quote.OutAmount, "%f", &outAmount)
-		currentValSOL := outAmount / 1e9
-		
-		// Update Position Stats
-		// pos.CurrentValue = currentValSOL
-		// pos.PnLSol = currentValSOL - pos.Size
-		// if pos.Size > 0 {
-		// 	pos.PnLPercent = ((currentValSOL / pos.Size) - 1.0) * 100
-		// }
-		
-		multiple := pos.UpdateStats(currentValSOL, balance)
+	var wg sync.WaitGroup
+	wg.Add(len(positions))
 
-		// Logic: 2X Detection
-		// multiple := 0.0
-		// if pos.Size > 0 { multiple = currentValSOL / pos.Size }
-		
-		if multiple >= 2.0 && !pos.IsReached2X() {
-			pos.SetReached2X(true)
-			log.Info().Str("token", pos.TokenName).Msg("reached 2X! marked as win")
-		}
-		
-		// Logic: Partial Profit-Taking
-		if cfg.PartialProfitPercent > 0 && cfg.PartialProfitMultiple > 1.0 {
-			if multiple >= cfg.PartialProfitMultiple && !pos.IsPartialSold() {
-				log.Info().Str("token", pos.TokenName).Float64("mult", multiple).Msg("triggering partial profit take")
-				e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
+	for _, pos := range positions {
+		go func(pos *Position) {
+			defer wg.Done()
+
+			// Get current token balance
+			balance, err := e.getTokenBalance(ctx, pos.Mint)
+			if err != nil || balance == 0 { return }
+
+			// Get Quote for ALL tokens -> SOL
+			quote, err := e.jupiter.GetQuote(ctx, pos.Mint, jupiter.SOLMint, balance)
+			if err != nil { return }
+
+			outAmount := 0.0
+			fmt.Sscanf(quote.OutAmount, "%f", &outAmount)
+			currentValSOL := outAmount / 1e9
+
+			// Update Position Stats
+			multiple := pos.UpdateStats(currentValSOL, balance)
+
+			// Evaluate Exit
+			decision := evaluateExit(pos, currentValSOL, cfg, time.Now())
+
+			// Update 2X Status (Tracking only)
+			if multiple >= 2.0 && !pos.IsReached2X() {
+				pos.SetReached2X(true)
+				log.Info().Str("token", pos.TokenName).Msg("reached 2X! marked as win")
 			}
-		}
-		
-		// Logic: Time-Based Exit
-		if cfg.MaxHoldMinutes > 0 {
-			if time.Since(pos.EntryTime) > time.Duration(cfg.MaxHoldMinutes)*time.Minute {
-				log.Info().Str("token", pos.TokenName).Msg("max hold time reached, selling all")
-				// Create a fake signal to trigger full sell
+
+			// Execute Decision
+			if !cfg.AutoTradingEnabled {
+				return
+			}
+
+			switch decision.Action {
+			case ActionSellAll:
+				log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering full sell")
+
 				sig := &signalPkg.Signal{
 					Mint:      pos.Mint,
 					TokenName: pos.TokenName,
 					Type:      signalPkg.SignalExit,
 					Value:     currentValSOL,
 				}
-				e.executeSell(ctx, sig)
+				e.executeSell(ctx, sig, quote)
+
+			case ActionSellPartial:
+				if !pos.IsPartialSold() {
+					log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering partial sell")
+					e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
+				}
+
+			case ActionNone:
+				// No action
 			}
-		}
+		}(pos)
 	}
+	wg.Wait()
 }
 
 func (e *Executor) executePartialSell(ctx context.Context, pos *Position, percent float64) {
@@ -434,22 +447,21 @@ func (e *Executor) ForceClose(ctx context.Context, mint string) error {
 		Timestamp: storage.Now(),
 	}
 
-	return e.executeSell(ctx, signal)
+	return e.executeSell(ctx, signal, nil)
 }
 
 // getTokenBalance queries the actual token balance for a given mint
 func (e *Executor) getTokenBalance(ctx context.Context, mint string) (uint64, error) {
-	// This would typically use getTokenAccountsByOwner or similar RPC call
-	// For now, we'll use a simplified approach that may require enhancement
-	// 
-	// In a full implementation, you would:
-	// 1. Derive the Associated Token Account (ATA) address
-	// 2. Call getTokenAccountBalance on that address
-	//
-	// For Jupiter swaps, often the actual balance doesn't need to be exact
-	// as Jupiter will use all available balance when you specify a high amount
-	
-	// Return a max value which Jupiter will interpret as "sell all"
-	// Jupiter API handles partial fills appropriately
-	return 0xFFFFFFFFFFFFFFFF, nil
+	// Get token accounts for this mint
+	tokenAccounts, err := e.rpc.GetTokenAccountsByOwner(ctx, e.wallet.Address(), mint)
+	if err != nil {
+		return 0, err
+	}
+
+	var totalBalance uint64
+	for _, acc := range tokenAccounts {
+		totalBalance += acc.Amount
+	}
+
+	return totalBalance, nil
 }
