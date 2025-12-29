@@ -1,5 +1,5 @@
 blockchain:
-    balance_refresh_seconds: 10
+    balance_refresh_seconds: 5
     blockhash_refresh_ms: 100
     blockhash_ttl_seconds: 60
 fees:
@@ -10,7 +10,7 @@ jupiter:
     slippage_bps: 2000
     timeout_seconds: 10
 rpc:
-    fallback_url: https://mainnet.helius-rpc.com/?api-key=465a28e0-e3b3-4991-8878-0e7adbb78f81
+    fallback_url: https://api.mainnet-beta.solana.com
     shyft_api_key_env: SHYFT_API_KEY
     shyft_url: https://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR
 storage:
@@ -25,6 +25,7 @@ trading:
     max_open_positions: 25
     min_entry_percent: 50
     simulation_mode: false
+    stop_loss_percent: 0
     take_profit_multiple: 2
 tui:
     log_lines: 100
@@ -34,5 +35,3 @@ wallet:
     private_key_env: WALLET_PRIVATE_KEY
 websocket:
     ping_interval_ms: 30000
-    reconnect_delay_ms: 1000
-    shyft_url: wss://rpc.shyft.to?api_key=48KZbYxP-9e9SpqR

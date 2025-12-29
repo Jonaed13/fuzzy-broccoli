@@ -12,6 +12,7 @@ require (
 	github.com/fsnotify/fsnotify v1.9.0
 	github.com/gofiber/fiber/v2 v2.52.10
 	github.com/gorilla/websocket v1.5.3
+	github.com/joho/godotenv v1.5.1
 	github.com/mattn/go-runewidth v0.0.19
 	github.com/mr-tron/base58 v1.2.0
 	github.com/rs/zerolog v1.34.0

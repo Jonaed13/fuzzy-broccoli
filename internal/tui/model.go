@@ -2304,7 +2304,7 @@ func (m Model) renderFnexDashboard() string {
 					statusText = fmt.Sprintf("🔴 SOLD | %.1fX", s.Value)
 					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 				} else {
-					statusText = fmt.Sprintf("📊 TG ALERT: %.1fX (not held)", s.Value)
+					statusText = fmt.Sprintf("📊 %.1fX TARGET (not held)", s.Value)
 					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 				}
 			} else if s.Type == signalPkg.SignalEntry && s.Value >= m.Config.GetTrading().MinEntryPercent {
