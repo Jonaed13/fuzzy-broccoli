@@ -6423,3 +6423,4 @@
 {"level":"info","token":"BAC","value":2,"unit":"X","type":"exit","mint":"KZctUA3WR2AZotkZBB5mfFKHMGmNMXXJWWGEwYxpump","time":"2025-12-29T14:48:49Z","message":"signal received"}
 {"level":"info","token":"BAC","elapsed":115231.015001,"time":"2025-12-29T14:48:49Z","message":"📡 TG announced 2X"}
 {"level":"info","token":"BAC","value":2,"counted":true,"time":"2025-12-29T14:48:49Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-29T14:52:55Z","message":"Failed to update SOL price cache"}

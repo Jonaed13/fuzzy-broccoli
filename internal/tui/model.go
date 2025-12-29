@@ -2295,16 +2295,25 @@ func (m Model) renderFnexDashboard() string {
 				retryNum := sigStatus[6:]
 				statusText = fmt.Sprintf("RETRYING... (%s/2)", retryNum)
 				lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
-			} else if s.Reached2X {
-				// Only show "SELLING" and PNL if we actually bought the token
+			} else if s.Reached2X || s.Type == signalPkg.SignalExit {
+				// Exit signal or 2X reached - use proper unit
 				if sigStatus == "bought" {
 					statusText = fmt.Sprintf("🔴 SOLD (2X HIT) | PNL: +%.0f%%", (s.Value-1)*100)
 					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 				} else if sigStatus == "sold" {
-					statusText = fmt.Sprintf("🔴 SOLD | %.1fX", s.Value)
+					if s.Unit == "X" {
+						statusText = fmt.Sprintf("🔴 SOLD | %.1fX", s.Value)
+					} else {
+						statusText = fmt.Sprintf("🔴 SOLD | %.0f%%", s.Value)
+					}
 					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 				} else {
-					statusText = fmt.Sprintf("📊 %.1fX TARGET (not held)", s.Value)
+					// Not held - show with correct unit
+					if s.Unit == "X" {
+						statusText = fmt.Sprintf("📊 %.1fX TARGET (not held)", s.Value)
+					} else {
+						statusText = fmt.Sprintf("📊 %.0f%% EXIT (not held)", s.Value)
+					}
 					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 				}
 			} else if s.Type == signalPkg.SignalEntry && s.Value >= m.Config.GetTrading().MinEntryPercent {
