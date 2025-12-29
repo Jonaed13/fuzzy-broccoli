@@ -2295,16 +2295,32 @@ func (m Model) renderFnexDashboard() string {
 				retryNum := sigStatus[6:]
 				statusText = fmt.Sprintf("RETRYING... (%s/2)", retryNum)
 				lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
-			} else if s.Reached2X || s.Type == signalPkg.SignalExit {
-				// Exit signal or 2X reached - use proper unit
+			} else if s.Type == signalPkg.SignalEntry {
+				// Entry signal - check status
 				if sigStatus == "bought" {
-					statusText = fmt.Sprintf("🔴 SOLD (2X HIT) | PNL: +%.0f%%", (s.Value-1)*100)
+					// Already handled at top of switch
+					statusText = fmt.Sprintf("🟢 BOUGHT @ %.0f%%", s.Value)
 					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
-				} else if sigStatus == "sold" {
+				} else if s.Value >= m.Config.GetTrading().MinEntryPercent {
+					age := time.Now().Unix() - s.Timestamp
+					if age > 30 {
+						statusText = "TIMEOUT: NO RESPONSE"
+						lineStyle = lipgloss.NewStyle().Foreground(red)
+					} else {
+						statusText = "PROCESSING CA..."
+						lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
+					}
+				} else {
+					statusText = fmt.Sprintf("SIGNAL %.0f%% (below threshold)", s.Value)
+					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
+				}
+			} else if s.Type == signalPkg.SignalExit || s.Reached2X {
+				// Exit signal or 2X reached - use proper unit
+				if sigStatus == "bought" || sigStatus == "sold" {
 					if s.Unit == "X" {
 						statusText = fmt.Sprintf("🔴 SOLD | %.1fX", s.Value)
 					} else {
-						statusText = fmt.Sprintf("🔴 SOLD | %.0f%%", s.Value)
+						statusText = fmt.Sprintf("🔴 SOLD | +%.0f%%", s.Value)
 					}
 					lineStyle = lipgloss.NewStyle().Foreground(phosphor)
 				} else {
@@ -2316,18 +2332,6 @@ func (m Model) renderFnexDashboard() string {
 					}
 					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 				}
-			} else if s.Type == signalPkg.SignalEntry && s.Value >= m.Config.GetTrading().MinEntryPercent {
-				// Phase 1: Check for timeout (30 seconds)
-				age := time.Now().Unix() - s.Timestamp
-				if age > 30 {
-					statusText = "TIMEOUT: NO RESPONSE"
-					lineStyle = lipgloss.NewStyle().Foreground(red)
-				} else {
-					statusText = "PROCESSING CA..."
-					lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
-				}
-			} else {
-				statusText = fmt.Sprintf("SIGNAL %.0f%% (below threshold)", s.Value)
 				lineStyle = lipgloss.NewStyle().Foreground(dimGreen)
 			}
 		}
