@@ -334,65 +334,66 @@ func (e *Executor) monitorPositions(ctx context.Context) {
 	
 	cfg := e.cfg.GetTrading()
 	
+	var wg sync.WaitGroup
+	wg.Add(len(positions))
+
 	for _, pos := range positions {
-		// Get current token balance
-		balance, err := e.getTokenBalance(ctx, pos.Mint)
-		if err != nil || balance == 0 { continue }
-		
-		// Get Quote for ALL tokens -> SOL
-		quote, err := e.jupiter.GetQuote(ctx, pos.Mint, jupiter.SOLMint, balance)
-		if err != nil { continue }
-		
-		outAmount := 0.0
-		fmt.Sscanf(quote.OutAmount, "%f", &outAmount)
-		currentValSOL := outAmount / 1e9
-		
-		// Update Position Stats
-		// pos.CurrentValue = currentValSOL
-		// pos.PnLSol = currentValSOL - pos.Size
-		// if pos.Size > 0 {
-		// 	pos.PnLPercent = ((currentValSOL / pos.Size) - 1.0) * 100
-		// }
-		
-		multiple := pos.UpdateStats(currentValSOL, balance)
+		go func(pos *Position) {
+			defer wg.Done()
 
-		// Evaluate Exit
-		decision := evaluateExit(pos, currentValSOL, cfg, time.Now())
+			// Get current token balance
+			balance, err := e.getTokenBalance(ctx, pos.Mint)
+			if err != nil || balance == 0 { return }
 
-		// Update 2X Status (Tracking only)
-		if multiple >= 2.0 && !pos.IsReached2X() {
-			pos.SetReached2X(true)
-			log.Info().Str("token", pos.TokenName).Msg("reached 2X! marked as win")
-		}
-		
-		// Execute Decision
-		if !cfg.AutoTradingEnabled {
-			continue
-		}
+			// Get Quote for ALL tokens -> SOL
+			quote, err := e.jupiter.GetQuote(ctx, pos.Mint, jupiter.SOLMint, balance)
+			if err != nil { return }
 
-		switch decision.Action {
-		case ActionSellAll:
-			// Prevent duplicate sells if we had a lock/flag mechanism
-			log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering full sell")
+			outAmount := 0.0
+			fmt.Sscanf(quote.OutAmount, "%f", &outAmount)
+			currentValSOL := outAmount / 1e9
 
-			sig := &signalPkg.Signal{
-				Mint:      pos.Mint,
-				TokenName: pos.TokenName,
-				Type:      signalPkg.SignalExit,
-				Value:     currentValSOL,
-			}
-			e.executeSell(ctx, sig, quote)
+			// Update Position Stats
+			multiple := pos.UpdateStats(currentValSOL, balance)
 
-		case ActionSellPartial:
-			if !pos.IsPartialSold() {
-				log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering partial sell")
-				e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
+			// Evaluate Exit
+			decision := evaluateExit(pos, currentValSOL, cfg, time.Now())
+
+			// Update 2X Status (Tracking only)
+			if multiple >= 2.0 && !pos.IsReached2X() {
+				pos.SetReached2X(true)
+				log.Info().Str("token", pos.TokenName).Msg("reached 2X! marked as win")
 			}
 
-		case ActionNone:
-			// No action
-		}
+			// Execute Decision
+			if !cfg.AutoTradingEnabled {
+				return
+			}
+
+			switch decision.Action {
+			case ActionSellAll:
+				log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering full sell")
+
+				sig := &signalPkg.Signal{
+					Mint:      pos.Mint,
+					TokenName: pos.TokenName,
+					Type:      signalPkg.SignalExit,
+					Value:     currentValSOL,
+				}
+				e.executeSell(ctx, sig, quote)
+
+			case ActionSellPartial:
+				if !pos.IsPartialSold() {
+					log.Info().Str("token", pos.TokenName).Str("reason", decision.Reason).Msg("triggering partial sell")
+					e.executePartialSell(ctx, pos, cfg.PartialProfitPercent)
+				}
+
+			case ActionNone:
+				// No action
+			}
+		}(pos)
 	}
+	wg.Wait()
 }
 
 func (e *Executor) executePartialSell(ctx context.Context, pos *Position, percent float64) {
