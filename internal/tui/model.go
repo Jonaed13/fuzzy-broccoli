@@ -2231,7 +2231,7 @@ func (m Model) renderFnexDashboard() string {
 	signalTitle := lipgloss.NewStyle().
 		Foreground(phosphor).
 		Bold(true).
-		Render("SIGNAL FEED [TG LISTENER]")
+		Render("NEXFEED")
 
 	var signalLines []string
 	visibleSignals := bodyHeight - 4
