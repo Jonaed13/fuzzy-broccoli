@@ -2,7 +2,9 @@ package trading
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"net/http"
 	"strconv"
 	"sync"
 	"time"
@@ -1445,23 +1447,75 @@ func (e *ExecutorFast) lookupPoolAddress(mint string) string {
 		return pos.PoolAddr
 	}
 
-	// 2. Query Jupiter for a quote to find the AMM Pool Address
-	// We simulate a buy of 0.01 SOL to find the best route
-	quote, err := e.jupiter.GetQuote(context.Background(), jupiter.SOLMint, mint, 10000000)
+	// 2. Try DexScreener API first (better coverage for new tokens)
+	poolAddr := e.lookupPoolViaDexScreener(mint)
+	if poolAddr != "" {
+		log.Debug().
+			Str("mint", safeMintPrefix(mint)).
+			Str("pool", safeMintPrefix(poolAddr)).
+			Msg("found pool address via DexScreener")
+		return poolAddr
+	}
+
+	// 3. Fallback: Query Jupiter for a quote to find the AMM Pool Address
+	if e.jupiter != nil {
+		quote, err := e.jupiter.GetQuote(context.Background(), jupiter.SOLMint, mint, 10000000)
+		if err == nil && len(quote.RoutePlan) > 0 {
+			poolAddr = quote.RoutePlan[0].SwapInfo.AmmKey
+			if poolAddr != "" {
+				log.Debug().
+					Str("mint", safeMintPrefix(mint)).
+					Str("pool", safeMintPrefix(poolAddr)).
+					Msg("found pool address via Jupiter")
+				return poolAddr
+			}
+		}
+	}
+
+	return ""
+}
+
+// lookupPoolViaDexScreener queries DexScreener API for pool address
+func (e *ExecutorFast) lookupPoolViaDexScreener(mint string) string {
+	// DexScreener API: https://api.dexscreener.com/latest/dex/tokens/{tokenAddress}
+	url := fmt.Sprintf("https://api.dexscreener.com/latest/dex/tokens/%s", mint)
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
-		log.Debug().Err(err).Str("mint", safeMintPrefix(mint)).Msg("failed to lookup pool via Jupiter")
 		return ""
 	}
 
-	// 3. Extract AMM Pool ID from the route plan
-	if len(quote.RoutePlan) > 0 {
-		poolAddr := quote.RoutePlan[0].SwapInfo.AmmKey
-		if poolAddr != "" {
-			log.Debug().
-				Str("mint", safeMintPrefix(mint)).
-				Str("pool", safeMintPrefix(poolAddr)).
-				Msg("found pool address via Jupiter")
-			return poolAddr
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		log.Debug().Err(err).Str("mint", safeMintPrefix(mint)).Msg("DexScreener lookup failed")
+		return ""
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		return ""
+	}
+
+	// Parse response
+	var result struct {
+		Pairs []struct {
+			PairAddress string `json:"pairAddress"`
+			ChainID     string `json:"chainId"`
+			DexID       string `json:"dexId"`
+		} `json:"pairs"`
+	}
+
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return ""
+	}
+
+	// Find first Solana pair (prefer Raydium)
+	for _, pair := range result.Pairs {
+		if pair.ChainID == "solana" && pair.PairAddress != "" {
+			return pair.PairAddress
 		}
 	}
 
@@ -1579,21 +1633,25 @@ func (e *ExecutorFast) checkTrackedTokens2X() {
 		if e.priceFeed != nil {
 			price = e.priceFeed.GetPrice(mint)
 		}
-		
+
 		// FIX: Fallback to Jupiter quote if no WebSocket price
 		if price == 0 && e.jupiter != nil {
 			// Get quote for 1 token -> SOL to find price
 			quote, err := e.jupiter.GetQuote(context.Background(), mint, jupiter.SOLMint, 1_000_000_000) // 1 token (assuming 9 decimals)
-			if err == nil && quote.OutAmount > 0 {
-				// Convert lamports to SOL
-				price = float64(quote.OutAmount) / 1e9
-				log.Debug().
-					Str("mint", safeMintPrefix(mint)).
-					Float64("price", price).
-					Msg("Got price via Jupiter fallback")
+			if err == nil && quote.OutAmount != "" {
+				// Parse string to int64
+				outAmount, parseErr := strconv.ParseInt(quote.OutAmount, 10, 64)
+				if parseErr == nil && outAmount > 0 {
+					// Convert lamports to SOL
+					price = float64(outAmount) / 1e9
+					log.Debug().
+						Str("mint", safeMintPrefix(mint)).
+						Float64("price", price).
+						Msg("Got price via Jupiter fallback")
+				}
 			}
 		}
-		
+
 		if price == 0 {
 			continue
 		}

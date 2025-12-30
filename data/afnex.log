@@ -7228,3 +7228,12 @@
 {"level":"warn","token":"XPAY","time":"2025-12-30T09:16:12Z","message":"⚠️ IGNORED 2X: Missed Entry Signal"}
 {"level":"info","token":"XPAY","value":4.6,"counted":false,"time":"2025-12-30T09:16:12Z","message":"📊 2X SIGNAL DETECTED"}
 {"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T09:17:26Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T09:22:26Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"NOC","value":57,"unit":"%","type":"entry","mint":"gdRMcGEJF2QeQpSEcUQLc2zjQ548QDLH97yZWxGpump","time":"2025-12-30T09:24:13Z","message":"signal received"}
+{"level":"info","token":"NOC","mint":"gdRMcGEJ...","mc":0,"time":"2025-12-30T09:24:13Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"NOC","value":57,"unit":"%","time":"2025-12-30T09:24:13Z","message":"📊 SIGNAL FOUND"}
+{"level":"error","token":"NOC","time":"2025-12-30T09:24:13Z","message":"❌ CANNOT BUY: Wallet balance is 0 SOL! Fund your wallet."}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T09:27:26Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T09:32:26Z","message":"Failed to update SOL price cache"}
+{"level":"info","time":"2025-12-30T09:32:40Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-30T09:32:40Z","message":"ExecutorFast shutdown complete"}
