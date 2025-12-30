@@ -1574,8 +1574,26 @@ func (e *ExecutorFast) checkTrackedTokens2X() {
 			continue
 		}
 
-		// Get current price (SOL)
-		price := e.priceFeed.GetPrice(mint)
+		// Get current price (SOL) - try WebSocket first, then Jupiter fallback
+		price := float64(0)
+		if e.priceFeed != nil {
+			price = e.priceFeed.GetPrice(mint)
+		}
+		
+		// FIX: Fallback to Jupiter quote if no WebSocket price
+		if price == 0 && e.jupiter != nil {
+			// Get quote for 1 token -> SOL to find price
+			quote, err := e.jupiter.GetQuote(context.Background(), mint, jupiter.SOLMint, 1_000_000_000) // 1 token (assuming 9 decimals)
+			if err == nil && quote.OutAmount > 0 {
+				// Convert lamports to SOL
+				price = float64(quote.OutAmount) / 1e9
+				log.Debug().
+					Str("mint", safeMintPrefix(mint)).
+					Float64("price", price).
+					Msg("Got price via Jupiter fallback")
+			}
+		}
+		
 		if price == 0 {
 			continue
 		}
