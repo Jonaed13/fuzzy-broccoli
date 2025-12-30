@@ -339,66 +339,91 @@ func (e *ExecutorFast) resubscribePositions() {
 
 // handleRealTimePriceUpdate processes WebSocket price updates for INSTANT 2X detection
 func (e *ExecutorFast) handleRealTimePriceUpdate(update ws.PriceUpdate) {
+	// ==== PART 1: Handle BOUGHT positions (existing logic) ====
 	pos := e.positions.Get(update.Mint)
-	if pos == nil {
-		return
+	if pos != nil {
+		// Update position with new balance
+		if update.TokenBalance == 0 && pos.TokenBalance > 0 {
+			log.Warn().Str("mint", safeMintPrefix(update.Mint)).Msg("token balance dropped to 0 - removing position")
+			e.positions.Remove(update.Mint)
+			return
+		}
+
+		// Real-time price check for positions
+		if update.PriceSOL > 0 {
+			currentValueSOL := update.PriceSOL * float64(update.TokenBalance)
+			multiple := pos.UpdateStats(currentValueSOL, update.TokenBalance)
+
+			cfg := e.cfg.GetTrading()
+			if cfg.AutoTradingEnabled && multiple >= cfg.TakeProfitMultiple && !pos.IsReached2X() {
+				pos.SetReached2X(true)
+				e.increment2XSignal(pos.Mint)
+				e.setBotDetected2X(update.Mint)
+
+				log.Info().
+					Str("token", pos.TokenName).
+					Float64("multiple", multiple).
+					Msg("🚀 REAL-TIME 2X DETECTED - TRIGGERING AUTO-SELL")
+
+				mint := update.Mint
+				tokenName := pos.TokenName
+				mult := multiple
+				go func() {
+					signal := &signalPkg.Signal{
+						Mint:      mint,
+						TokenName: tokenName,
+						Type:      signalPkg.SignalExit,
+						Value:     mult,
+						Unit:      "X",
+					}
+					e.executeSellFast(context.Background(), signal, NewTradeTimer(), nil)
+				}()
+			}
+
+			log.Debug().
+				Str("mint", safeMintPrefix(update.Mint)).
+				Float64("price", update.PriceSOL).
+				Float64("pnl", pos.PnLPercent).
+				Msg("real-time price update (position)")
+		} else {
+			pos.SetTokenBalance(update.TokenBalance)
+		}
+		return // Position handled, exit
 	}
 
-	// Update position with new balance
-	if update.TokenBalance == 0 && pos.TokenBalance > 0 {
-		log.Warn().Str("mint", safeMintPrefix(update.Mint)).Msg("token balance dropped to 0 - removing position")
-		e.positions.Remove(update.Mint)
-		return
-	}
-
-	// Real-time price check (if price available from WebSocket)
+	// ==== PART 2: Handle UNBOUGHT tokens (TrackedTokens) for 2X timing ====
 	if update.PriceSOL > 0 {
-		// Calculate current value
-		currentValueSOL := update.PriceSOL * float64(update.TokenBalance)
+		tracked := e.getTrackedToken(update.Mint)
+		if tracked == nil || tracked.Bot2XTime != nil || tracked.InitialMC == 0 {
+			return // Not tracked, already hit 2X, or no InitialMC
+		}
 
-		// THREAD-SAFE: Use UpdateStats to atomically update position
-		multiple := pos.UpdateStats(currentValueSOL, update.TokenBalance)
+		// Calculate current MC from WebSocket price
+		estimatedSolPrice := e.getSolPrice()
+		supply := tracked.TotalSupply
+		if supply == 0 {
+			supply = 1_000_000_000.0 // Assume 1B tokens
+		}
 
-		// INSTANT 2X CHECK (per ms, not per 5 seconds!)
-		cfg := e.cfg.GetTrading()
-		if cfg.AutoTradingEnabled && multiple >= cfg.TakeProfitMultiple && !pos.IsReached2X() {
-			pos.SetReached2X(true)
-			// FIX: Use increment2XSignal for stats (works even with 0 SOL)
-			e.increment2XSignal(pos.Mint)
+		currentMC := update.PriceSOL * estimatedSolPrice * supply
+		targetMC := tracked.InitialMC * e.cfg.GetTrading().TakeProfitMultiple
 
-			// 2X Timer: Record when bot detected 2X via WebSocket
+		if currentMC >= targetMC {
+			// 2X detected via WebSocket for UNBOUGHT token!
 			e.setBotDetected2X(update.Mint)
 
 			log.Info().
-				Str("token", pos.TokenName).
-				Float64("multiple", multiple).
-				Msg("🚀 REAL-TIME 2X DETECTED - TRIGGERING AUTO-SELL")
-
-			// Trigger sell immediately
-			// FIX: Capture variables by value to prevent closure bugs
-			mint := update.Mint
-			tokenName := pos.TokenName
-			mult := multiple
-			go func() {
-				signal := &signalPkg.Signal{
-					Mint:      mint,
-					TokenName: tokenName,
-					Type:      signalPkg.SignalExit,
-					Value:     mult,
-					Unit:      "X",
-				}
-				e.executeSellFast(context.Background(), signal, NewTradeTimer(), nil)
-			}()
+				Str("token", tracked.TokenName).
+				Float64("initial_mc", tracked.InitialMC).
+				Float64("current_mc", currentMC).
+				Msg("🚀 REAL-TIME 2X DETECTED (unbought token)")
 		}
 
 		log.Debug().
 			Str("mint", safeMintPrefix(update.Mint)).
 			Float64("price", update.PriceSOL).
-			Float64("pnl", pos.PnLPercent).
-			Msg("real-time price update")
-	} else {
-		// Just update balance if no price
-		pos.SetTokenBalance(update.TokenBalance)
+			Float64("mc", currentMC).
+			Msg("real-time price update (tracked)")
 	}
 }
 
