@@ -163,6 +163,10 @@ type Model struct {
 
 	// Phase 6: 2X Detection Timer
 	TrackedTokens map[string]*trading.TrackedToken
+
+	// Signal list scrolling
+	SignalScroll      int // Current scroll offset
+	MaxVisibleSignals int // Max signals to show (default 10)
 }
 
 func NewModel(cfg *config.Manager) Model {
@@ -189,22 +193,23 @@ func NewModel(cfg *config.Manager) Model {
 	}
 
 	return Model{
-		Config:        cfg,
-		Running:       true,
-		StartTime:     time.Now(),
-		Header:        HeaderComponent{TotalEntries: 0, Reached2X: 0},
-		Footer:        FooterComponent{},
-		Signals:       NewSignalsPane(),
-		Positions:     NewPositionsPane(),
-		LogsView:      NewLogsView(),
-		TradesView:    NewTradesHistoryView(),
-		ConfigModal:   NewConfigModal(cfg),
-		CurrentScreen: ScreenDashboard,
-		UIMode:        uiMode,
-		Anim:          animState,
-		FocusPane:     1, // Default focus center
-		UniqueEntries: make(map[string]bool),
-		Unique2X:      make(map[string]bool),
+		Config:            cfg,
+		Running:           true,
+		StartTime:         time.Now(),
+		Header:            HeaderComponent{TotalEntries: 0, Reached2X: 0},
+		Footer:            FooterComponent{},
+		Signals:           NewSignalsPane(),
+		Positions:         NewPositionsPane(),
+		LogsView:          NewLogsView(),
+		TradesView:        NewTradesHistoryView(),
+		ConfigModal:       NewConfigModal(cfg),
+		CurrentScreen:     ScreenDashboard,
+		UIMode:            uiMode,
+		Anim:              animState,
+		FocusPane:         1, // Default focus center
+		UniqueEntries:     make(map[string]bool),
+		Unique2X:          make(map[string]bool),
+		MaxVisibleSignals: 10, // Default: show 10 signals with scrolling
 	}
 }
 
@@ -2335,23 +2340,36 @@ func (m Model) renderFnexDashboard() string {
 			}
 		}
 
-		// Timer Info (Minimal)
+		// Timer Info (Human-Readable)
 		timerInfo := ""
+		latencyInfo := ""
 		if tracked, ok := m.TrackedTokens[s.Mint]; ok {
-			// Only show if we have relevant data
+			// Only show if TG announced 2X
 			if tracked.TG2XTime != nil {
 				tgSecs := int64(tracked.TG2XTime.Sub(tracked.EntryTime).Seconds())
-				timerInfo = fmt.Sprintf("⏱ %ds", tgSecs)
 
-				// Delta if bot also saw it
+				// Human-readable format: "📈 2X in 27m" or "📈 2X in 5m 30s"
+				mins := tgSecs / 60
+				secs := tgSecs % 60
+				if mins > 0 {
+					if secs > 0 {
+						timerInfo = fmt.Sprintf("📈 2X in %dm %ds", mins, secs)
+					} else {
+						timerInfo = fmt.Sprintf("📈 2X in %dm", mins)
+					}
+				} else {
+					timerInfo = fmt.Sprintf("📈 2X in %ds", secs)
+				}
+
+				// Latency: Bot vs TG detection speed delta
 				if tracked.Bot2XTime != nil {
 					botSecs := int64(tracked.Bot2XTime.Sub(tracked.EntryTime).Seconds())
-					delta := tgSecs - botSecs
-					sign := "+"
-					if delta < 0 {
-						sign = ""
+					delta := botSecs - tgSecs // negative = bot was slower, positive = bot was faster
+					if delta > 0 {
+						latencyInfo = fmt.Sprintf("⚡ Bot +%ds faster", delta)
+					} else if delta < 0 {
+						latencyInfo = fmt.Sprintf("📡 Recv %ds after", -delta)
 					}
-					timerInfo += fmt.Sprintf(" (Δ%s%ds)", sign, delta)
 				}
 			}
 		}
@@ -2364,14 +2382,15 @@ func (m Model) renderFnexDashboard() string {
 		line := fmt.Sprintf("> %s %s | %s", tsStr, tokenStr, statusText)
 		signalLines = append(signalLines, lineStyle.Render(line))
 
-		// Secondary Line (Indented)
+		// Secondary Lines (Indented)
+		indent := "                   " // ~19 chars to align with status
+		infoStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("#555555"))
+
 		if timerInfo != "" {
-			// Indent to align with status text
-			// > [12:00] $TOKEN | <status starts here>
-			//                    └─ ⏱ 12s
-			indent := "                   " // ~19 chars
-			infoStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("#555555"))
 			signalLines = append(signalLines, infoStyle.Render(indent+"└─ "+timerInfo))
+		}
+		if latencyInfo != "" {
+			signalLines = append(signalLines, infoStyle.Render(indent+"   "+latencyInfo))
 		}
 	}
 
