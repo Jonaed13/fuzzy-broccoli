@@ -1160,6 +1160,8 @@ func (e *ExecutorFast) StartMonitoring(ctx context.Context) {
 				return
 			case <-ticker.C:
 				e.monitorPositions(ctx)
+				// FIX: Also check unbought tokens for 2X using TG-parsed InitialMC
+				e.checkTrackedTokens2X()
 			}
 		}
 	}()

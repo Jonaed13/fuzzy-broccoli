@@ -7116,3 +7116,55 @@
 {"level":"info","token":"GETCOIN","value":52,"unit":"%","time":"2025-12-30T06:47:33Z","message":"📊 SIGNAL FOUND"}
 {"level":"error","token":"GETCOIN","time":"2025-12-30T06:47:33Z","message":"❌ CANNOT BUY: Wallet balance is 0 SOL! Fund your wallet."}
 {"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T06:51:12Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T06:56:12Z","message":"Failed to update SOL price cache"}
+{"level":"info","time":"2025-12-30T06:57:10Z","message":"Shutting down ExecutorFast..."}
+{"level":"info","time":"2025-12-30T06:57:10Z","message":"ExecutorFast shutdown complete"}
+{"level":"info","count":51,"time":"2025-12-30T06:57:34Z","message":"token cache loaded"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-30T06:57:34Z","message":"wallet loaded"}
+{"level":"info","interval":100,"ttl":60000,"time":"2025-12-30T06:57:34Z","message":"blockhash cache started (double-buffer mode)"}
+{"level":"info","poolSize":4,"time":"2025-12-30T06:57:34Z","message":"HTTP/2 client pool initialized"}
+{"level":"info","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"time":"2025-12-30T06:57:34Z","message":"💰 WALLET STATUS"}
+{"level":"error","address":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","time":"2025-12-30T06:57:34Z","message":"⚠️⚠️⚠️ WALLET IS EMPTY! Bot cannot trade. Fund this address with SOL! ⚠️⚠️⚠️"}
+{"level":"info","path":"./data/bot.db","time":"2025-12-30T06:57:34Z","message":"database initialized"}
+{"level":"info","count":0,"time":"2025-12-30T06:57:34Z","message":"loaded positions from DB"}
+{"level":"info","entries":35,"wins":25,"time":"2025-12-30T06:57:34Z","message":"Loaded persistence stats from DB"}
+{"level":"info","count":35,"time":"2025-12-30T06:57:34Z","message":"Restored seen entries from DB"}
+{"level":"info","count":35,"time":"2025-12-30T06:57:34Z","message":"Restored seen 2X exits from DB"}
+{"level":"info","wallet":"92eEmdPRZBgTuiPEn9bmkX7vMM5fQnbt2aV1CRt4jyBs","balance":0,"tokens":51,"time":"2025-12-30T06:57:34Z","message":"trading engine initialized"}
+{"level":"warn","time":"2025-12-30T06:57:34Z","message":"WebSocket URL not configured, skipping real-time setup"}
+{"level":"info","path":"data/trades.db","time":"2025-12-30T06:57:34Z","message":"database initialized"}
+{"level":"info","addr":"0.0.0.0:8080","time":"2025-12-30T06:57:34Z","message":"starting signal server"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T06:57:34Z","message":"Failed to update SOL price cache"}
+{"level":"info","count":50,"time":"2025-12-30T06:57:35Z","message":"Restored signal feed history"}
+{"level":"info","token":"DEGENERACY","value":7,"unit":"X","type":"exit","mint":"Hn4MTyN495EXwNauGnTNYVrXvJoQf2R2PRpr2qL8pump","time":"2025-12-30T06:59:15Z","message":"signal received"}
+{"level":"info","token":"DEGENERACY","value":7,"counted":true,"time":"2025-12-30T06:59:15Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:02:34Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:07:34Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:12:34Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"SHAW","value":10,"unit":"X","type":"exit","mint":"HdZh1mUvCVJzHfTFaJJxZJFENhiFAkyiXLA5iZZTpump","time":"2025-12-30T07:14:16Z","message":"signal received"}
+{"level":"info","token":"SHAW","value":10,"counted":true,"time":"2025-12-30T07:14:16Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:17:34Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"SHAW","value":15,"unit":"X","type":"exit","mint":"HdZh1mUvCVJzHfTFaJJxZJFENhiFAkyiXLA5iZZTpump","time":"2025-12-30T07:22:16Z","message":"signal received"}
+{"level":"info","token":"SHAW","value":15,"counted":true,"time":"2025-12-30T07:22:16Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:22:34Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"SHAW","value":20,"unit":"X","type":"exit","mint":"HdZh1mUvCVJzHfTFaJJxZJFENhiFAkyiXLA5iZZTpump","time":"2025-12-30T07:27:15Z","message":"signal received"}
+{"level":"info","token":"SHAW","value":20,"counted":true,"time":"2025-12-30T07:27:15Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:27:34Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"WAIFU","value":50,"unit":"%","type":"entry","mint":"ACx3Y2dsECgTmjG4a2bsb1merSfojLL1wsGKBxf9pump","time":"2025-12-30T07:28:16Z","message":"signal received"}
+{"level":"info","token":"WAIFU","mint":"ACx3Y2ds...","mc":0,"time":"2025-12-30T07:28:16Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"WAIFU","value":50,"unit":"%","time":"2025-12-30T07:28:16Z","message":"📊 SIGNAL FOUND"}
+{"level":"error","token":"WAIFU","time":"2025-12-30T07:28:16Z","message":"❌ CANNOT BUY: Wallet balance is 0 SOL! Fund your wallet."}
+{"level":"info","token":"SPERMWHALE","value":3,"unit":"X","type":"exit","mint":"4xxuwsjvynx5CrudVpY8DaHjGQDFA2QkY4oQqCrwpump","time":"2025-12-30T07:29:16Z","message":"signal received"}
+{"level":"warn","token":"SPERMWHALE","time":"2025-12-30T07:29:16Z","message":"⚠️ IGNORED 2X: Missed Entry Signal"}
+{"level":"info","token":"SPERMWHALE","value":3,"counted":false,"time":"2025-12-30T07:29:16Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"info","token":"UNION","value":50,"unit":"%","type":"entry","mint":"7KUDywdF72cssqT5notcECvMts9fX4qv1MYZrsVfpump","time":"2025-12-30T07:32:16Z","message":"signal received"}
+{"level":"info","token":"UNION","mint":"7KUDywdF...","mc":0,"time":"2025-12-30T07:32:16Z","message":"📊 Started 2X tracking timer"}
+{"level":"info","token":"UNION","value":50,"unit":"%","time":"2025-12-30T07:32:16Z","message":"📊 SIGNAL FOUND"}
+{"level":"error","token":"UNION","time":"2025-12-30T07:32:16Z","message":"❌ CANNOT BUY: Wallet balance is 0 SOL! Fund your wallet."}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:32:34Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:37:34Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:42:34Z","message":"Failed to update SOL price cache"}
+{"level":"info","token":"DEGENERACY","value":10,"unit":"X","type":"exit","mint":"Hn4MTyN495EXwNauGnTNYVrXvJoQf2R2PRpr2qL8pump","time":"2025-12-30T07:45:17Z","message":"signal received"}
+{"level":"info","token":"DEGENERACY","value":10,"counted":true,"time":"2025-12-30T07:45:17Z","message":"📊 2X SIGNAL DETECTED"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:47:34Z","message":"Failed to update SOL price cache"}
+{"level":"warn","error":"http request: Get \"https://quote-api.jup.ag/v6/quote/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000&slippageBps=2000\": dial tcp: lookup quote-api.jup.ag on 10.0.2.3:53: no such host","time":"2025-12-30T07:52:34Z","message":"Failed to update SOL price cache"}
