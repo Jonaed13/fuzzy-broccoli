@@ -1437,11 +1437,18 @@ func (e *ExecutorFast) subscribeToPoolFor2X(mint string) {
 
 	// Try to get pool address from Jupiter (use a swap quote to get route info)
 	// This is a simplified approach - in production you'd use Raydium/Orca API
+	log.Info().
+		Str("token", tracked.TokenName).
+		Str("mint", safeMintPrefix(mint)).
+		Float64("initial_mc", tracked.InitialMC).
+		Msg("🔍 Looking up pool for WebSocket subscription...")
+
 	poolAddr := e.lookupPoolAddress(mint)
 	if poolAddr == "" {
-		log.Debug().
+		log.Warn().
+			Str("token", tracked.TokenName).
 			Str("mint", safeMintPrefix(mint)).
-			Msg("Could not find pool address for 2X tracking")
+			Msg("❌ Pool not found - falling back to 5s polling")
 		return
 	}
 
@@ -1454,15 +1461,17 @@ func (e *ExecutorFast) subscribeToPoolFor2X(mint string) {
 	// Subscribe to pool for price updates
 	if err := e.priceFeed.TrackToken(mint, poolAddr); err != nil {
 		log.Warn().Err(err).
+			Str("token", tracked.TokenName).
 			Str("mint", safeMintPrefix(mint)).
-			Msg("Failed to subscribe to pool for 2X tracking")
+			Msg("❌ WebSocket subscription failed - falling back to 5s polling")
 		return
 	}
 
 	log.Info().
+		Str("token", tracked.TokenName).
 		Str("mint", safeMintPrefix(mint)).
 		Str("pool", safeMintPrefix(poolAddr)).
-		Msg("📡 Subscribed to pool for 2X detection")
+		Msg("✅ WebSocket subscribed for INSTANT 2X detection")
 }
 
 // lookupPoolAddress finds the AMM pool address for a token mint
