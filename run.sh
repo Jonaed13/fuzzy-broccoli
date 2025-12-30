@@ -132,8 +132,13 @@ cd telegram
 if [ ! -f venv/bin/activate ]; then
     python3 -m venv venv 2>/dev/null
     if [ $? -ne 0 ]; then
-        echo -e "${RED}Python venv failed. Run: sudo apt install python3-venv${NC}"
-        exit 1
+        echo -e "${YELLOW}Installing python3-venv...${NC}"
+        sudo apt install -y python3-venv python3.11-venv 2>/dev/null || sudo apt install -y python3-venv 2>/dev/null
+        python3 -m venv venv 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo -e "${RED}Python venv failed. Run: sudo apt install python3-venv${NC}"
+            exit 1
+        fi
     fi
     echo -e "${GREEN}✓ Created Python venv${NC}"
 fi
